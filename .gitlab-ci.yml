@@ -3,9 +3,9 @@ image : registry.gitlab.com/liquiduniverse/docgen:latest
 stages:
     - build
     - build-core
-    - test
+    #- test
     - test-core
-    #- pages
+    - pages
 
 build:
     stage: build
@@ -23,12 +23,25 @@ build-core:
         paths:
             - ./build/
 
-test:
-    stage: test
-    script:
-        - dotnet test AtomicAssetsApiClient.Test/AtomicAssetsApiClient.Test.csproj
+#test:
+    #stage: test
+   # script:
+        #- dotnet test AtomicAssetsApiClient.Test/AtomicAssetsApiClient.Test.csproj
 
 test-core:
     stage: test-core
     script:
         - dotnet test AtomicAssetsApiClient.Core.Test/AtomicAssetsApiClient.Test.csproj
+
+pages:
+    stage: pages
+    script:
+        - doxygen documentation/doxygen/Doxyfile
+        - doxybook2 --input  documentation/doxyoutput/xml --output  documentation/gitbook --config documentation/doxybook-config/gitbook/.doxybook/config.json --summary-input documentation/doxybook-config/gitbook/SUMMARY.md.tmpl --summary-output documentation/gitbook/SUMMARY.md 
+    
+         - gitbook build documentation/gitbook public
+  
+    artifacts:
+      paths:
+       - public
+       - documentation
