@@ -31,7 +31,7 @@ build-core:
 test-core:
     stage: test-core
     script:
-        - dotnet test AtomicAssetsApiClient.Core.Test/AtomicAssetsApiClient.Test.csproj
+        - dotnet test AtomicAssetsApiClient.Core.Test/AtomicAssetsApiClient.Core.Test.csproj
 
 pages:
     stage: pages
