@@ -1,0 +1,34 @@
+image : registry.gitlab.com/liquiduniverse/docgen:latest
+
+stages:
+    - build
+    - build-core
+    - test
+    - test-core
+    #- pages
+
+build:
+    stage: build
+    script:
+        - dotnet build
+    artifacts:
+        paths:
+            - ./build/
+ 
+build-core:
+    stage: build-core
+    script:
+        - dotnet build
+    artifacts:
+        paths:
+            - ./build/
+
+test:
+    stage: test
+    script:
+        - dotnet test AtomicAssetsApiClient.Test/AtomicAssetsApiClient.Test.csproj
+
+test-core:
+    stage: test-core
+    script:
+        - dotnet test AtomicAssetsApiClient.Core.Test/AtomicAssetsApiClient.Test.csproj
