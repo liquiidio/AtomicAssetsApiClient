@@ -4,25 +4,47 @@ namespace AtomicAssetsApiClient.Assets
 {
     public class AssetsUriParameterBuilder
     {
+/* A private variable that is used to store the value of the owner parameter. */
         private string _owner;
+/* A private variable that is used to store the value of the collectionName parameter. */
         private string _collectionName;
+/* A private variable that is used to store the value of the schemaName parameter. */
         private string _schemaName;
+/* A nullable boolean specfying the templateId. */
         private int? _templateId;
+/* A private variable that is used to store the value of the match parameter. */
         private string _match;
+/* A private variable that is used to store the value of the collectionBlacklist parameter. */ 
         private string _collectionBlacklist;
+/* A private variable that is used to store the value of the collectionWhitelist parameter. */      
         private string _collectionWhitelist;
+/* A nullable boolean specfying if onlyDuplicatedTemplates should be shown. */
         private bool? _onlyDuplicateTemplates;
+/* A private variable that is used to store the value of the authorisedAccount parameter. */
         private string _authorisedAccount;
+/* A nullable boolean specfying if offers should be hidden. */
         private bool? _hideOffers;
+/* A private variable that is used to store the value of the ids parameter. */
         private string _ids;
+/* A private variable that is used to store the value of the lowerBound parameter. */
         private string _lowerBound;
+/* A private variable that is used to store the value of the upperBound parameter. */
         private string _upperBound;
+/* A nullable boolean specfying results based on previous timestamp.  */
         private int? _before;
+/* A nullable boolean specfying results based on next timestamp.  */
         private int? _after;
+ /* A nullable integer specifying the page. */   
         private int? _page;
+/* A nullable integer specifying the limit of returned values. */
         private int? _limit;
+/* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
+/* A private variable that is used to store the value of the sort parameter. */
         private string _sort;
+
+
+
 
         public AssetsUriParameterBuilder WithOwner(string owner)
         {
@@ -30,17 +52,36 @@ namespace AtomicAssetsApiClient.Assets
             return this;
         }
 
+
+/// <summary>
+/// `WithCollectionName` is a function that takes a string as a parameter and returns an
+/// `AssetsUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionName">The name of the collection you want to query.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithCollectionName(string collectionName)
         {
             _collectionName = collectionName;
             return this;
         }
 
+
+/// <summary>
+/// > This function sets the schema name for the query
+/// </summary>
+/// <param name="schemaName">The name of the schema to use.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithSchemaName(string schemaName)
         {
             _schemaName = schemaName;
             return this;
         }
+
+
 
         public AssetsUriParameterBuilder WithTemplateId(int templateId)
         {
@@ -48,29 +89,67 @@ namespace AtomicAssetsApiClient.Assets
             return this;
         }
 
+
+/// <summary>
+/// `WithMatch` sets the `match` parameter
+/// </summary>
+/// <param name="match">The match parameter is used to filter the results. The match parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithMatch(string match)
         {
             _match = match;
             return this;
         }
 
+
+/// <summary>
+/// `WithCollectionBlacklist` is a function that takes an array of strings and returns an
+/// `AssetsUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionBlacklist">A list of collections to exclude from the results.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithCollectionBlacklist(string[] collectionBlacklist)
         {
             _collectionBlacklist = string.Join(",", collectionBlacklist);
             return this;
         }
 
+
+/// <summary>
+/// `WithCollectionWhitelist` is a function that takes an array of strings and returns an
+/// `AssetsUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionWhitelist">A list of collections to include in the response.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithCollectionWhitelist(string[] collectionWhitelist)
         {
             _collectionWhitelist = string.Join(",", collectionWhitelist);
             return this;
         }
 
+
+/// <summary>
+/// `WithOnlyDuplicatedTemplate` sets the `_onlyDuplicatedTemplate` field to the value of the 'onlyDuplicateTemplate' parameter
+/// </summary>
+/// <param name="onlyDuplicateTemplate">if true, </param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithOnlyDuplicateTemplate(bool onlyDuplicateTemplates)
         {
             _onlyDuplicateTemplates = onlyDuplicateTemplates;
             return this;
         }
+
+
+
 
         public AssetsUriParameterBuilder WithAuthorisedAccount(string authorisedAccount)
         {
@@ -84,53 +163,119 @@ namespace AtomicAssetsApiClient.Assets
             return this;
         }
 
+
+/// <summary>
+/// > This function takes an array of strings and joins them together with a comma
+/// </summary>
+/// <param name="ids">A comma-separated list of account IDs.</param>
+/// <returns>
+/// A string
+/// </returns>
         public AssetsUriParameterBuilder WithIds(string[] ids)
         {
             _ids = string.Join(",", ids);
             return this;
         }
 
+
+/// <summary>
+/// `WithLowerBound` sets the lower bound of the `account_ids` parameter
+/// </summary>
+/// <param name="lowerBound">The lower bound of the accounts to retrieve.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithLowerBound(string lowerBound)
         {
             _lowerBound = lowerBound;
             return this;
         }
 
+
+/// <summary>
+/// `WithUpperBound` sets the upper bound of the range of accounts to be returned
+/// </summary>
+/// <param name="upperBound">The upper bound of the range to query.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithUpperBound(string upperBound)
         {
             _upperBound = upperBound;
             return this;
         }
 
+
+/// <summary>
+/// `WithBefore` sets the `_before` variable to the value of the `before` parameter
+/// </summary>
+/// <param name="before">The previous values of the results to return.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithBefore(int before)
         {
             _before = before;
             return this;
         }
 
+
+/// <summary>
+/// `WithAfter` sets the `_after` variable to the value of the `after` parameter
+/// </summary>
+/// <param name="after">The previous values of the results to return.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithAfter(int after)
         {
             _after = after;
             return this;
         }
 
+
+/// <summary>
+/// `WithPage` sets the `_page` variable to the value of the `page` parameter
+/// </summary>
+/// <param name="page">The page number of the results to return.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithPage(int page)
         {
             _page = page;
             return this;
         }
 
+
+/// <summary>
+/// `WithLimit` sets the `_limit` variable to the value of the `limit` parameter
+/// </summary>
+/// <param name="limit">The number of results to return.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithLimit(int limit)
         {
             _limit = limit;
             return this;
         }
 
+
+/// <summary>
+/// > This function sets the sort strategy for the query
+/// </summary>
+/// <param name="SortStrategy"></param>
+/// <returns>
+/// The builder object itself.
+/// </returns>
         public AssetsUriParameterBuilder WithOrder(SortStrategy sorting)
         {
             _sortStrategy = sorting;
             return this;
         }
+
+
 
         public AssetsUriParameterBuilder WithSort(string sort)
         {
@@ -138,6 +283,13 @@ namespace AtomicAssetsApiClient.Assets
             return this;
         }
 
+
+/// <summary>
+/// It builds a query string based on the parameters that have been set
+/// </summary>
+/// <returns>
+/// A string that contains the parameters for the query.
+/// </returns>
         public string Build()
         {
             var parameterString = new StringBuilder("?");
