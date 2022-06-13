@@ -83,7 +83,7 @@ namespace AtomicAssetsApiClient.Collections
 
 /// <summary>
 /// `WithCollectionWhitelist` is a function that takes an array of strings and returns an
-/// `AssetsUriParameterBuilder` object
+/// `CollectionsUriParameterBuilder` object
 /// </summary>
 /// <param name="collectionWhitelist">A list of collections to include in the response.</param>
 /// <returns>
