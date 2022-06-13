@@ -124,48 +124,113 @@ namespace AtomicAssetsApiClient.Collections
             return this;
         }
 
+
+/// <summary>
+/// `WithNotifyAccount` sets the `notifyAccount` parameter
+/// </summary>
+/// <param name="notifyAccount">The notifyAccount parameter is used to filter the results. The notifyAccount parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithNotifyAccount(string notifyAccount)
         {
             _notifyAccount = notifyAccount;
             return this;
         }
 
+
+/// <summary>
+/// `WithLowerBound` sets the lower bound of the `account_ids` parameter
+/// </summary>
+/// <param name="lowerBound">The lower bound of the accounts to retrieve.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithLowerBound(string lowerBound)
         {
             _lowerBound = lowerBound;
             return this;
         }
 
+
+/// <summary>
+/// `WithUpperBound` sets the upper bound of the range of accounts to be returned
+/// </summary>
+/// <param name="upperBound">The upper bound of the range to query.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithUpperBound(string upperBound)
         {
             _upperBound = upperBound;
             return this;
         }
 
+
+/// <summary>
+/// `WithBefore` sets the `_before` variable to the value of the `before` parameter
+/// </summary>
+/// <param name="before">The previous values of the results to return.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithBefore(int before)
         {
             _before = before;
             return this;
         }
 
+
+/// <summary>
+/// `WithAfter` sets the `_after` variable to the value of the `after` parameter
+/// </summary>
+/// <param name="after">The previous values of the results to return.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithAfter(int after)
         {
             _after = after;
             return this;
         }
 
+
+/// <summary>
+/// `WithPage` sets the `_page` variable to the value of the `page` parameter
+/// </summary>
+/// <param name="page">The page number of the results to return.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithPage(int page)
         {
             _page = page;
             return this;
         }
 
+
+/// <summary>
+/// `WithLimit` sets the `_limit` variable to the value of the `limit` parameter
+/// </summary>
+/// <param name="limit">The number of results to return.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithLimit(int limit)
         {
             _limit = limit;
             return this;
         }
 
+
+/// <summary>
+/// > This function sets the sort strategy for the query
+/// </summary>
+/// <param name="SortStrategy"></param>
+/// <returns>
+/// The builder object itself.
+/// </returns>
         public CollectionsUriParameterBuilder WithOrder(SortStrategy sorting)
         {
             _sortStrategy = sorting;
@@ -178,6 +243,13 @@ namespace AtomicAssetsApiClient.Collections
             return this;
         }
 
+
+/// <summary>
+/// It builds a query string based on the parameters that have been set
+/// </summary>
+/// <returns>
+/// A string that contains the parameters for the query.
+/// </returns>
         public string Build()
         {
             var parameterString = new StringBuilder("?");
