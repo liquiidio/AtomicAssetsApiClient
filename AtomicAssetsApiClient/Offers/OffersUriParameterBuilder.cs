@@ -4,30 +4,55 @@ namespace AtomicAssetsApiClient.Offers
 {
     public class OffersUriParameterBuilder
     {
+/* A private variable that is used to store the value of the account parameter. */
         private string _account;
+/* A private variable that is used to store the value of the sender parameter. */
         private string _sender;
+/* A private variable that is used to store the value of the recipient parameter. */
         private string _recipient;
+/* A private variable that is used to store the value of the state parameter. */
         private string _state;
+/* A nullable boolean specfying recipientContract. */
         private bool? _isRecipientContract;
+/* A private variable that is used to store the value of the assetId parameter. */
         private string _assetId;
+/* A private variable that is used to store the value of the templateId parameter. */
         private string _templateId;
+/* A private variable that is used to store the value of the schemeName parameter. */
         private string _schemaName;
+/* A private variable that is used to store the value of the collectionName parameter. */
         private string _collectionName;
+/* A private variable that is used to store the value of the accountWhitelist parameter. */
         private string _accountWhitelist;
+/* A private variable that is used to store the value of the accountBlacklist parameter. */
         private string _accountBlacklist;
+/* A private variable that is used to store the value of the senderAssetWhitelist parameter. */
         private string _senderAssetWhitelist;
+/* A private variable that is used to store the value of the senderBlacklist parameter. */
         private string _senderAssetBlacklist;
+/* A private variable that is used to store the value of the recipientAssetWhitelist parameter. */
         private string _recipientAssetWhitelist;
+/* A private variable that is used to store the value of the recipientAssetBlacklist parameter. */
         private string _recipientAssetBlacklist;
+/* A private variable that is used to store the value of the collectionBlacklist parameter. */
         private string _collectionBlacklist;
+/* A private variable that is used to store the value of the collectionWhitelist parameter. */
         private string _collectionWhitelist;
+/* A private variable that is used to store the value of the Ids parameter. */
         private string _ids;
+/* A private variable that is used to store the value of the lowerbond parameter. */
         private string _lowerBound;
+/* A private variable that is used to store the value of the upperbond parameter. */
         private string _upperBound;
+/* A nullable boolean specfying results based on previous timestamp.  */
         private int? _before;
+/* A nullable boolean specfying results based on next timestamp.  */
         private int? _after;
+/* A nullable integer specifying the page. */ 
         private int? _page;
+/* A nullable integer specifying the limit of returned values. */
         private int? _limit;
+/* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
         private string _sort;
 
