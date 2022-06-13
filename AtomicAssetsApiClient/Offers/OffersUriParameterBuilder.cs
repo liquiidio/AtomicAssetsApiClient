@@ -146,60 +146,142 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
+/// <summary>
+/// `WithCollectionBlacklist` is a function that takes an array of strings and returns an
+/// `AssetsUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionBlacklist">A list of collections to exclude from the results.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
+
         public OffersUriParameterBuilder WithCollectionBlacklist(string[] collectionBlacklist)
         {
             _collectionBlacklist = string.Join(",", collectionBlacklist);
             return this;
         }
 
+
+/// <summary>
+/// `WithCollectionWhitelist` is a function that takes an array of strings and returns an
+/// `OffersUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionWhitelist">A list of collections to include in the response.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithCollectionWhitelist(string[] collectionWhitelist)
         {
             _collectionWhitelist = string.Join(",", collectionWhitelist);
             return this;
         }
 
+
+/// <summary>
+/// > This function takes an array of strings and joins them together with a comma
+/// </summary>
+/// <param name="ids">A comma-separated list of account IDs.</param>
+/// <returns>
+/// A string
+/// </returns>
         public OffersUriParameterBuilder WithIds(string[] ids)
         {
             _ids = string.Join(",", ids);
             return this;
         }
 
+
+/// <summary>
+/// `WithLowerBound` sets the lower bound of the `account_ids` parameter
+/// </summary>
+/// <param name="lowerBound">The lower bound of the accounts to retrieve.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithLowerBound(string lowerBound)
         {
             _lowerBound = lowerBound;
             return this;
         }
 
+
+/// <summary>
+/// `WithUpperBound` sets the upper bound of the range of accounts to be returned
+/// </summary>
+/// <param name="upperBound">The upper bound of the range to query.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithUpperBound(string upperBound)
         {
             _upperBound = upperBound;
             return this;
         }
 
+
+/// <summary>
+/// `WithBefore` sets the `_before` variable to the value of the `before` parameter
+/// </summary>
+/// <param name="before">The previous values of the results to return.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithBefore(int before)
         {
             _before = before;
             return this;
         }
 
+
+/// <summary>
+/// `WithAfter` sets the `_after` variable to the value of the `after` parameter
+/// </summary>
+/// <param name="after">The previous values of the results to return.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithAfter(int after)
         {
             _after = after;
             return this;
         }
 
+
+/// <summary>
+/// `WithPage` sets the `_page` variable to the value of the `page` parameter
+/// </summary>
+/// <param name="page">The page number of the results to return.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithPage(int page)
         {
             _page = page;
             return this;
         }
 
+
+/// <summary>
+/// `WithLimit` sets the `_limit` variable to the value of the `limit` parameter
+/// </summary>
+/// <param name="limit">The number of results to return.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithLimit(int limit)
         {
             _limit = limit;
             return this;
         }
 
+
+/// <summary>
+/// > This function sets the sort strategy for the query
+/// </summary>
+/// <param name="SortStrategy"></param>
+/// <returns>
+/// The builder object itself.
+/// </returns>
         public OffersUriParameterBuilder WithOrder(SortStrategy sorting)
         {
             _sortStrategy = sorting;
@@ -212,6 +294,14 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
+
+/// <summary>
+/// It builds a query string based on the parameters that have been set
+/// </summary>
+/// <returns>
+/// A string that contains the parameters for the query.
+/* A comment that is used by the documentation generator. */
+/// </returns>
         public string Build()
         {
             var parameterString = new StringBuilder("?");
