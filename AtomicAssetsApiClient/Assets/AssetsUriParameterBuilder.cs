@@ -44,7 +44,14 @@ namespace AtomicAssetsApiClient.Assets
         private string _sort;
 
 
-
+/// <summary>
+/// `WithOwner` sets the `owner` parameter
+/// </summary>
+/// <param name="owner">The owner parameter is used to filter the results. The owner parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
 
         public AssetsUriParameterBuilder WithOwner(string owner)
         {
@@ -81,7 +88,13 @@ namespace AtomicAssetsApiClient.Assets
             return this;
         }
 
-
+/// <summary>
+/// `WithTemplateId` sets the `_templateId` variable to the value of the `templateId` parameter
+/// </summary>
+/// <param name="templateId">The templateId of the results to return.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
 
         public AssetsUriParameterBuilder WithTemplateId(int templateId)
         {
@@ -150,13 +163,28 @@ namespace AtomicAssetsApiClient.Assets
 
 
 
-
+/// <summary>
+/// `WithAuthorisedAccount` sets the `authorisedAccount` parameter
+/// </summary>
+/// <param name="authorisedAccount">The authorisedAccount parameter is used to filter the results. The authorisedAccount parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The AssetsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithAuthorisedAccount(string authorisedAccount)
         {
             _authorisedAccount = authorisedAccount;
             return this;
         }
 
+
+/// <summary>
+/// `WithHideOffers` sets the `_hideOffers` field to the value of the `hideOffers` parameter
+/// </summary>
+/// <param name="hideOffers">If true, the response will not include any offers.</param>
+/// <returns>
+/// The AccountsUriParameterBuilder object.
+/// </returns>
         public AssetsUriParameterBuilder WithHideOffers(bool hideOffers)
         {
             _hideOffers = hideOffers;
