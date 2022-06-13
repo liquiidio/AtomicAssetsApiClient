@@ -4,52 +4,120 @@ namespace AtomicAssetsApiClient.Collections
 {
     public class CollectionsUriParameterBuilder
     {
+/* A private variable that is used to store the value of the author parameter. */
         private string _author;
+/* A private variable that is used to store the value of the match parameter. */
         private string _match;
+/* A private variable that is used to store the value of the authorisedAccount parameter. */
         private string _authorisedAccount;
+/* A private variable that is used to store the value of the notifyAccount parameter. */
         private string _notifyAccount;
+/* A private variable that is used to store the value of the collectionBlacklist parameter. */
         private string _collectionBlacklist;
+/* A private variable that is used to store the value of the collectionWhitelist parameter. */
         private string _collectionWhitelist;
+/* A private variable that is used to store the value of the Ids parameter. */
         private string _ids;
+/* A private variable that is used to store the value of the lowerBound parameter. */
         private string _lowerBound;
+/* A private variable that is used to store the value of the upperBound parameter. */
         private string _upperBound;
+/* A nullable boolean specfying results based on previous timestamp.  */
         private int? _before;
+/* A nullable boolean specfying results based on next timestamp.  */
         private int? _after;
+/* A nullable integer specifying the page. */ 
         private int? _page;
+/* A nullable integer specifying the limit of returned values. */
         private int? _limit;
+/* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
+
         private string _sort;
 
+
+/// <summary>
+/// `WithAuthor` sets the `author` parameter
+/// </summary>
+/// <param name="author">The author parameter is used to filter the results. The owner parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
          public CollectionsUriParameterBuilder WithAuthor(string author)
         {
             _author = author;
             return this;
         }
 
+
+/// <summary>
+/// `WithMatch` sets the `match` parameter
+/// </summary>
+/// <param name="match">The match parameter is used to filter the results. The match parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithMatch(string match)
         {
             _match = match;
             return this;
         }
 
+
+/// <summary>
+/// `WithCollectionBlacklist` is a function that takes an array of strings and returns an
+/// `AssetsUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionBlacklist">A list of collections to exclude from the results.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithCollectionBlacklist(string[] collectionBlacklist)
         {
             _collectionBlacklist = string.Join(",", collectionBlacklist);
             return this;
         }
 
+
+/// <summary>
+/// `WithCollectionWhitelist` is a function that takes an array of strings and returns an
+/// `AssetsUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionWhitelist">A list of collections to include in the response.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithCollectionWhitelist(string[] collectionWhitelist)
         {
             _collectionWhitelist = string.Join(",", collectionWhitelist);
             return this;
         }
 
+
+/// <summary>
+/// `WithAuthorisedAccount` sets the `authorisedAccount` parameter
+/// </summary>
+/// <param name="authorisedAccount">The authorisedAccount parameter is used to filter the results. The authorisedAccount parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The CollectionsUriParameterBuilder object.
+/// </returns>
         public CollectionsUriParameterBuilder WithAuthorisedAccount(string authorisedAccount)
         {
             _authorisedAccount = authorisedAccount;
             return this;
         }
 
+
+/// <summary>
+/// > This function takes an array of strings and joins them together with a comma
+/// </summary>
+/// <param name="ids">A comma-separated list of account IDs.</param>
+/// <returns>
+/// A string
+/// </returns>
         public CollectionsUriParameterBuilder WithIds(string[] ids)
         {
             _ids = string.Join(",", ids);
