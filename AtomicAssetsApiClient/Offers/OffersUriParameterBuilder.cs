@@ -92,18 +92,45 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
+
+/// <summary>
+/// `WithAccount` sets the `account` parameter
+/// </summary>
+/// <param name="account">The account parameter is used to filter the results. The account parameter is a
+/// string that is matched against the account .</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithAccount(string account)
         {
             _account = account;
             return this;
         }
 
+
+/// <summary>
+/// `WithSender` sets the `sender` parameter
+/// </summary>
+/// <param name="sender">The sender parameter is used to filter the results. The sender parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithSender(string sender)
         {
             _sender = sender;
             return this;
         }
 
+
+/// <summary>
+/// `WithRecipient` sets the `recipient` parameter
+/// </summary>
+/// <param name="recipient">The recipient parameter is used to filter the results. The recipient parameter is a
+/// string that is matched against the account name.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithRecipient(string recipient)
         {
             _recipient = recipient;
@@ -128,18 +155,43 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
+
+/// <summary>
+/// It sets the value of the templateId variable.
+/// </summary>
+/// <param name="templateId">The ID of the template to use for the account.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithTemplateId(string temlpateId)
         {
             _templateId = temlpateId;
             return this;
         }
 
+
+/// <summary>
+/// `WithCollectionName` is a function that takes a string as a parameter and returns an
+/// `OffersUriParameterBuilder` object
+/// </summary>
+/// <param name="collectionName">The name of the collection you want to query.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithCollectionName(string collectionName)
         {
             _collectionName = collectionName;
             return this;
         }
 
+
+/// <summary>
+/// > This function sets the schema name for the query
+/// </summary>
+/// <param name="schemaName">The name of the schema to use.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithSchemaName(string schemaName)
         {
             _schemaName = schemaName;
