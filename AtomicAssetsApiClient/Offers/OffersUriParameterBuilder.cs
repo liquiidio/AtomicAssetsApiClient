@@ -230,7 +230,7 @@ namespace AtomicAssetsApiClient.Offers
 /// <summary>
 /// It sets the value of the templateId variable.
 /// </summary>
-/// <param name="templateId">The ID of the template to use for the account.</param>
+/// <param name="templateId">Results based on only offers which contain assets of template.</param>
 /// <returns>
 /// The OffersUriParameterBuilder object.
 /// </returns>
@@ -315,9 +315,9 @@ namespace AtomicAssetsApiClient.Offers
 
 
 /// <summary>
-/// `WithLowerBound` sets the lower bound of the `account_ids` parameter
+/// `WithLowerBound` sets the lower bound of the primary key
 /// </summary>
-/// <param name="lowerBound">The lower bound of the accounts to retrieve.</param>
+/// <param name="lowerBound">The lower bound of primary key.</param>
 /// <returns>
 /// The OffersUriParameterBuilder object.
 /// </returns>
@@ -329,9 +329,9 @@ namespace AtomicAssetsApiClient.Offers
 
 
 /// <summary>
-/// `WithUpperBound` sets the upper bound of the range of accounts to be returned
+/// `WithUpperBound` sets the upper bound of the range of primary key
 /// </summary>
-/// <param name="upperBound">The upper bound of the range to query.</param>
+/// <param name="upperBound">The upper bound of primary key.</param>
 /// <returns>
 /// The OffersUriParameterBuilder object.
 /// </returns>
@@ -359,7 +359,7 @@ namespace AtomicAssetsApiClient.Offers
 /// <summary>
 /// `WithAfter` sets the `_after` variable to the value of the `after` parameter
 /// </summary>
-/// <param name="after">The previous values of the results to return.</param>
+/// <param name="after">The next values of the results to return.</param>
 /// <returns>
 /// The OffersUriParameterBuilder object.
 /// </returns>

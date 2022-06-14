@@ -122,7 +122,7 @@ namespace AtomicAssetsApiClient.Transfers
 /// <summary>
 /// It sets the value of the templateId variable.
 /// </summary>
-/// <param name="templateId">The ID of the template to use for the account.</param>
+/// <param name="templateId">Results based on only transfers which cointain assets of template.</param>
 /// <returns>
 /// The TranfersUriParameterBuilder object.
 /// </returns>
