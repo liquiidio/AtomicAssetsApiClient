@@ -271,11 +271,11 @@ namespace AtomicAssetsApiClient.Offers
 
 /// <summary>
 /// `WithCollectionBlacklist` is a function that takes an array of strings and returns an
-/// `AssetsUriParameterBuilder` object
+/// `OffersUriParameterBuilder` object
 /// </summary>
 /// <param name="collectionBlacklist">A list of collections to exclude from the results.</param>
 /// <returns>
-/// The CollectionsUriParameterBuilder object.
+/// The OffersUriParameterBuilder object.
 /// </returns>
 
         public OffersUriParameterBuilder WithCollectionBlacklist(string[] collectionBlacklist)
