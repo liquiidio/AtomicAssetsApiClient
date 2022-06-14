@@ -56,36 +56,84 @@ namespace AtomicAssetsApiClient.Offers
         private SortStrategy? _sortStrategy;
         private string _sort;
 
+
+/// <summary>
+/// `WithAccountWhitelist` sets the accountWhiteList parameter
+/// </summary>
+/// <param name="accountWhitelist">The accountWhitelist shows only offers sent by one of the accounts.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithAccountWhitelist(string accountWhitelist)
         {
             _accountWhitelist = accountWhitelist;
             return this;
         }
 
+
+/// <summary>
+/// `WithAccountBlacklist` sets the accounBlacklist parameter
+/// </summary>
+/// <param name="accountWhitelist">The accountBlackist excludes offers sent by one of the accounts.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithAccountBlacklist(string accountBlacklist)
         {
             _accountBlacklist = accountBlacklist;
             return this;
         }
 
+
+/// <summary>
+/// `WithSenderAssetWhitelist` sets the senderAssetWhitelist parameter
+/// </summary>
+/// <param name="senderAssetWhitelist">The senderAssetWhitelist only shows offers that contain assets.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithSenderAssetWhitelist(string senderAssetwhitelist)
         {
             _senderAssetWhitelist = senderAssetwhitelist;
             return this;
         }
 
+
+/// <summary>
+/// `WithSenderAssetBlacklist` sets the senderAssetBlacklist parameter
+/// </summary>
+/// <param name="senderAssetBlacklistlist">The senderAssetBlacklist excludes offers that contain assets.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithSenderAssetBlacklist(string senderAssetBlacklist)
         {
             _senderAssetBlacklist = senderAssetBlacklist;
             return this;
         }
 
+
+/// <summary>
+/// `WithRecipientAssetWhitelist` sets the recipientAssetWhitelist parameter
+/// </summary>
+/// <param name="recipientAssetWhitelist">The senderAssetWhitelist only shows offers that contain assets.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithRecipientAssetWhitelist(string recipientAssetwhitelist)
         {
             _recipientAssetWhitelist = recipientAssetwhitelist;
             return this;
         }
 
+
+/// <summary>
+/// `WithRecipientAssetBlacklist` sets the senderAssetWhitelist parameter
+/// </summary>
+/// <param name="senderAssetWhitelist">The senderAssetWhitelist only shows offers that contain assets.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithRecipientAssetBlacklist(string recipientAssetBlacklist)
         {
             _recipientAssetBlacklist = recipientAssetBlacklist;
