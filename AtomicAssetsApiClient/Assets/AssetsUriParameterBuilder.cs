@@ -166,8 +166,7 @@ namespace AtomicAssetsApiClient.Assets
 /// <summary>
 /// `WithAuthorisedAccount` sets the `authorisedAccount` parameter
 /// </summary>
-/// <param name="authorisedAccount">The authorisedAccount parameter is used to filter the results. The authorisedAccount parameter is a
-/// string that is matched against the account name.</param>
+/// <param name="authorisedAccount">The authorisedAccount parameter is used to filter the results the provided account can edit.</param>
 /// <returns>
 /// The AssetsUriParameterBuilder object.
 /// </returns>
@@ -251,7 +250,7 @@ namespace AtomicAssetsApiClient.Assets
 /// <summary>
 /// `WithAfter` sets the `_after` variable to the value of the `after` parameter
 /// </summary>
-/// <param name="after">The previous values of the results to return.</param>
+/// <param name="after">The later values of the results to return.</param>
 /// <returns>
 /// The AssetsUriParameterBuilder object.
 /// </returns>
