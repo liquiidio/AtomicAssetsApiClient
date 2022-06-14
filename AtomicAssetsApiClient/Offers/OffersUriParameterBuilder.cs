@@ -116,7 +116,7 @@ namespace AtomicAssetsApiClient.Offers
 /// <summary>
 /// `WithRecipientAssetWhitelist` sets the recipientAssetWhitelist parameter
 /// </summary>
-/// <param name="recipientAssetWhitelist">The senderAssetWhitelist only shows offers that contain assets.</param>
+/// <param name="recipientAssetWhitelist">The recipientAssetWhitelist only shows offers that contain assets recieved.</param>
 /// <returns>
 /// The OffersUriParameterBuilder object.
 /// </returns>
@@ -126,14 +126,14 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
-
 /// <summary>
-/// `WithRecipientAssetBlacklist` sets the senderAssetWhitelist parameter
+/// `WithRecipientAssetBlacklist` sets the recipientAssetBlacklist parameter
 /// </summary>
-/// <param name="senderAssetWhitelist">The senderAssetWhitelist only shows offers that contain assets.</param>
+/// <param name="recipientAssetBlacklist">The recipientAssetBlacklist excludes offers that contain assets recieved.</param>
 /// <returns>
 /// The OffersUriParameterBuilder object.
 /// </returns>
+
         public OffersUriParameterBuilder WithRecipientAssetBlacklist(string recipientAssetBlacklist)
         {
             _recipientAssetBlacklist = recipientAssetBlacklist;
@@ -174,8 +174,7 @@ namespace AtomicAssetsApiClient.Offers
 /// <summary>
 /// `WithRecipient` sets the `recipient` parameter
 /// </summary>
-/// <param name="recipient">The recipient parameter is used to filter the results. The recipient parameter is a
-/// string that is matched against the account name.</param>
+/// <param name="recipient">The recipient parameter is used show offers recieved by a recipient.</param>
 /// <returns>
 /// The OffersUriParameterBuilder object.
 /// </returns>
@@ -185,11 +184,27 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
+
+/// <summary>
+/// `WithRecipient` sets the `state` parameter
+/// </summary>
+/// <param name="state">The state parameter filters results depending on the state of the offer.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithState(string state)
         {
             _state = state;
             return this;
         }
+
+/// <summary>
+/// `WithIsRecipientContract` sets the `_isRecipientContract` variable.
+/// </summary>
+/// <param name="isRecipientContract">Filters offers where recipient is a contract.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
 
         public OffersUriParameterBuilder WithIsRecipientContract(bool isRecipientContract)
         {
@@ -197,6 +212,14 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
+
+/// <summary>
+/// `WithAssetId` sets the assetId parameter
+/// </summary>
+/// <param name="assetId">The assetId parameter shows offers based on a certain assetId.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithAssetId(string assetId)
         {
             _assetId = assetId;
