@@ -30,9 +30,9 @@ namespace AtomicAssetsApiClient.Assets
         private string _lowerBound;
 /* A private variable that is used to store the value of the upperBound parameter. */
         private string _upperBound;
-/* A nullable boolean specfying results based on previous timestamp.  */
+/* A nullable integer specifying the previous timestamp. */  
         private int? _before;
-/* A nullable boolean specfying results based on next timestamp.  */
+/* A nullable integer specifying the next timestamp. */ 
         private int? _after;
  /* A nullable integer specifying the page. */   
         private int? _page;
