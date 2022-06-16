@@ -110,9 +110,7 @@ namespace AtomicAssetsApiClient.Assets
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-/// <summary>
-/// > The function takes a string and returns a Uri
-/// </summary>
+
         private Uri AssetsUri() => new Uri($"{_requestUriBase}/assets");
         private Uri AssetsUri(AssetsUriParameterBuilder assetsUriParameterBuilder) => new Uri($"{_requestUriBase}/assets{assetsUriParameterBuilder.Build()}");
         private Uri AssetUri(string assetId) => new Uri($"{_requestUriBase}/assets/{assetId}");
