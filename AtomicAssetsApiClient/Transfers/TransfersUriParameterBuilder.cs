@@ -32,6 +32,7 @@ namespace AtomicAssetsApiClient.Transfers
         private string _sort;
 
 
+/* A comment that is used by the documentation generator. */
 /// <summary>
 /// `WithAccount` sets the `account` parameter
 /// </summary>
