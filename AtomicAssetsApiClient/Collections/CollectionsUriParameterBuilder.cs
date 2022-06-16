@@ -32,7 +32,7 @@ namespace AtomicAssetsApiClient.Collections
         private int? _limit;
 /* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
-
+/* A private variable that is used to store the value of the sort parameter. */
         private string _sort;
 
 
@@ -116,7 +116,7 @@ namespace AtomicAssetsApiClient.Collections
 /// </summary>
 /// <param name="ids">A comma-separated list of account IDs.</param>
 /// <returns>
-/// A string
+/// The CollectionsUriParameterBuilder object.
 /// </returns>
         public CollectionsUriParameterBuilder WithIds(string[] ids)
         {
@@ -237,6 +237,15 @@ namespace AtomicAssetsApiClient.Collections
             return this;
         }
 
+/// <summary>
+/// `WithSort` is a function that takes a string as an argument and returns a
+/// `CollectionsUriParameterBuilder` object.
+/// </summary>
+/// <param name="sort">The sort parameter is used to sort the result set in ascending or descending
+/// order.</param>
+/// <returns>
+/// The builder object itself.
+/// </returns>
         public CollectionsUriParameterBuilder WithSort(string sort)
         {
             _sort = sort;

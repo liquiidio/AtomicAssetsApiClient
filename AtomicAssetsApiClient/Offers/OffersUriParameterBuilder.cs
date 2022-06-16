@@ -54,6 +54,7 @@ namespace AtomicAssetsApiClient.Offers
         private int? _limit;
 /* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
+/* Declaring a private variable called _sort. */
         private string _sort;
 
 
@@ -305,7 +306,7 @@ namespace AtomicAssetsApiClient.Offers
 /// </summary>
 /// <param name="ids">A comma-separated list of account IDs.</param>
 /// <returns>
-/// A string
+///The OffersUriParameterBuilder object.
 /// </returns>
         public OffersUriParameterBuilder WithIds(string[] ids)
         {
@@ -411,6 +412,13 @@ namespace AtomicAssetsApiClient.Offers
             return this;
         }
 
+/// <summary>
+/// It sets the sort parameter to the value passed in.
+/// </summary>
+/// <param name="sort">The field to sort the results by.</param>
+/// <returns>
+/// The OffersUriParameterBuilder object.
+/// </returns>
         public OffersUriParameterBuilder WithSort(string sort)
         {
             _sort = sort;

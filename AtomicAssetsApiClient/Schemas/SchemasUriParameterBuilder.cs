@@ -32,6 +32,7 @@ namespace AtomicAssetsApiClient.Schemas
         private int? _limit;
 /* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
+/* A private variable that is used to store the value of the sort parameter. */
         private string _sort;
 
 
@@ -128,7 +129,7 @@ namespace AtomicAssetsApiClient.Schemas
 /// </summary>
 /// <param name="ids">A comma-separated list of account IDs.</param>
 /// <returns>
-/// A string
+/// The SchemasUriParameterBuilder object.
 /// </returns>
         public SchemasUriParameterBuilder WithIds(string[] ids)
         {
@@ -234,6 +235,13 @@ namespace AtomicAssetsApiClient.Schemas
             return this;
         }
 
+/// <summary>
+/// It sets the sort parameter.
+/// </summary>
+/// <param name="sort">The sort order of the results.</param>
+/// <returns>
+/// A new instance of the SchemasUriParameterBuilder class.
+/// </returns>
         public SchemasUriParameterBuilder WithSort(string sort)
         {
             _sort = sort;

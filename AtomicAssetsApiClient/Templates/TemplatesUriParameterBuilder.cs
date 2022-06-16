@@ -46,6 +46,7 @@ namespace AtomicAssetsApiClient.Templates
         private int? _limit;
 /* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
+/* Declaring a private variable called _sort. */
         private string _sort;
 
 
@@ -240,7 +241,7 @@ namespace AtomicAssetsApiClient.Templates
 /// </summary>
 /// <param name="ids">A comma-separated list of account IDs.</param>
 /// <returns>
-/// A string
+/// The TemplatesUriParameterBuilder object.
 /// </returns>
         public TemplatesUriParameterBuilder WithIds(string[] ids)
         {
@@ -344,6 +345,14 @@ namespace AtomicAssetsApiClient.Templates
             return this;
         }
 
+/// <summary>
+/// `WithSort` is a function that takes a string as a parameter and returns a
+/// `TemplatesUriParameterBuilder` object.
+/// </summary>
+/// <param name="sort">The sort order of the results.</param>
+/// <returns>
+/// A TemplatesUriParameterBuilder object.
+/// </returns>
         public TemplatesUriParameterBuilder WithSort(string sort)
         {
             _sort = sort;

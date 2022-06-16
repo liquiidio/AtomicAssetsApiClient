@@ -29,6 +29,7 @@ namespace AtomicAssetsApiClient.Transfers
         private int? _limit;
 /* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
+/* A variable that is used to store the value of the sort parameter. */
         private string _sort;
 
 
@@ -204,6 +205,13 @@ namespace AtomicAssetsApiClient.Transfers
             return this;
         }
 
+/// <summary>
+/// >This function sets the sort order of the results
+/// </summary>
+/// <param name="sort">The sort order of the results.</param>
+/// <returns>
+/// The builder object itself.
+/// </returns>
         public TransfersUriParameterBuilder WithSort(string sort)
         {
             _sort = sort;
