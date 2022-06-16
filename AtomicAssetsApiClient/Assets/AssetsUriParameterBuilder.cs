@@ -151,7 +151,7 @@ namespace AtomicAssetsApiClient.Assets
 /// <summary>
 /// `WithOnlyDuplicatedTemplate` sets the `_onlyDuplicatedTemplate` field to the value of the 'onlyDuplicateTemplate' parameter
 /// </summary>
-/// <param name="onlyDuplicateTemplate">if true, </param>
+/// <param name="onlyDuplicateTemplate">Show only duplicated assets grouped by template </param>
 /// <returns>
 /// The AssetsUriParameterBuilder object.
 /// </returns>
@@ -166,7 +166,7 @@ namespace AtomicAssetsApiClient.Assets
 /// <summary>
 /// `WithAuthorisedAccount` sets the `authorisedAccount` parameter
 /// </summary>
-/// <param name="authorisedAccount">The authorisedAccount parameter is used to filter the results the provided account can edit.</param>
+/// <param name="authorisedAccount">The authorisedAccount parameter is used to filter assets the provided account can edit.</param>
 /// <returns>
 /// The AssetsUriParameterBuilder object.
 /// </returns>
