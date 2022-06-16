@@ -224,7 +224,6 @@ namespace AtomicAssetsApiClient.Transfers
 /// </summary>
 /// <returns>
 /// A string that contains the parameters for the query.
-/* A comment that is used by the documentation generator. */
 /// </returns>
         public string Build()
         {
