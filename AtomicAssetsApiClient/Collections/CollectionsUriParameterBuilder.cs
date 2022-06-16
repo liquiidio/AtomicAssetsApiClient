@@ -253,12 +253,13 @@ namespace AtomicAssetsApiClient.Collections
         }
 
 
+
 /// <summary>
-/// It builds a query string based on the parameters that have been set
+/// It takes all the properties of the class and builds a query string based on the values of
+/// those properties
 /// </summary>
 /// <returns>
-/// A string that contains the parameters for the query.
-/* A comment that is used by the documentation generator. */
+/// A string of parameters to be used in a query.
 /// </returns>
         public string Build()
         {

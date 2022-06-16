@@ -106,7 +106,7 @@ namespace AtomicAssetsApiClient.Burns
 /// </summary>
 /// <param name="ids">A comma-separated list of account IDs.</param>
 /// <returns>
-/// A string
+/// The BurnsUriParameterBuilder object.
 /// </returns>
         public BurnsUriParameterBuilder WithIds(string[] ids)
         {
