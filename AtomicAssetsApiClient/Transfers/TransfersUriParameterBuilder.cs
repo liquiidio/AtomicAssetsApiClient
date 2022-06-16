@@ -35,8 +35,7 @@ namespace AtomicAssetsApiClient.Transfers
 /// <summary>
 /// `WithAccount` sets the `account` parameter
 /// </summary>
-/// <param name="account">The owner parameter is used to filter the results. The owner parameter is a
-/// string that is matched against the account name.</param>
+/// <param name="account">Notified account.</param>
 /// <returns>
 /// The TransfersUriParameterBuilder object.
 /// </returns>
@@ -48,9 +47,9 @@ namespace AtomicAssetsApiClient.Transfers
 
 
 /// <summary>
-/// `WithOwner` sets the `owner` parameter
+/// `WithRecipient` sets the `recipient` parameter
 /// </summary>
-/// <param name="recipient">The recipient parameter is used to filter the results.</param>
+/// <param name="recipient">Results base on transfer recipient.</param>
 /// <returns>
 /// The TransfersUriParameterBuilder object.
 /// </returns>
