@@ -51,7 +51,7 @@ pages:
 update-parent:
     stage: update-parent
     script:
-    - git clone https://ashleewawa17:Gamedesignerlee1@gitlab.com/ashleewawa17/wax-atomicapiclient
+    - git clone https://ash lee:CI_TOKEN@gitlab.com/ashleewawa17/wax-atomicapiclient
     - mkdir -p theliquiidbible_gitbook/documentation/gitbook_output
     - cp -r documentation/gitbook_output  theliquiidbible_gitbook/documentation/gitbook_output
     - cd theliquiidbible_gitbook
