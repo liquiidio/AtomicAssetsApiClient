@@ -52,9 +52,8 @@ update-parent:
     stage: update-parent
     script:
     - git clone https://ashleewawa17:Gamedesignerlee1@gitlab.com/ashleewawa17/wax-atomicapiclient
-    - mkdir -p wax-atomicapiclient/documentation/gitbook_output
     - cp -r documentation/gitbook_output  wax-atomicapiclient/documentation/gitbook_output
-    - cd wax-atomicapiclient
+    - cd theliquiidbible_gitboo
     - git config --global user.email "ashleewawa17@gmail.com"
     - git add .
     - git commit -m"Updating"
