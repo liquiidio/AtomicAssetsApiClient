@@ -58,4 +58,4 @@ update-parent:
     - git config --global user.email "ashleewawa17@gmail.com"
     - git add .
     - git commit -m"Updating"
-    - git push origin HEAD master
+    - git push origin HEAD wax-developer
