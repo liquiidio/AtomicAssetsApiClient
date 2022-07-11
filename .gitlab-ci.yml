@@ -51,7 +51,7 @@ pages:
 update-parent:
     stage: update-parent
     script:
-    - git clone https://Ash_Lee:GITBOOK_DOCN@gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook.git
+    - git clone https://Ash_Lee:Gamedesignerlee1:GITBOOK_DOCN@gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook.git
     - mkdir -p theliquiidbible_gitbook/documentation/gitbook_output
     - cp -r documentation/gitbook_output  theliquiidbible_gitbook/documentation/gitbook_output
     - cd theliquiidbible_gitbook
