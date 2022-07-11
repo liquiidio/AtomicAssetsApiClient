@@ -51,12 +51,12 @@ pages:
 update-parent:
     stage: update-parent
     script:
-    - git clone https://ash lee:CI_TOKEN@gitlab.com/ashleewawa17/wax-atomicapiclient
+    - git clone https://Ash lee:Gamedesignerlee1:CI_TOKEN@gitlab.com/ashleewawa17/wax-atomicapiclient
     - mkdir -p theliquiidbible_gitbook/documentation/gitbook_output
     - cp -r documentation/gitbook_output  theliquiidbible_gitbook/documentation/gitbook_output
     - cd theliquiidbible_gitbook
     - git config --global user.email "ashleewawa17@gmail.com"
-    - git config --global user.name "ash lee"
+    - git config --global user.name "Ash lee"
     - git add .
     - git commit -m"Updating"
     - git push origin HEAD wax-developer
