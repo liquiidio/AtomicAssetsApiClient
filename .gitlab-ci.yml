@@ -53,6 +53,6 @@ pages:
     #script:
        # - git clone https://gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook/
        # - git add . 
-        #- git commit -m"Update"
+    #- git commit -m"Update"
         #- git push "https://gitlab-ci-token:$Atomic@$gitlab.com/$liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook
    
