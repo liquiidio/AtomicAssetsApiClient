@@ -51,9 +51,9 @@ pages:
 update-parent:
    stage: update-parent
    script:
-    - git clone https://gitlab-ci-token@gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook.git 
-    - git config --global user.emai "ashleewawa17"
-    - git add . 
-    - git commit -m"Update"
-    - git push "https://gitlab-ci-token:$Atomic@$gitlab.com/$liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook
+    - git clone https://ashleewawa17@gmail.com:Gamedesignerlee1@gitlab.com/ashleewawa17/wax-1.git
+    - git config --global user.emai "ashleewawa17@gmail.com"
+    #- git add . 
+    #- git commit -m"Update"
+   # - git push "https://gitlab-ci-token:$Atomic@$gitlab.com/$liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook
    
