@@ -51,10 +51,9 @@ pages:
 update-parent:
    stage: update-parent
    script:
-    - git clone https://liquiduniverse/unityeosclientplugins@gitlab.com/liquiduniverse/unityeosclientplugins/   theliquiidbible_gitbook.git 
-          -git config --global user.email "ashleewawa17@gmail.com"
-         - git config --global user.name "ash lee"
-         - git add . 
-         - git commit -m"Update"
-         - git push "https://gitlab-ci-token:$Atomic@$gitlab.com/$liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook
+    - git clone https://liquiduniverse@gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook.git 
+    - git config --global user.emai "ashleewawa17"
+    - git add . 
+    - git commit -m"Update"
+    - git push "https://gitlab-ci-token:$Atomic@$gitlab.com/$liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook
    
