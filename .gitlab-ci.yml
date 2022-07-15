@@ -53,8 +53,8 @@ update-parent:
    script:
     - git config --global user.email "${GIT_USER_EMAIL:-$GITLAB_USER_EMAIL}"
     - git config --global user.name "${GIT_USER_NAME:-$GITLAB_USER_NAME}"
-    - git clone  https://${GITLAB_USERNAME}:${GITLAB_TOKEN}@gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook.git /parent 
-    - rm -r /parent/atomicassetapiclient/*
+    - git clone -b ashlee https://${GITLAB_USERNAME}:${GITLAB_TOKEN}@gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook.git /parent 
+    - rm -r /parent/atomicassetsapiclient/*
     - cp -r documentation/gitbook/* /parent/atomicassetapiclient/
     - cd /parent
     - git add .
