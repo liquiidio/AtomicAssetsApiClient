@@ -5,7 +5,7 @@ stages:
    # - build-core
     #- test
    # - test-core
-    - pages
+    #- pages
     - update-parent
 
 #build:
@@ -34,19 +34,19 @@ stages:
     #script:
         #- dotnet test AtomicAssetsApiClient.Core.Test/AtomicAssetsApiClient.Core.Test.csproj
 
-pages:
-    stage: pages
-    script:
-        - doxygen documentation/doxygen/Doxyfile
-        - doxybook2 --input  documentation/doxyoutput/xml --output  documentation/gitbook --config documentation/doxybook-config/gitbook/.doxybook/config.json --summary-input documentation/doxybook-config/gitbook/SUMMARY.md.tmpl --summary-output documentation/gitbook/SUMMARY.md 
-        - gitbook build documentation/gitbook documentation/gitbook_output
-        - cp -r documentation/gitbook_output public
+#pages:
+    #stage: pages
+    #script:
+        #- doxygen documentation/doxygen/Doxyfile
+        #- doxybook2 --input  documentation/doxyoutput/xml --output  documentation/gitbook --config documentation/doxybook-config/gitbook/.doxybook/config.json --summary-input documentation/doxybook-config/gitbook/SUMMARY.md.tmpl --summary-output documentation/gitbook/SUMMARY.md 
+       # - gitbook build documentation/gitbook documentation/gitbook_output
+       # - cp -r documentation/gitbook_output public
     
   
-    artifacts:
-      paths:
-       - public
-       - documentation
+   # artifacts:
+      #paths:
+      # - public
+      # - documentation
 
 update-parent:
    stage: update-parent
@@ -55,7 +55,7 @@ update-parent:
     - git config --global user.name "${GIT_USER_NAME:-$GITLAB_USER_NAME}"
     - git clone https://${GITLAB_USERNAME}:${GITLAB_TOKEN}@gitlab.com/liquiduniverse/unityeosclientplugins/theliquiidbible_gitbook.git /parent 
     - rm -r /parent/atomicassetsapiclient/
-    - cp -r documentation/gitbook/* parent/atomicassetsapiclient/
+    - cp -r documentation/gitbook /parent/atomicassetsapiclient/
     - cd /parent
     - git add .
     - git commit -m "${COMMIT_MESSAGE}"
