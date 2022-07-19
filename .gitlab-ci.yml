@@ -43,10 +43,10 @@ pages:
         - cp -r documentation/gitbook_output public
     
   
-   # artifacts:
-      #paths:
-      # - public
-      # - documentation
+    artifacts:
+      paths:
+       - public
+       - documentation
 
 update-parent:
    stage: update-parent
