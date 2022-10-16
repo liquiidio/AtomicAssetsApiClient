@@ -1,4 +1,5 @@
-﻿using AtomicAssetsApiClient.Accounts;
+﻿using System.Threading;
+using AtomicAssetsApiClient.Accounts;
 using AtomicAssetsApiClient.Assets;
 using AtomicAssetsApiClient.Burns;
 using AtomicAssetsApiClient.Collections;
@@ -8,6 +9,8 @@ using AtomicAssetsApiClient.Schemas;
 using AtomicAssetsApiClient.Templates;
 using AtomicAssetsApiClient.Transfers;
 using NUnit.Framework;
+
+[assembly: Apartment(ApartmentState.STA)]
 
 namespace AtomicAssetsApiClient.Test
 {
