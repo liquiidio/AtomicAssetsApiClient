@@ -13,6 +13,7 @@
     <PackageId>Liquiid.io.AtomicAssets</PackageId>
     <AssemblyName>AtomicAssetsApiClient</AssemblyName>
     <RootNamespace>AtomicAssetsApiClient</RootNamespace>
+    <RepositoryUrl>https://github.com/liquiidio/AtomicAssetsApiClient-Private</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
