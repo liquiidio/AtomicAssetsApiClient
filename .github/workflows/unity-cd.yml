@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - unity_develop
-  workflow_dispatch:
 
 jobs:
   split-upm:
@@ -30,6 +29,6 @@ jobs:
         echo "********************** ROOT **********************"
         ls
         git push -u origin upm --force                              # commit the branch
-      env:
-        UPM_ROOT: EosSharp
-     
+      
+      
+
