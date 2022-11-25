@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using AtomicAssetsApiClient.Templates;
+using AtomicAssetsApiClient.Core;
+using AtomicAssetsApiClient.Core.Templates;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -12,39 +13,39 @@ namespace AtomicAssetsApiClient.Test.Templates
         public void Templates()
         {
             AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Should().BeOfType<TemplatesDto>();
-            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.Should().BeOfType<TemplatesDto.DataDto[]>();
-            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.Should().HaveCountGreaterThan(1);
-            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates(new TemplatesUriParameterBuilder().WithLimit(1)).Data.Should().HaveCount(1);
+            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.Should().BeOfType<TemplatesDto.DataDto[]>();
+            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.Should().HaveCountGreaterThan(1);
+            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates(new TemplatesUriParameterBuilder().WithLimit(1)).GetAwaiter().GetResult().Data.Should().HaveCount(1);
 
             AtomicAssetsApiFactory.Version1.TemplatesApi.Templates(new TemplatesUriParameterBuilder().WithOrder(SortStrategy.Ascending)).Should().BeOfType<TemplatesDto>();
-            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates(new TemplatesUriParameterBuilder().WithOrder(SortStrategy.Ascending)).Data.Should().BeOfType<TemplatesDto.DataDto[]>();
+            AtomicAssetsApiFactory.Version1.TemplatesApi.Templates(new TemplatesUriParameterBuilder().WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Data.Should().BeOfType<TemplatesDto.DataDto[]>();
         }
 
         [Test]
         public void Template()
         {
-            var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.First().Collection.CollectionName;
-            var templateIdToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.First().TemplateId;
+            var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
+            var templateIdToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().TemplateId;
             AtomicAssetsApiFactory.Version1.TemplatesApi.Template(collectionNameToFind, templateIdToFind).Should().BeOfType<TemplateDto>();
-            AtomicAssetsApiFactory.Version1.TemplatesApi.Template(collectionNameToFind, templateIdToFind).Data.Should().BeOfType<TemplateDto.DataDto>();
+            AtomicAssetsApiFactory.Version1.TemplatesApi.Template(collectionNameToFind, templateIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<TemplateDto.DataDto>();
         }
 
         [Test]
         public void TemplateStats()
         {
-            var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.First().Collection.CollectionName;
-            var templateIdToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.First().TemplateId;
+            var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
+            var templateIdToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().TemplateId;
             AtomicAssetsApiFactory.Version1.TemplatesApi.TemplateStats(collectionNameToFind, templateIdToFind).Should().BeOfType<StatsDto>();
-            AtomicAssetsApiFactory.Version1.TemplatesApi.TemplateStats(collectionNameToFind, templateIdToFind).Data.Should().BeOfType<StatsDto.DataDto>();
+            AtomicAssetsApiFactory.Version1.TemplatesApi.TemplateStats(collectionNameToFind, templateIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<StatsDto.DataDto>();
         }
 
         [Test]
         public void TemplateLogs()
         {
-            var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.First().Collection.CollectionName;
-            var templateIdToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().Data.First().TemplateId;
+            var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
+            var templateIdToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().TemplateId;
             AtomicAssetsApiFactory.Version1.TemplatesApi.TemplateLogs(collectionNameToFind, templateIdToFind).Should().BeOfType<LogsDto>();
-            AtomicAssetsApiFactory.Version1.TemplatesApi.TemplateLogs(collectionNameToFind, templateIdToFind).Data.Should().BeOfType<LogsDto.DataDto[]>();
+            AtomicAssetsApiFactory.Version1.TemplatesApi.TemplateLogs(collectionNameToFind, templateIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<LogsDto.DataDto[]>();
         }
     }
 }

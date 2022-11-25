@@ -1,4 +1,4 @@
-﻿using AtomicAssetsApiClient.Transfers;
+﻿using AtomicAssetsApiClient.Core.Transfers;
 using FluentAssertions;
 using NUnit.Framework;
 
