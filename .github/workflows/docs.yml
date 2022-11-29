@@ -1,0 +1,45 @@
+name : Build documents
+
+on: push
+jobs:
+    create-docs:           
+       runs-on: ubuntu-18.04
+       container:
+            image: ghcr.io/liquiidio/docker-docs-generator:main
+            credentials:
+               username: liquiidio
+               password: ${{secrets.GITHUB_TOKEN}} 
+       steps:
+            - uses: actions/checkout@v2
+            - name: generate docs with doxygen
+              shell: bash
+              run: doxygen            .github/workflows/documentation/doxygen/Doxyfile
+            - name: convert doxygen docs to gitbook with doxybook2
+              shell: bash
+              run: doxybook2 --input .github/workflows/documentation/doxyoutput/xml --output .github/workflows/documentation/gitbook --config .github/workflows/documentation/doxybook-config/gitbook/.doxybook/config.json --summary-input .github/workflows/documentation/doxybook-config/gitbook/SUMMARY.md.tmpl --summary-output .github/workflows/documentation/gitbook/SUMMARY.md
+            - name: build gitbook
+              shell: bash
+              run: gitbook build .github/workflows/documentation/gitbook .github/workflows/documentation/gitbook_output 
+              
+            - name: Upload pages
+              uses: actions/upload-artifact@v3
+              with:
+                name: Gitbook pages
+                path:  .github/workflows/documentation/gitbook_output 
+                 
+            #- name: Deploy
+             # uses:  JamesIves/github-pages-deploy-action@v4
+               #if: startsWith(github.ref, 'refs/heads/docs')
+              #uses:  JamesIves/github-pages-deploy-action@v4
+              #with:
+               # github_token: ${{ secrets.GITHUB_TOKEN }}
+                #publish_dir: ${{ github.workspace }}/public
+              #uses : actions/deploy-pages@v1
+              #permissions:
+               #     pages: write      
+                #    id-token: write
+             # env:
+              #   name: Gitbook pages
+               #  url: ${{ steps.deployment.outputs.page_url }}
+    
+    
