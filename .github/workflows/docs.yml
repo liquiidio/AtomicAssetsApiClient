@@ -9,6 +9,9 @@ jobs:
             credentials:
                username: liquiidio
                password: ${{secrets.GITHUB_TOKEN}} 
+       permissions:
+                contents: read
+                packages: write
        steps:
             - uses: actions/checkout@v2
             - name: generate docs with doxygen
