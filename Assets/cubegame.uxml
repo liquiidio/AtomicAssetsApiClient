@@ -1,11 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="position: relative; height: 528px; background-color: rgb(32, 32, 32);">
-        <ui:VisualElement style="height: 341px; background-color: rgba(32, 32, 32, 255);">
-            <ui:Label text="Label" display-tooltip-when-elided="true" name="asset" />
+    <Style src="project://database/Assets/asset-label.uss?fileID=7433441132597879392&amp;guid=a466f779044383e49b3e77a6c41e0016&amp;type=3#asset-label" />
+    <ui:VisualElement style="height: 100%; width: 100%; justify-content: space-around; align-items: stretch; flex-direction: row; background-color: rgb(218, 243, 248);">
+        <ui:VisualElement style="width: 50%; align-items: center; justify-content: center; white-space: nowrap;">
+            <ui:TextField picking-mode="Ignore" name="assetId" text="asset id" style="padding-right: 4px; padding-top: 4px; padding-bottom: 4px; font-size: 16px; -unity-font-style: bold; -unity-text-align: upper-center; white-space: normal; color: rgb(0, 0, 0); padding-left: 4px; background-color: rgb(218, 243, 248); -unity-background-scale-mode: stretch-to-fill; width: 70%; align-items: center; justify-content: flex-start; height: auto;" />
+            <ui:Button text="Get Asset" display-tooltip-when-elided="true" name="getAsset" focusable="true" style="background-color: rgb(30, 164, 219); color: rgb(0, 0, 0); font-size: 14px; margin-top: 1px; padding-top: 4px; padding-bottom: 4px; width: 50%;" />
         </ui:VisualElement>
-        <ui:VisualElement style="height: 185px; justify-content: flex-end; position: relative; width: 808px; top: 0; left: 1px; -unity-background-scale-mode: scale-to-fit; background-color: rgb(5, 5, 5);">
-            <ui:TextField picking-mode="Ignore" label="Asset ID" name="assetId" style="height: 43px; margin-bottom: 1px; padding-left: 4px; padding-right: 4px; padding-top: 4px; padding-bottom: 4px; width: 758px; font-size: 16px;" />
-            <ui:Button text="Get Asset" display-tooltip-when-elided="true" name="getAssets" style="position: relative; bottom: auto; align-items: auto; justify-content: flex-start; -unity-font-style: bold; padding-top: 6px; padding-bottom: 6px; height: 27px; font-size: 14px;" />
+        <ui:VisualElement style="width: 50%; align-items: flex-start; justify-content: center;">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="collection" class="asset-label" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="contract" class="asset-label" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="owner" class="asset-label" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
