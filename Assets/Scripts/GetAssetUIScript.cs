@@ -1,9 +1,10 @@
-using AtomicAssetsApiClient;
-using AtomicAssetsApiClient.Assets;
+using AtomicAssetsApiClient.Core.Exceptions;
+using AtomicAssetsApiClient.Unity3D;
+using AtomicAssetsApiClient.Unity3D.Assets;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CubeGameUIScript : MonoBehaviour
+public class GetAssetUIScript : MonoBehaviour
 {
     VisualElement root;
     TextField assetId;
@@ -32,17 +33,22 @@ public class CubeGameUIScript : MonoBehaviour
 
     private async void GetAsset_clicked()
     {
-        var asset = await assetsApi.Asset(assetId.value);
-
-        if (asset != null)
+        try
         {
-            Debug.Log("asset found");
-            collection.text = $"Collection: {asset.Data.Collection.Name}";
-            contract.text = $"Contract: {asset.Data.Contract}";
-            owner.text = $"Owner: {asset.Data.Owner}";
+            var asset = await assetsApi.Asset(assetId.value);
+
+            if (asset != null)
+            {
+                Debug.Log("asset found");
+                collection.text = $"Collection: {asset.Data.Collection.Name}";
+                contract.text = $"Contract: {asset.Data.Contract}";
+                owner.text = $"Owner: {asset.Data.Owner}";
+            }
         }
-        else
-            Debug.Log("asset not found.");
+        catch (ApiException ex)
+        {
+            Debug.LogError($"Content: {ex.Content}");
+        }
     }
 
     // Update is called once per frame
