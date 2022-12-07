@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/asset-label.uss?fileID=7433441132597879392&amp;guid=a466f779044383e49b3e77a6c41e0016&amp;type=3#asset-label" />
+    <Style src="project://database/Assets/Packages/atomicassetsapiclient/Examples/UiToolkit/UI/asset-label.uss?fileID=7433441132597879392&amp;guid=a466f779044383e49b3e77a6c41e0016&amp;type=3#asset-label" />
     <ui:VisualElement style="height: 100%; width: 100%; justify-content: space-around; align-items: stretch; flex-direction: row; background-color: rgb(218, 243, 248);">
         <ui:VisualElement style="width: 50%; align-items: center; justify-content: center; white-space: nowrap;">
             <ui:TextField picking-mode="Ignore" name="assetId" text="asset id" style="padding-right: 4px; padding-top: 4px; padding-bottom: 4px; font-size: 16px; -unity-font-style: bold; -unity-text-align: upper-center; white-space: normal; color: rgb(0, 0, 0); padding-left: 4px; background-color: rgb(218, 243, 248); -unity-background-scale-mode: stretch-to-fill; width: 70%; align-items: center; justify-content: flex-start; height: auto;" />
@@ -10,5 +10,8 @@
             <ui:Label text="Label" display-tooltip-when-elided="true" name="contract" class="asset-label" />
             <ui:Label text="Label" display-tooltip-when-elided="true" name="owner" class="asset-label" />
         </ui:VisualElement>
+        <ui:VisualElement name="image-box" style="width: 386px;" />
     </ui:VisualElement>
 </ui:UXML>
+
+

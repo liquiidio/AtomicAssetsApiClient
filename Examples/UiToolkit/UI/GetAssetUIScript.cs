@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class GetAssetUIScript : MonoBehaviour
 {
     VisualElement root;
+    VisualElement imageBox;
     TextField assetId;
     Button getAsset;
 
@@ -15,6 +16,7 @@ public class GetAssetUIScript : MonoBehaviour
     Label owner;
 
     AssetsApi assetsApi;
+    private Texture2D tex;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class GetAssetUIScript : MonoBehaviour
         assetId = root.Q<TextField>("assetId");
 
         collection = root.Q<Label>("collection");
+        imageBox = root.Q<VisualElement>("image-box");
         contract = root.Q<Label>("contract");
         owner = root.Q<Label>("owner");
 
@@ -43,6 +46,8 @@ public class GetAssetUIScript : MonoBehaviour
                 collection.text = $"Collection: {asset.Data.Collection.Name}";
                 contract.text = $"Contract: {asset.Data.Contract}";
                 owner.text = $"Owner: {asset.Data.Owner}";
+
+                EncodedImage(asset.Data.Collection.Image);
             }
         }
         catch (ApiException ex)
@@ -55,5 +60,18 @@ public class GetAssetUIScript : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void EncodedImage(string loadFromSomewhere)
+    {
+        
+        var b64_string = loadFromSomewhere;
+
+        var b64_bytes = System.Convert.FromBase64String(b64_string);
+
+        tex = new Texture2D(1, 1);
+        tex.LoadImage(b64_bytes);
+
+        imageBox.style.backgroundImage = tex;
     }
 }
