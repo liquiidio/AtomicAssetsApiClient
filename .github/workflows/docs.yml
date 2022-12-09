@@ -22,15 +22,15 @@ jobs:
               run: ls -la
             - name: convert doxygen docs to gitbook with moxygen
               shell: bash
-              run: moxygen --anchors --groups --output api-%s.md .github/workflows/documentation/doxyoutput/xml
+              run: moxygen --classes --pages --language=cs --output=.github/workflows/documentation/doxyoutput/doc/%s.md .github/workflows/documentation/doxyoutput/xml
             - name: build gitbook
               shell: bash
-              run: gitbook build .github/workflows/documentation/doxyoutput/xml .github/workflows/documentation/gitbook_output 
+              run: gitbook build .github/workflows/documentation/doxyoutput/doc .github/workflows/documentation/gitbook_output 
             - name: Upload moxygen output to artifacts
               uses: actions/upload-artifact@v3
               with:
                 name: Moxygen output
-                path:  .github/workflows/documentation/doxyoutput/xml 
+                path:  .github/workflows/documentation/doxyoutput 
             - name: Upload pages to artifacts
               uses: actions/upload-artifact@v3
               with:
