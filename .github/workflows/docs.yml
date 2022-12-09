@@ -22,7 +22,7 @@ jobs:
               run: ls -la
             - name: convert doxygen docs to gitbook with moxygen
               shell: bash
-              run: moxygen --classes --pages --language=cs --output=.github/workflows/documentation/doxyoutput/doc/%s.md .github/workflows/documentation/doxyoutput/xml
+              run: moxygen --classes --pages --output=.github/workflows/documentation/doxyoutput/doc/%s.md .github/workflows/documentation/doxyoutput/xml
             - name: build gitbook
               shell: bash
               run: gitbook build .github/workflows/documentation/doxyoutput/doc .github/workflows/documentation/gitbook_output 
