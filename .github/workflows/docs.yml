@@ -5,7 +5,7 @@ jobs:
     create-docs:           
        runs-on: ubuntu-18.04
        container:
-            image: ghcr.io/liquiidio/docker-docs-generator:main
+            image: ghcr.io/liquiidio/docker-docs-generator:moxygen
             credentials:
                username: liquiidio
                password: ${{secrets.GITHUB_TOKEN}} 
@@ -19,17 +19,21 @@ jobs:
               run: doxygen            .github/workflows/documentation/doxygen/Doxyfile
             - name: convert doxygen docs to gitbook with doxybook2
               shell: bash
-              run: doxybook2 --input .github/workflows/documentation/doxyoutput/xml --output .github/workflows/documentation/gitbook --config .github/workflows/documentation/doxybook-config/gitbook/.doxybook/config.json --summary-input .github/workflows/documentation/doxybook-config/gitbook/SUMMARY.md.tmpl --summary-output .github/workflows/documentation/gitbook/SUMMARY.md
+              run: moxygen --anchors --groups --output api-%s.md .github/workflows/documentation/doxyoutput/xml
             - name: build gitbook
               shell: bash
-              run: gitbook build .github/workflows/documentation/gitbook .github/workflows/documentation/gitbook_output 
-              
-            - name: Upload pages
+              run: gitbook build .github/workflows/documentation/doxyoutput/xml .github/workflows/documentation/gitbook_output 
+            - name: Upload moxygen output to artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: Moxygen output
+                path:  .github/workflows/documentation/doxyoutput/xml 
+            - name: Upload pages to artifacts
               uses: actions/upload-artifact@v3
               with:
                 name: Gitbook pages
                 path:  .github/workflows/documentation/gitbook_output 
-                 
+
             #- name: Deploy
              # uses:  JamesIves/github-pages-deploy-action@v4
                #if: startsWith(github.ref, 'refs/heads/docs')
