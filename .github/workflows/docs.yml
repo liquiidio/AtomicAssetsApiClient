@@ -29,9 +29,9 @@ jobs:
               shell: bash
               run: moxygen --classes --pages --language=cpp --output=.github/workflows/documentation/doxyoutput/doc/%s.md .github/workflows/documentation/doxyoutput/xml
             - name: Upload moxygen output to artifacts
+              if: always()
               uses: actions/upload-artifact@v3
               with:
-                if: always()
                 name: Moxygen output
                 path:  .github/workflows/documentation/doxyoutput/doc
             - name: build gitbook
