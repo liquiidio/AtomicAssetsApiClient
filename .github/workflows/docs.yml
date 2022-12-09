@@ -17,6 +17,11 @@ jobs:
             - name: generate docs with doxygen
               shell: bash
               run: doxygen            .github/workflows/documentation/doxygen/Doxyfile
+            - name: Upload doygen output to artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: Doxygen output
+                path:  .github/workflows/documentation/doxyoutput/xml
             - name: other stuff
               shell: bash
               run: rm README.md
@@ -27,7 +32,7 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                 name: Moxygen output
-                path:  .github/workflows/documentation/doxyoutput 
+                path:  .github/workflows/documentation/doxyoutput/doc
             - name: build gitbook
               shell: bash
               run: gitbook build .github/workflows/documentation/doxyoutput/doc .github/workflows/documentation/gitbook_output 
