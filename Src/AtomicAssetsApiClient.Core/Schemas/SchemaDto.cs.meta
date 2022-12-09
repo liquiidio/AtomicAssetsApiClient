@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Schemas/SchemaDto.cs.meta
 guid: c81ea1b6872577441838e6e44a8c7d2c
+=======
+guid: ebc29c8c75d31fd4ea84d8d98bc555f6
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Schemas/SchemaDto.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

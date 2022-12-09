@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/HttpResponseMessageExtension.cs.meta
 guid: 43068739e794572459e173ec770bc733
+=======
+guid: 8555f328b85955649a566bc94e6306eb
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient.Core/HttpResponseMessageExtension.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

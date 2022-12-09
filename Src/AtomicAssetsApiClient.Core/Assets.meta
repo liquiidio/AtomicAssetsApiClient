@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Assets.meta
 guid: 58edb3e6560dcc244b50e20b73ed473d
+=======
+guid: ebdec55796839a340a961c8daf2722b6
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Assets.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

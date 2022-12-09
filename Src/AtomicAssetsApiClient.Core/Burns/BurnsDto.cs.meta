@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Burns/BurnsDto.cs.meta
 guid: 0094859dd96e8174bba59d0b36cf6816
+=======
+guid: b9ab63258ead4284c9ef8544432c4dc2
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Burns/BurnsDto.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

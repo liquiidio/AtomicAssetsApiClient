@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Offers/OffersDto.cs.meta
 guid: c9333d3d85910ca4c92964069e4fb026
+=======
+guid: 685594ea38d76094197f517730b34a23
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Offers/OffersDto.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

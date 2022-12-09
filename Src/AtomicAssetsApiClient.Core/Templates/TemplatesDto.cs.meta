@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Templates/TemplatesDto.cs.meta
 guid: 8eda4e959831b45469f50a5500f1d37c
+=======
+guid: 6c2cfe26ce5aab6409e6a7afb2c3e2f1
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Templates/TemplatesDto.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

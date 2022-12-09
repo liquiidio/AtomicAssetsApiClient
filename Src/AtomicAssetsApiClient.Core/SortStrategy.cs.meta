@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/SortStrategy.cs.meta
 guid: 6794fa2954a84ed45b08bc4bb2fea283
+=======
+guid: b09204f4f9787e94bb61bcb0abdf3837
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/SortStrategy.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

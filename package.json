@@ -1,0 +1,22 @@
+{
+    "name": "com.liquiidio.atomicassetsapiclient",
+    "version": "1.0.0",
+    "displayName": "AtomicAssetsApiClient",
+    "description": ".NET and Unity3D-compatible (Desktop, Mobile, WebGL) ApiClient for AtomicAssets",
+    "unity": "2021.3",
+    "unityRelease": "11f1",
+    "documentationUrl": "https://www.liquiid.io/",
+    "changelogUrl": "https://www.liquiid.io/",
+    "licensesUrl": "https://www.liquiid.io/",
+    "dependencies": { },
+   "keywords": [
+      "atomic-assets",
+      "atomicassets",
+      "atomicassetsapiclient"
+    ],
+    "author": {
+      "name": "Liquiidio",
+      "email": "press@liquiid.io",
+      "url": "https://www.liquiid.io/"
+    }
+  }

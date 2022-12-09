@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Collections/CollectionsDto.cs.meta
 guid: 9697bc4461adb18448dbfaf3e1df751b
+=======
+guid: 320bfc78b67aff84fa31b06dba3288dc
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Collections/CollectionsDto.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

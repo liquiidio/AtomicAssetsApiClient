@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Assets/AssetsUriParameterBuilder.cs.meta
 guid: 16acc7bc69dde2d4ba39ac92abede431
+=======
+guid: 532d2c8b0221fee4b909c24baac96aae
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Assets/AssetsUriParameterBuilder.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

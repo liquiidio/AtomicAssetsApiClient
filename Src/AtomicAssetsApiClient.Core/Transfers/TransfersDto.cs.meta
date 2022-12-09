@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Transfers/TransfersDto.cs.meta
 guid: 25a62cf2df0c3524c894a6cb5431ba3d
+=======
+guid: 6ef1253738f6c824195b70afe07ff3f7
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Transfers/TransfersDto.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
