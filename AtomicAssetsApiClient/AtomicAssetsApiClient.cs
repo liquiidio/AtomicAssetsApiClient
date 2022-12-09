@@ -1,7 +1,4 @@
 
-namespace AtomicAssetsApiClient
+public class AtomicAssetsApiClient
 {
-    public class AtomicAssetsApiClient
-    {
-    }
 }
