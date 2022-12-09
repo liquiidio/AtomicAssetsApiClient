@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AtomicAssetsApiClient.Core.Assets;
@@ -19,9 +20,12 @@ public class AtomicAssetPanel : MonoBehaviour
 
     private Label _collectionNameLabel;
     private Label _ownerLabel;
+    private Label _sellerLabel;
+    private Label _tradeOfferIdLabel;
     private Label _nftNameLabel;
     private Label _headerLabel;
     private Label _idLabel;
+    private Label _priceLabel;
     private Label _mintNumberLabel;
     private Label _backedTokenLabel;
     private Label _schemaNameLabel;
@@ -34,12 +38,13 @@ public class AtomicAssetPanel : MonoBehaviour
     private DropdownField _selectorDropdownField;
     private TextField _collectionNameOrAssetId;
 
-    
+
     /*
      * Fields/Properties
      */
     private AssetsApi _assetsApi;
     private CollectionsApi _collectionsApi;
+
     private List<string> _searchTypes;
 
 
@@ -55,7 +60,10 @@ public class AtomicAssetPanel : MonoBehaviour
         _headerLabel = Root.Q<Label>("header-label");
         _nftNameLabel = Root.Q<Label>("nft-name-label");
         _idLabel = Root.Q<Label>("id-label");
+        _tradeOfferIdLabel = Root.Q<Label>("trade-offer-id-label");
+        _priceLabel = Root.Q<Label>("price-label");
         _ownerLabel = Root.Q<Label>("owner-label");
+        _sellerLabel = Root.Q<Label>("seller-label");
         _mintNumberLabel = Root.Q<Label>("mint-number-label");
         _backedTokenLabel = Root.Q<Label>("backed-token-label");
         _schemaNameLabel = Root.Q<Label>("schema-label");
@@ -71,7 +79,6 @@ public class AtomicAssetPanel : MonoBehaviour
         BindButtons();
     }
 
-
     #region Button Binding
 
     private void BindButtons()
@@ -80,7 +87,7 @@ public class AtomicAssetPanel : MonoBehaviour
 
         _searchTypes = new List<string>()
         {
-            { "Asset Id" },
+            { "Asset ID" },
             { "Collection Name" }
         };
 
@@ -90,7 +97,6 @@ public class AtomicAssetPanel : MonoBehaviour
 
         _selectorDropdownField.RegisterCallback<ChangeEvent<string>>(evt =>
         {
-            _headerLabel.text = _selectorDropdownField.value;
             _selectorDropdownField.value = _selectorDropdownField.value;
         });
     }
@@ -103,10 +109,10 @@ public class AtomicAssetPanel : MonoBehaviour
     {
         _collectionNameLabel.text = asset.Data.Collection.Name;
         _ownerLabel.text = asset.Data.Owner;
-        _nftNameLabel.text = asset.Data.Contract;
+        _nftNameLabel.text = asset.Data.Name;
         _idLabel.text = asset.Data.AssetId;
-        _mintNumberLabel.text = asset.Data.MintedAtBlock;
-        _backedTokenLabel.text = asset.Data.TemplateMint;
+        _mintNumberLabel.text = $"{asset.Data.TemplateMint} Of {asset.Data.Template.IssuedSupply}";
+        _backedTokenLabel.text = asset.Data.BackedTokens.Length.ToString();
         _schemaNameLabel.text = asset.Data.Schema.SchemaName;
         _templateIdLabel.text = asset.Data.Template.TemplateId;
         //_propertiesBurnableLabel.text = asset.Data.Template.Transferable
@@ -115,8 +121,8 @@ public class AtomicAssetPanel : MonoBehaviour
     private void Rebind(CollectionDto asset)
     {
         _collectionNameLabel.text = asset.Data.CollectionName;
-        _ownerLabel.text = asset.Data.Author;
-        _nftNameLabel.text = asset.Data.Contract;
+        //_ownerLabel.text = asset.Data.Name;
+        _nftNameLabel.text = asset.Data.Name;
         _idLabel.text = asset.Data.Name;
         _mintNumberLabel.text = asset.Data.MarketFee.ToString();
     }
@@ -131,24 +137,28 @@ public class AtomicAssetPanel : MonoBehaviour
         {
             try
             {
-                if (_selectorDropdownField.value == "Asset Id")
+                switch (_selectorDropdownField.value)
                 {
-                    var results = await _assetsApi.Asset(_collectionNameOrAssetId.value);
-                    if (results != null)
-                    {
-                        Rebind(results);
-                    }
-                    else Debug.Log("asset not found");
-                }
-                else if(_selectorDropdownField.value == "Collection Name")
-                {
-                    var resultsCollection = await _collectionsApi.Collection(_collectionNameOrAssetId.value);
-                    if (resultsCollection != null)
-                    {
-                        Rebind(resultsCollection);
-                    }
-                    else Debug.Log("asset not found");
+                    case "Asset ID":
+                        var assetDto = await _assetsApi.Asset(_collectionNameOrAssetId.value);
+                        if (assetDto != null)
+                        {
+                            Rebind(assetDto);
+                        }
+                        else Debug.Log("asset id not found");
+                        break;
 
+                    case "Collection Name":
+                        var collectionDto = await _collectionsApi.Collection(_collectionNameOrAssetId.value);
+                        if (collectionDto != null)
+                        {
+                            Rebind(collectionDto);
+                        }
+                        else Debug.Log("asset not found");
+                        break;
+
+                    case "":
+                        break;
                 }
             }
             catch (ApiException ex)
@@ -156,8 +166,6 @@ public class AtomicAssetPanel : MonoBehaviour
                 Debug.LogError($"Content: {ex.Content}");
             }
         }
-
-        
     }
     #endregion
 }
