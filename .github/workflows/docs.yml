@@ -60,8 +60,8 @@ jobs:
               if: always()
               uses: actions/upload-artifact@v3
               with:
-                name: Gitbook PDF
-                path:  .github/workflows/documentation/docs.pdf 
+                name: Gitbook Epub
+                path:  .github/workflows/documentation/docs.epub 
 
             #- name: Deploy
              # uses:  JamesIves/github-pages-deploy-action@v4
