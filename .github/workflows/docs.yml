@@ -17,7 +17,7 @@ jobs:
             - name: generate docs with doxygen
               shell: bash
               run: doxygen .github/workflows/documentation/Doxyfile
-            - name: Upload doygen output to artifacts
+            - name: Upload doxygen output to artifacts
               if: always()
               uses: actions/upload-artifact@v3
               with:
