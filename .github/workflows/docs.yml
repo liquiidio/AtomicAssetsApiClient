@@ -14,38 +14,47 @@ jobs:
                 packages: write
        steps:
             - uses: actions/checkout@v2
+            
             - name: generate docs with doxygen
               shell: bash
               run: doxygen .github/workflows/documentation/Doxyfile
+            
             - name: Upload doxygen output to artifacts
               if: always()
               uses: actions/upload-artifact@v3
               with:
                 name: Doxygen output
                 path:  .github/workflows/documentation/xml
+            
             - name: convert doxygen xml to markdown with moxygen
               shell: bash
               run: moxygen --classes --pages --language=cpp --output=.github/workflows/documentation/md/%s.md .github/workflows/documentation/xml
+            
             - name: Upload moxygen output to artifacts
               if: always()
               uses: actions/upload-artifact@v3
               with:
                 name: Moxygen output
                 path:  .github/workflows/documentation/md
+            
             - name: copy files to gitbook-folder 
               shell: bash
               run: cp -r .github/workflows/documentation/md .github/workflows/documentation/gitbook/docs
+            
             - name: build gitbook website
               shell: bash
               run: gitbook build .github/workflows/documentation/gitbook .github/workflows/documentation/gitbook_website 
+            
             - name: build gitbook pdf
               shell: bash
               run: gitbook pdf .github/workflows/documentation/gitbook .github/workflows/documentation/docs.pdf 
+            
             - name: Upload Gitbook Website to artifacts
               uses: actions/upload-artifact@v3
               with:
                 name: Gitbook Website
                 path:  .github/workflows/documentation/gitbook_website 
+            
             - name: Upload Gitbook PDF to artifacts
               uses: actions/upload-artifact@v3
               with:
