@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Offers/OfferDto.cs.meta
+guid: 3ef7df6338e7ef14c91aa56123f08c60
+=======
+guid: 40f3e168d56e45549a534e42e555f96c
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Offers/OfferDto.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

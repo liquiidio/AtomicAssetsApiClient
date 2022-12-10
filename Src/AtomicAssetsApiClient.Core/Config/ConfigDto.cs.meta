@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Config/ConfigDto.cs.meta
+guid: 0ae0a1bb0ceb7b249909fe07a8730641
+=======
+guid: 106850a94dba4394ea2e394fbf2a253f
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Config/ConfigDto.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/HttpRequestBuilder.cs.meta
+guid: ab08997c724a89b43897d00e87851c34
+=======
+guid: 8c68151d9760397459be2773d6211694
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient.Core/HttpRequestBuilder.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

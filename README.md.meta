@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 4f53cbda80e39c040a10aa33d94f39d4
+=======
 guid: 286e8a0ecc386d9468df97ae03ad8235
+>>>>>>> origin/unity_develop
 TextScriptImporter:
   externalObjects: {}
   userData: 

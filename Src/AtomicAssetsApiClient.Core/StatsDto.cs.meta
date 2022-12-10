@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/StatsDto.cs.meta
+guid: 4a926425bfff4f7448f839d2169cedc5
+=======
+guid: c0ac0f8e6c1cba745b1c1985f7244040
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/StatsDto.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

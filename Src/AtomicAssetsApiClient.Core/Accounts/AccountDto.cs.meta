@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Accounts/AccountDto.cs.meta
+guid: bb492d497eba8a54d80eeef22c344d3e
+=======
+guid: 0f1f2a5b5a251ef4e8277c89d5f67f7c
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Accounts/AccountDto.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

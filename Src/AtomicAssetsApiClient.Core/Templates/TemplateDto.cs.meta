@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Src/AtomicAssetsApiClient.Core/Templates/TemplateDto.cs.meta
+guid: de7f63bf78e450b4585d2e960037094a
+=======
+guid: d4787fa3bbaac7349992df642a7f2550
+>>>>>>> origin/unity_develop:AtomicAssetsApiClient/Templates/TemplateDto.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
