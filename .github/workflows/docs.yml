@@ -2,7 +2,7 @@ name : Build documents
 
 on: [push]
 jobs:
-    create-docs:           
+    create-docs:    
        runs-on: ubuntu-18.04
        container:
             image: ghcr.io/liquiidio/docker-docs-generator:moxygen
@@ -12,6 +12,8 @@ jobs:
        permissions:
                 contents: read
                 packages: write
+                pages: write      
+                id-token: write
        steps:
             - uses: actions/checkout@v2
             
@@ -63,19 +65,10 @@ jobs:
                 name: Gitbook Epub
                 path:  .github/workflows/documentation/docs.epub 
 
-            #- name: Deploy
-             # uses:  JamesIves/github-pages-deploy-action@v4
-               #if: startsWith(github.ref, 'refs/heads/docs')
-              #uses:  JamesIves/github-pages-deploy-action@v4
-              #with:
-               # github_token: ${{ secrets.GITHUB_TOKEN }}
-                #publish_dir: ${{ github.workspace }}/public
-              #uses : actions/deploy-pages@v1
-              #permissions:
-               #     pages: write      
-                #    id-token: write
-             # env:
-              #   name: Gitbook pages
-               #  url: ${{ steps.deployment.outputs.page_url }}
+            - name : deploy
+              uses : actions/deploy-pages@v1
+              env:
+                 name: Gitbook Website
+                 url: ${{ steps.deployment.outputs.page_url }}
     
     
