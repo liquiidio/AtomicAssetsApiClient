@@ -55,7 +55,7 @@ jobs:
               if: always()
               uses: actions/upload-artifact@v3
               with:
-                name: Gitbook Website
+                name: github-pages
                 path:  .github/workflows/documentation/gitbook_website 
             
             - name: Upload Gitbook PDF to artifacts
@@ -68,7 +68,7 @@ jobs:
             - name : deploy
               uses : actions/deploy-pages@v1
               env:
-                 name: Gitbook Website
+                 name: github-pages
                  url: ${{ steps.deployment.outputs.page_url }}
     
     
