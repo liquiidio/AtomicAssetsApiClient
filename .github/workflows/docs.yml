@@ -53,7 +53,7 @@ jobs:
             
             - name: Upload Gitbook Website to artifacts
               if: always()
-              uses: actions/upload-pages-artifact@v3
+              uses: actions/upload-pages-artifact@v1
               with:
                 name: github-pages
                 path:  .github/workflows/documentation/gitbook_website 
