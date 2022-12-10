@@ -35,14 +35,22 @@ jobs:
             - name: copy files to gitbook-folder 
               shell: bash
               run: cp -r .github/workflows/documentation/md .github/workflows/documentation/gitbook/docs
-            - name: build gitbook
+            - name: build gitbook website
               shell: bash
-              run: gitbook build .github/workflows/documentation/gitbook .github/workflows/documentation/gitbook_output 
-            - name: Upload pages to artifacts
+              run: gitbook build .github/workflows/documentation/gitbook .github/workflows/documentation/gitbook_website 
+            - name: build gitbook pdf
+              shell: bash
+              run: gitbook pdf .github/workflows/documentation/gitbook .github/workflows/documentation/docs.pdf 
+            - name: Upload Gitbook Website to artifacts
               uses: actions/upload-artifact@v3
               with:
-                name: Gitbook pages
-                path:  .github/workflows/documentation/gitbook_output 
+                name: Gitbook Website
+                path:  .github/workflows/documentation/gitbook_website 
+            - name: Upload Gitbook PDF to artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: Gitbook PDF
+                path:  .github/workflows/documentation/docs.pdf 
 
             #- name: Deploy
              # uses:  JamesIves/github-pages-deploy-action@v4
