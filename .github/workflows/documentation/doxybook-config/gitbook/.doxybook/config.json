@@ -1,0 +1,14 @@
+{
+  "baseUrl": "/",
+  "indexInFolders": true,
+  "linkSuffix": ".md",
+  "linkLowercase": false,
+  "indexClassesName": "README",
+  "indexFilesName": "README",
+  "indexGroupsName": "README",
+  "indexNamespaces": "README",
+  "indexRelatedPagesName": "README",
+  "mainPageInRoot": true,
+  "mainPageName": "README"
+}
+

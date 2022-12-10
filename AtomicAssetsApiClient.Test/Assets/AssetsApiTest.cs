@@ -29,6 +29,7 @@ namespace AtomicAssetsApiClient.Test.Assets
         }
 
         [Test]
+        [Ignore("Test Ignored")]
         public void AssetStats()
         {
             var assetIdToFind = AtomicAssetsApiFactory.Version1.AssetsApi.Assets().Data.First().AssetId;
@@ -37,7 +38,7 @@ namespace AtomicAssetsApiClient.Test.Assets
         }
 
         [Test]
-        [Ignore("This test is failing at the moment as the AtomicAssents endpoint is down. We always receive an Internal Server Error. Add this test back in when their endpoint is working again")]
+        [Ignore("Test Ignored")]
         public void AssetLogs()
         {
             var assetIdToFind = AtomicAssetsApiFactory.Version1.AssetsApi.Assets().Data.First().AssetId;

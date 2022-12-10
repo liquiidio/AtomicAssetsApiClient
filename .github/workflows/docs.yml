@@ -1,0 +1,58 @@
+name : Build documents
+
+on: [push]
+jobs:
+    create-docs:           
+       runs-on: ubuntu-18.04
+       container:
+            image: ghcr.io/liquiidio/docker-docs-generator:moxygen
+            credentials:
+               username: liquiidio
+               password: ${{secrets.GITHUB_TOKEN}} 
+       permissions:
+                contents: read
+                packages: write
+       steps:
+            - uses: actions/checkout@v2
+            - name: generate docs with doxygen
+              shell: bash
+              run: doxygen            .github/workflows/documentation/doxygen/Doxyfile
+            - name: Upload doygen output to artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: Doxygen output
+                path:  .github/workflows/documentation/doxyoutput/xml
+            - name: convert doxygen xml to markdown with moxygen
+              shell: bash
+              run: moxygen --classes --pages --language=cpp --output=.github/workflows/documentation/doxyoutput/doc/%s.md .github/workflows/documentation/doxyoutput/xml
+            - name: Upload moxygen output to artifacts
+              if: always()
+              uses: actions/upload-artifact@v3
+              with:
+                name: Moxygen output
+                path:  .github/workflows/documentation/doxyoutput/doc
+            - name: build gitbook
+              shell: bash
+              run: gitbook build .github/workflows/documentation/doxyoutput/doc .github/workflows/documentation/gitbook_output 
+            - name: Upload pages to artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: Gitbook pages
+                path:  .github/workflows/documentation/gitbook_output 
+
+            #- name: Deploy
+             # uses:  JamesIves/github-pages-deploy-action@v4
+               #if: startsWith(github.ref, 'refs/heads/docs')
+              #uses:  JamesIves/github-pages-deploy-action@v4
+              #with:
+               # github_token: ${{ secrets.GITHUB_TOKEN }}
+                #publish_dir: ${{ github.workspace }}/public
+              #uses : actions/deploy-pages@v1
+              #permissions:
+               #     pages: write      
+                #    id-token: write
+             # env:
+              #   name: Gitbook pages
+               #  url: ${{ steps.deployment.outputs.page_url }}
+    
+    
