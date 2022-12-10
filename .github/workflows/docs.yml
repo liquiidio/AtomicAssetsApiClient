@@ -16,24 +16,28 @@ jobs:
             - uses: actions/checkout@v2
             - name: generate docs with doxygen
               shell: bash
-              run: doxygen            .github/workflows/documentation/doxygen/Doxyfile
+              run: doxygen .github/workflows/documentation/Doxyfile
             - name: Upload doygen output to artifacts
+              if: always()
               uses: actions/upload-artifact@v3
               with:
                 name: Doxygen output
-                path:  .github/workflows/documentation/doxyoutput/xml
+                path:  .github/workflows/documentation/xml
             - name: convert doxygen xml to markdown with moxygen
               shell: bash
-              run: moxygen --classes --pages --language=cpp --output=.github/workflows/documentation/doxyoutput/doc/%s.md .github/workflows/documentation/doxyoutput/xml
+              run: moxygen --classes --pages --language=cpp --output=.github/workflows/documentation/md/%s.md .github/workflows/documentation/xml
             - name: Upload moxygen output to artifacts
               if: always()
               uses: actions/upload-artifact@v3
               with:
                 name: Moxygen output
-                path:  .github/workflows/documentation/doxyoutput/doc
+                path:  .github/workflows/documentation/md
+            - name: copy files to gitbook-folder 
+              shell: bash
+              run: cp -r .github/workflows/documentation/md .github/workflows/documentation/gitbook/docs
             - name: build gitbook
               shell: bash
-              run: gitbook build .github/workflows/documentation/doxyoutput/doc .github/workflows/documentation/gitbook_output 
+              run: gitbook build .github/workflows/documentation/gitbook .github/workflows/documentation/gitbook_output 
             - name: Upload pages to artifacts
               uses: actions/upload-artifact@v3
               with:
