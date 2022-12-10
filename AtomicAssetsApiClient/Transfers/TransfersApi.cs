@@ -11,6 +11,12 @@ namespace AtomicAssetsApiClient.Transfers
 
         internal TransfersApi(string baseUrl) => _requestUriBase = baseUrl;
 
+/// <summary>
+/// It returns a list of transfers.
+/// </summary>
+/// <returns>
+/// A list of transfers.
+/// </returns>
         public TransfersDto Transfers()
         {
             var apiRequest = HttpRequestBuilder.GetRequest(TransfersUri()).Build();
@@ -20,6 +26,14 @@ namespace AtomicAssetsApiClient.Transfers
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+/// <summary>
+/// It returns a list of transfers.
+/// </summary>
+/// <param name="TransfersUriParameterBuilder">This is a class that contains all the parameters
+/// that can be passed to the API.</param>
+/// <returns>
+/// A TransfersDto object.
+/// </returns>
         public TransfersDto Transfers(TransfersUriParameterBuilder transfersUriParameterBuilder)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(TransfersUri(transfersUriParameterBuilder)).Build();

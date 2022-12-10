@@ -11,6 +11,13 @@ namespace AtomicAssetsApiClient.Schemas
 
         internal SchemasApi(string baseUrl) => _requestUriBase = baseUrl;
 
+/// <summary>
+/// > This function will return a `SchemasDto` object that contains a list of all the schemas
+/// that are available in the API
+/// </summary>
+/// <returns>
+/// A SchemasDto object.
+/// </returns>
         public SchemasDto Schemas()
         {
             var apiRequest = HttpRequestBuilder.GetRequest(SchemasUri()).Build();
@@ -20,6 +27,15 @@ namespace AtomicAssetsApiClient.Schemas
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+/// <summary>
+/// This function will return a list of schemas that match the criteria specified in the
+/// `SchemasUriParameterBuilder` object
+/// </summary>
+/// <param name="SchemasUriParameterBuilder">This is a class that contains all the parameters
+/// that can be passed to the API.</param>
+/// <returns>
+/// A list of schemas.
+/// </returns>
         public SchemasDto Schemas(SchemasUriParameterBuilder schemasUriParameterBuilder)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(SchemasUri(schemasUriParameterBuilder)).Build();
@@ -29,6 +45,15 @@ namespace AtomicAssetsApiClient.Schemas
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+/// <summary>
+/// > This function will return a schema object for the specified collection and schema name
+/// </summary>
+/// <param name="collectionName">The name of the collection you want to get the schema
+/// for.</param>
+/// <param name="schemaName">The name of the schema you want to retrieve.</param>
+/// <returns>
+/// A SchemaDto object.
+/// </returns>
         public SchemaDto Schema(string collectionName, string schemaName)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(SchemaUri(collectionName, schemaName)).Build();
@@ -38,6 +63,15 @@ namespace AtomicAssetsApiClient.Schemas
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+/// <summary>
+/// It returns the stats of a schema.
+/// </summary>
+/// <param name="collectionName">The name of the collection you want to get the stats
+/// for.</param>
+/// <param name="schemaName">The name of the schema you want to get stats for.</param>
+/// <returns>
+/// A StatsDto object
+/// </returns>
         public StatsDto SchemaStats(string collectionName, string schemaName)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(SchemaStatsUri(collectionName, schemaName)).Build();
@@ -47,6 +81,15 @@ namespace AtomicAssetsApiClient.Schemas
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+/// <summary>
+/// This function returns a list of logs for a specific schema
+/// </summary>
+/// <param name="collectionName">The name of the collection you want to get the logs
+/// for.</param>
+/// <param name="schemaName">The name of the schema you want to get logs for.</param>
+/// <returns>
+/// A list of logs for the schema.
+/// </returns>
         public LogsDto SchemaLogs(string collectionName, string schemaName)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(SchemaLogsUri(collectionName, schemaName)).Build();
@@ -56,6 +99,17 @@ namespace AtomicAssetsApiClient.Schemas
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+/// <summary>
+/// This function returns a list of logs for a specific schema
+/// </summary>
+/// <param name="collectionName">The name of the collection you want to get the schema logs
+/// for.</param>
+/// <param name="schemaName">The name of the schema you want to get the logs for.</param>
+/// <param name="SchemasUriParameterBuilder">This is a class that contains the parameters that
+/// can be passed to the API.</param>
+/// <returns>
+/// A LogsDto object.
+/// </returns>
         public LogsDto SchemaLogs(string collectionName, string schemaName, SchemasUriParameterBuilder schemasUriParameterBuilder)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(SchemaLogsUri(collectionName, schemaName, schemasUriParameterBuilder)).Build();
