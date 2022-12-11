@@ -45,7 +45,7 @@ jobs:
             
             - name: install gitbook plugins
               shell: bash
-              run: npm install --prefix .github/workflows/documentation/gitbook @jeff-tian/gitbook-plugin-github & npm install --prefix .github/workflows/documentation/gitbook gitbook-plugin-theme-vuejs
+              run: npm install --prefix .github/workflows/documentation/gitbook gitbook-plugin-github-buttons & npm install --prefix .github/workflows/documentation/gitbook gitbook-plugin-theme-vuejs
 
             - name: build gitbook website
               shell: bash
