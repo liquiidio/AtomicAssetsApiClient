@@ -1,44 +1,44 @@
 {
- "title": "AttomicAssetsApiClient",
- "plugins": [  "github-buttons", 
-                  "sunchaser-logo",
-                  "-fontsettings",
-                  "autotheme",
-                  "back-to-top-button",
-                  "copy-code-button",
-                  "cuav-chapters",
-                  "heading-anchors"
-            ],
- "pluginsConfig": { 
-        "autotheme" : {
-          "night" : [20, 21, 22, 23, 0, 1, 2, 3, 4, 5]
-        }
-      },
-      "github-buttons": {
+     "title": "AttomicAssetsApiClient",
+     "plugins": [  "github-buttons", 
+                   "sunchaser-logo",
+                   "-fontsettings",
+                   "autotheme",
+                   "back-to-top-button",
+                   "copy-code-button",
+                   "cuav-chapters",
+                   "heading-anchors"
+                ],
+  "pluginsConfig": { 
+         "autotheme" : {
+           "night" : [20, 21, 22, 23, 0, 1, 2, 3, 4, 5]
+         }
+       },
+       "github-buttons": {
           "buttons": [{
               "user": "liquiidio",
               "repo": "AtomicAssetsApiClient-Private",
               "type": "watch",
               "size": "large"
           }]
-      },
-      "sunchaser-logo": {
-        "url": "https://avatars.githubusercontent.com/u/82725791?s=100",
-        "style": "background: none;"
-      }
-  },
-  "links": {
-    "sidebar": {
-        "Liquiid.io on GitHub": "https://github.com/liquiidio"
-    },
-    "sharing": {
+        },
+        "sunchaser-logo": {
+          "url": "https://avatars.githubusercontent.com/u/82725791?s=100",
+          "style": "background: none;"
+        }
+     },
+     "links": {
+       "sidebar": {
+          "Liquiid.io on GitHub": "https://github.com/liquiidio"
+     },
+     "sharing": {
         "all": ["facebook", "google", "twitter"],
         "facebook": true,
         "google": true,
         "twitter": true
-    }
-  },
-  "pdf": {
+     }
+   },
+   "pdf": {
     "margin": {
         "left": 56,
         "right": 56,
