@@ -1,10 +1,33 @@
 {
   "title": "AttomicAssetsApiClient",
-    "plugins": [ "github", "theme-vuejs" ],
-    "pluginsConfig": {
-        "github": {
-            "url": "https://github.com/liquiidio/AtomicAssetsApiClient-Private"
-        }
+  "plugins": [ "github", "theme-vuejs" ],
+  "pluginsConfig": {
+      "github": {
+          "url": "https://github.com/liquiidio/AtomicAssetsApiClient-Private"
+      }
+  },
+  "links": {
+    "sidebar": {
+        "Accueil - Formations SIG": "https://formationsig.gitlab.io/toc/"
+    },
+    "sharing": {
+        "all": ["twitter", "facebook"],
+        "facebook": false,
+        "google": false,
+        "twitter": false
     }
-
+  },
+  "pdf": {
+    "margin": {
+        "left": 56,
+        "right": 56,
+        "top": 56,
+        "bottom": 56
+    },
+    "pageNumbers": false,
+    "fontSize": 11,
+    "fontFamily": "Roboto",
+    "paperSize": "a4",
+    "toc": true
+  }
 }
