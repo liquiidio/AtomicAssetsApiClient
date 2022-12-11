@@ -11,118 +11,137 @@ namespace AtomicAssetsApiClient.Templates
 
         internal TemplatesApi(string baseUrl) => _requestUriBase = baseUrl;
 
-/// <summary>
-/// This function will return a list of templates that are available to the user
-/// </summary>
-/// <returns>
-/// A TemplatesDto object
-/// </returns>
+        /// <summary>
+        /// This function will return a list of templates that are available to the user
+        /// </summary>
+        /// <returns>
+        /// A TemplatesDto object
+        /// </returns>
         public TemplatesDto Templates()
         {
             var apiRequest = HttpRequestBuilder.GetRequest(TemplatesUri()).Build();
             var apiResponse = Client.SendAsync(apiRequest).Result;
             if (apiResponse.IsSuccessStatusCode)
                 return apiResponse.ContentAs<TemplatesDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            throw new ArgumentException(
+                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-/// <summary>
-/// This function will return a TemplatesDto object that contains a list of templates that match
-/// the criteria specified in the TemplatesUriParameterBuilder object
-/// </summary>
-/// <param name="TemplatesUriParameterBuilder">This is a class that contains all the parameters
-/// that can be passed to the API.</param>
-/// <returns>
-/// A TemplatesDto object.
-/// </returns>
+        /// <summary>
+        /// This function will return a TemplatesDto object that contains a list of templates that match
+        /// the criteria specified in the TemplatesUriParameterBuilder object
+        /// </summary>
+        /// <param name="TemplatesUriParameterBuilder">This is a class that contains all the parameters
+        /// that can be passed to the API.</param>
+        /// <returns>
+        /// A TemplatesDto object.
+        /// </returns>
         public TemplatesDto Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(TemplatesUri(templatesUriParameterBuilder)).Build();
             var apiResponse = Client.SendAsync(apiRequest).Result;
             if (apiResponse.IsSuccessStatusCode)
                 return apiResponse.ContentAs<TemplatesDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            throw new ArgumentException(
+                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-/// <summary>
-/// This function will return a TemplateDto object from the API
-/// </summary>
-/// <param name="collectionName">The name of the collection you want to create the template
-/// in.</param>
-/// <param name="templateId">The id of the template you want to retrieve.</param>
-/// <returns>
-/// A TemplateDto object
-/// </returns>
+        /// <summary>
+        /// This function will return a TemplateDto object from the API
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to create the template
+        /// in.</param>
+        /// <param name="templateId">The id of the template you want to retrieve.</param>
+        /// <returns>
+        /// A TemplateDto object
+        /// </returns>
         public TemplateDto Template(string collectionName, string templateId)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(TemplateUri(collectionName, templateId)).Build();
             var apiResponse = Client.SendAsync(apiRequest).Result;
             if (apiResponse.IsSuccessStatusCode)
                 return apiResponse.ContentAs<TemplateDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            throw new ArgumentException(
+                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-/// <summary>
-/// This function will return a StatsDto object that contains the number of documents that have
-/// been indexed using the specified template
-/// </summary>
-/// <param name="collectionName">The name of the collection you want to get the stats
-/// for.</param>
-/// <param name="templateId">The id of the template you want to get stats for.</param>
-/// <returns>
-/// A StatsDto object
-/// </returns>
+        /// <summary>
+        /// This function will return a StatsDto object that contains the number of documents that have
+        /// been indexed using the specified template
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to get the stats
+        /// for.</param>
+        /// <param name="templateId">The id of the template you want to get stats for.</param>
+        /// <returns>
+        /// A StatsDto object
+        /// </returns>
         public StatsDto TemplateStats(string collectionName, string templateId)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(TemplateStatsUri(collectionName, templateId)).Build();
             var apiResponse = Client.SendAsync(apiRequest).Result;
             if (apiResponse.IsSuccessStatusCode)
                 return apiResponse.ContentAs<StatsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            throw new ArgumentException(
+                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-/// <summary>
-/// This function returns a list of logs for a specific template
-/// </summary>
-/// <param name="collectionName">The name of the collection you want to get the logs for.</param>
-/// <param name="templateId">The id of the template you want to get the logs for.</param>
-/// <returns>
-/// A list of logs for a specific template.
-/// </returns>
+        /// <summary>
+        /// This function returns a list of logs for a specific template
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to get the logs for.</param>
+        /// <param name="templateId">The id of the template you want to get the logs for.</param>
+        /// <returns>
+        /// A list of logs for a specific template.
+        /// </returns>
         public LogsDto TemplateLogs(string collectionName, string templateId)
         {
             var apiRequest = HttpRequestBuilder.GetRequest(TemplateLogsUri(collectionName, templateId)).Build();
             var apiResponse = Client.SendAsync(apiRequest).Result;
             if (apiResponse.IsSuccessStatusCode)
                 return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            throw new ArgumentException(
+                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-/// <summary>
-/// This function returns a list of logs for a specific template
-/// </summary>
-/// <param name="collectionName">The name of the collection you want to get the logs
-/// for.</param>
-/// <param name="templateId">The id of the template you want to get the logs for.</param>
-/// <param name="TemplatesUriParameterBuilder">This is a class that contains all the parameters
-/// that can be passed to the API.</param>
-/// <returns>
-/// A LogsDto object
-/// </returns>
-        public LogsDto TemplateLogs(string collectionName, string templateId, TemplatesUriParameterBuilder templatesUriParameterBuilder)
+        /// <summary>
+        /// This function returns a list of logs for a specific template
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to get the logs
+        /// for.</param>
+        /// <param name="templateId">The id of the template you want to get the logs for.</param>
+        /// <param name="TemplatesUriParameterBuilder">This is a class that contains all the parameters
+        /// that can be passed to the API.</param>
+        /// <returns>
+        /// A LogsDto object
+        /// </returns>
+        public LogsDto TemplateLogs(string collectionName, string templateId,
+            TemplatesUriParameterBuilder templatesUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateLogsUri(collectionName, templateId, templatesUriParameterBuilder)).Build();
+            var apiRequest = HttpRequestBuilder
+                .GetRequest(TemplateLogsUri(collectionName, templateId, templatesUriParameterBuilder)).Build();
             var apiResponse = Client.SendAsync(apiRequest).Result;
             if (apiResponse.IsSuccessStatusCode)
                 return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            throw new ArgumentException(
+                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
         private Uri TemplatesUri() => new Uri($"{_requestUriBase}/templates");
-        private Uri TemplatesUri(TemplatesUriParameterBuilder templatessUriParameterBuilder) => new Uri($"{_requestUriBase}/templates{templatessUriParameterBuilder.Build()}");
-        private Uri TemplateUri(string collectionName, string templateId) => new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}");
-        private Uri TemplateStatsUri(string collectionName, string templateId) => new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/stats");
-        private Uri TemplateLogsUri(string collectionName, string templateId) => new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/logs");
-        private Uri TemplateLogsUri(string collectionName, string templateId, TemplatesUriParameterBuilder templatesUriParameterBuilder) => new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/logs{templatesUriParameterBuilder.Build()}");
+
+        private Uri TemplatesUri(TemplatesUriParameterBuilder templatessUriParameterBuilder) =>
+            new Uri($"{_requestUriBase}/templates{templatessUriParameterBuilder.Build()}");
+
+        private Uri TemplateUri(string collectionName, string templateId) =>
+            new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}");
+
+        private Uri TemplateStatsUri(string collectionName, string templateId) =>
+            new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/stats");
+
+        private Uri TemplateLogsUri(string collectionName, string templateId) =>
+            new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/logs");
+
+        private Uri TemplateLogsUri(string collectionName, string templateId,
+            TemplatesUriParameterBuilder templatesUriParameterBuilder) => new Uri(
+            $"{_requestUriBase}/templates/{collectionName}/{templateId}/logs{templatesUriParameterBuilder.Build()}");
     }
 }
