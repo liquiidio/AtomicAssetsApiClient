@@ -1,8 +1,9 @@
 {
-    "title": "AttomicAssetsApiClient",
+ "title": "AttomicAssetsApiClient",
  "plugins": [  "github-buttons", 
                   "sunchaser-logo",
                   "-fontsettings",
+                  "autotheme"
                   "back-to-top-button",
                   "copy-code-button",
                   "cuav-chapters",
@@ -20,6 +21,10 @@
     "sunchaser-logo": {
         "url": "https://avatars.githubusercontent.com/u/82725791?s=100",
         "style": "background: none;"
+    }
+  },
+    "autotheme" : {
+        "night" : [20, 21, 22, 23, 0, 1, 2, 3, 4, 5]
     }
   },
   "links": {
