@@ -1,15 +1,27 @@
 {
   "title": "AttomicAssetsApiClient",
-  "plugins": [ "github-buttons", "theme-vuejs" ],
+  "plugins": [  "github-buttons", 
+                "theme-bandwidth", 
+                "sunchaser-logo",
+                "-fontsettings",
+                "back-to-top-button",
+                "copy-code-button",
+                "cuav-chapters",
+                "heading-anchors"
+             ],
   "pluginsConfig": {
     "github-buttons": {
-          "buttons": [{
-            "user": "liquiidio",
-            "repo": "AtomicAssetsApiClient-Private",
-            "type": "watch",
-            "size": "large"
-          }]
-        }
+        "buttons": [{
+          "user": "liquiidio",
+          "repo": "AtomicAssetsApiClient-Private",
+          "type": "watch",
+          "size": "large"
+        }]
+    },
+    "sunchaser-logo": {
+        "url": "https://avatars.githubusercontent.com/u/82725791",
+        "style": "background: none;"
+    }
   },
   "links": {
     "sidebar": {
