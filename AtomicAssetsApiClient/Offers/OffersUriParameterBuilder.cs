@@ -258,7 +258,7 @@ namespace AtomicAssetsApiClient.Offers
 
 
 /// <summary>
-/// > This function sets the schema name for the query
+/// This function sets the schema name for the query
 /// </summary>
 /// <param name="schemaName">The name of the schema to use.</param>
 /// <returns>
@@ -302,7 +302,7 @@ namespace AtomicAssetsApiClient.Offers
 
 
 /// <summary>
-/// > This function takes an array of strings and joins them together with a comma
+/// This function takes an array of strings and joins them together with a comma
 /// </summary>
 /// <param name="ids">A comma-separated list of account IDs.</param>
 /// <returns>
@@ -400,7 +400,7 @@ namespace AtomicAssetsApiClient.Offers
 
 
 /// <summary>
-/// > This function sets the sort strategy for the query
+/// This function sets the sort strategy for the query
 /// </summary>
 /// <param name="SortStrategy"></param>
 /// <returns>

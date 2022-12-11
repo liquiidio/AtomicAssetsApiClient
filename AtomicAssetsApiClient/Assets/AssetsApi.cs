@@ -12,7 +12,7 @@ namespace AtomicAssetsApiClient.Assets
         internal AssetsApi(string baseUrl) => _requestUriBase = baseUrl;
 
 /// <summary>
-/// > This function will return a list of all the assets that are available for trading on the
+/// This function will return a list of all the assets that are available for trading on the
 /// exchange
 /// </summary>
 /// <returns>
@@ -28,7 +28,7 @@ namespace AtomicAssetsApiClient.Assets
         }
 
 /// <summary>
-/// > This function will return a list of assets based on the parameters passed in
+/// This function will return a list of assets based on the parameters passed in
 /// </summary>
 /// <param name="AssetsUriParameterBuilder">This is a class that contains all the parameters
 /// that can be passed to the API.</param>
@@ -45,7 +45,7 @@ namespace AtomicAssetsApiClient.Assets
         }
 
 /// <summary>
-/// > This function will return an AssetDto object from the API
+/// This function will return an AssetDto object from the API
 /// </summary>
 /// <param name="assetId">The id of the asset you want to retrieve.</param>
 /// <returns>

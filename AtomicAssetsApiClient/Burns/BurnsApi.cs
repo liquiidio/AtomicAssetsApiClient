@@ -12,7 +12,7 @@ namespace AtomicAssetsApiClient.Burns
         internal BurnsApi(string baseUrl) => _requestUriBase = baseUrl;
 
 /// <summary>
-/// > This function will make a GET request to the Burns endpoint and return the response as a
+/// This function will make a GET request to the Burns endpoint and return the response as a
 /// BurnsDto object
 /// </summary>
 /// <returns>
@@ -28,7 +28,7 @@ namespace AtomicAssetsApiClient.Burns
         }
 
 /// <summary>
-/// > This function will return a BurnsDto object if the API call is successful. Otherwise, it
+/// This function will return a BurnsDto object if the API call is successful. Otherwise, it
 /// will throw an exception
 /// </summary>
 /// <param name="BurnsUriParameterBuilder">This is a class that contains all the parameters that

@@ -12,7 +12,7 @@ namespace AtomicAssetsApiClient.Offers
         internal OffersApi(string baseUrl) => _requestUriBase = baseUrl;
 
 /// <summary>
-/// > This function will make a GET request to the `Offers` endpoint and return the response as
+/// This function will make a GET request to the `Offers` endpoint and return the response as
 /// a `OffersDto` object
 /// </summary>
 /// <returns>
@@ -46,7 +46,7 @@ namespace AtomicAssetsApiClient.Offers
         }
 
 /// <summary>
-/// > This function will return an OfferDto object if the API call is successful. Otherwise, it
+/// This function will return an OfferDto object if the API call is successful. Otherwise, it
 /// will throw an exception
 /// </summary>
 /// <param name="offerId">The id of the offer you want to retrieve.</param>

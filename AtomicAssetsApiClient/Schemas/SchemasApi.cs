@@ -12,7 +12,7 @@ namespace AtomicAssetsApiClient.Schemas
         internal SchemasApi(string baseUrl) => _requestUriBase = baseUrl;
 
 /// <summary>
-/// > This function will return a `SchemasDto` object that contains a list of all the schemas
+/// This function will return a `SchemasDto` object that contains a list of all the schemas
 /// that are available in the API
 /// </summary>
 /// <returns>
@@ -46,7 +46,7 @@ namespace AtomicAssetsApiClient.Schemas
         }
 
 /// <summary>
-/// > This function will return a schema object for the specified collection and schema name
+/// This function will return a schema object for the specified collection and schema name
 /// </summary>
 /// <param name="collectionName">The name of the collection you want to get the schema
 /// for.</param>

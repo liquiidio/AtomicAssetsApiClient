@@ -45,7 +45,7 @@ namespace AtomicAssetsApiClient.Accounts
         }
 
 /// <summary>
-/// > This function will return an AccountDto object if the API call is successful, otherwise it
+/// This function will return an AccountDto object if the API call is successful, otherwise it
 /// will throw an exception
 /// </summary>
 /// <param name="accountName">The name of the account you want to retrieve.</param>
@@ -62,7 +62,7 @@ namespace AtomicAssetsApiClient.Accounts
         }
 
 /// <summary>
-/// > This function will return an AccountCollectionDto object if the request is successful
+/// This function will return an AccountCollectionDto object if the request is successful
 /// </summary>
 /// <param name="accountName">The name of the account you want to retrieve.</param>
 /// <param name="collectionName">The name of the collection you want to retrieve.</param>

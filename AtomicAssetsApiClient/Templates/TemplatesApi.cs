@@ -12,7 +12,7 @@ namespace AtomicAssetsApiClient.Templates
         internal TemplatesApi(string baseUrl) => _requestUriBase = baseUrl;
 
 /// <summary>
-/// > This function will return a list of templates that are available to the user
+/// This function will return a list of templates that are available to the user
 /// </summary>
 /// <returns>
 /// A TemplatesDto object
@@ -45,7 +45,7 @@ namespace AtomicAssetsApiClient.Templates
         }
 
 /// <summary>
-/// > This function will return a TemplateDto object from the API
+/// This function will return a TemplateDto object from the API
 /// </summary>
 /// <param name="collectionName">The name of the collection you want to create the template
 /// in.</param>

@@ -46,7 +46,7 @@ namespace AtomicAssetsApiClient.Collections
         }
 
 /// <summary>
-/// > This function will return a collection object from the API
+/// This function will return a collection object from the API
 /// </summary>
 /// <param name="collectionName">The name of the collection you want to retrieve.</param>
 /// <returns>
@@ -62,7 +62,7 @@ namespace AtomicAssetsApiClient.Collections
         }
  
 /// <summary>
-/// > This function will return a StatsDto object that contains the stats for the collection
+/// This function will return a StatsDto object that contains the stats for the collection
 /// specified in the collectionName parameter
 /// </summary>
 /// <param name="collectionName">The name of the collection you want to get stats for.</param>
