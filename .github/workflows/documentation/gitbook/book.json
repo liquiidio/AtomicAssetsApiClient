@@ -1,3 +1,10 @@
 {
-  "title": "AttomicAssetsApiClient"
+  "title": "AttomicAssetsApiClient",
+    "plugins": [ "github", "theme-vuejs" ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/liquiidio/AtomicAssetsApiClient-Private"
+        }
+    }
+
 }
