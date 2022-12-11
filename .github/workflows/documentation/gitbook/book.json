@@ -8,13 +8,13 @@
   },
   "links": {
     "sidebar": {
-        "Accueil - Formations SIG": "https://formationsig.gitlab.io/toc/"
+        "Follow Liquiid.io on GitHub": "https://github.com/liquiidio"
     },
     "sharing": {
-        "all": ["twitter", "facebook"],
-        "facebook": false,
-        "google": false,
-        "twitter": false
+        "all": ["facebook", "google", "twitter"],
+        "facebook": true,
+        "google": true,
+        "twitter": true
     }
   },
   "pdf": {
