@@ -45,7 +45,8 @@ jobs:
             
             - name: install gitbook plugins
               shell: bash
-              run: npm install \
+              run: | 
+                npm install \
                 --prefix .github/workflows/documentation/gitbook \ 
                 gitbook-plugin-github-buttons \
                 gitbook-plugin-theme-bandwidth \
