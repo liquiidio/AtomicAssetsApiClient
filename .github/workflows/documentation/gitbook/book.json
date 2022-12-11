@@ -1,10 +1,15 @@
 {
   "title": "AttomicAssetsApiClient",
-  "plugins": [ "github", "theme-vuejs" ],
+  "plugins": [ "github-buttons", "theme-vuejs" ],
   "pluginsConfig": {
-      "github": {
-          "url": "https://github.com/liquiidio/AtomicAssetsApiClient-Private"
-      }
+    "github-buttons": {
+          "buttons": [{
+            "user": "liquiidio",
+            "repo": "AtomicAssetsApiClient-Private",
+            "type": "no-text-variant",
+            "size": "large"
+          }]
+        }
   },
   "links": {
     "sidebar": {
