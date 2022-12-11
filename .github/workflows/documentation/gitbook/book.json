@@ -1,8 +1,8 @@
 {
   "title": "AttomicAssetsApiClient",
-  "plugins": [ "forkmegithub", "theme-vuejs" ],
+  "plugins": [ "github", "theme-vuejs" ],
   "pluginsConfig": {
-      "forkmegithub": {
+      "github": {
           "url": "https://github.com/liquiidio/AtomicAssetsApiClient-Private"
       }
   },
