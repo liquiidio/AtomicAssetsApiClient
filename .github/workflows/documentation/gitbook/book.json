@@ -6,14 +6,14 @@
           "buttons": [{
             "user": "liquiidio",
             "repo": "AtomicAssetsApiClient-Private",
-            "type": "no-text-variant",
+            "type": "watch",
             "size": "large"
           }]
         }
   },
   "links": {
     "sidebar": {
-        "Follow Liquiid.io on GitHub": "https://github.com/liquiidio"
+        "Liquiid.io on GitHub": "https://github.com/liquiidio"
     },
     "sharing": {
         "all": ["facebook", "google", "twitter"],
