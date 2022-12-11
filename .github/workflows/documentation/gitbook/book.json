@@ -3,7 +3,7 @@
  "plugins": [  "github-buttons", 
                   "sunchaser-logo",
                   "-fontsettings",
-                  "autotheme"
+                  "autotheme",
                   "back-to-top-button",
                   "copy-code-button",
                   "cuav-chapters",
