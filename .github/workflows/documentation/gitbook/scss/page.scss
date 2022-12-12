@@ -1,5 +1,4 @@
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/variables";
-@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/website/_table";
 // Put your variable overrides here
 $book-background: black;
 $page-background: black;
@@ -21,12 +20,15 @@ $td-map                         :(
                                 ) !default;
 th {
     color: none;
-    @include print( $th-map );
+    background: none,
+    padding: 10px
+   // @include print( $th-map );
 }
 
 td {
     color: none;
-    @include print( $td-map );
+    padding: 20px 10px
+    //@include print( $td-map );
 }
 
 
