@@ -1,4 +1,5 @@
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/variables";
+@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/tables";
 
 // Put your variable overrides here
 $book-background: black;
@@ -11,7 +12,6 @@ $font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
 $page-header-height : 100px;
 
-@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/tables";
 
 $th-map                          :(
                                     background: none,
