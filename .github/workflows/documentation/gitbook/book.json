@@ -12,11 +12,13 @@
                    "heading-anchors"
                 ],
   "pluginsConfig": { 
-          "theme-gestalt": {
+           "theme-gestalt": {
                "excludeDefaultStyles": true,
-       },
-       "styles" : {
+           }
+         },
+         "styles" : {
             "website" : "./scss/page.scss"
+         }
        }, 
        "github-buttons": {
           "buttons": [{
