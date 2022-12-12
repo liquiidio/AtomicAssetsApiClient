@@ -12,21 +12,21 @@ $page-header-height : 100px;
 
 
 $th-map                          :(
-                                    background: none,
+                                    background: black,
                                     padding: 10px
                                 ) !default;
 $td-map                         :(
                                     padding: 20px 10px
                                 ) !default;
 th {
-    color: none;
-    background: none,
+    color: black;
+    background: black,
     //padding: 10px
    // @include print( $th-map );
 }
 
 td {
-    color: none;
+    color: black;
    // padding: 20px 10px
     //@include print( $td-map );
 }
