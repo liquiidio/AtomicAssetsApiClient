@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System;
 
-namespace AtomicAssetsApiClient.Core.Exceptions
+namespace AtomicAssetsApiClient.Exceptions
 {
     /// <summary>
     /// Wrapper exception for EOSIO api error

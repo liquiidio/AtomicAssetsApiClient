@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace AtomicAssetsApiClient.Core.Transfers
+namespace AtomicAssetsApiClient.Transfers
 {
     public class TransfersApiBase
     {

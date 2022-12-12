@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using System;
 
-namespace AtomicAssetsApiClient.Core.Exceptions
+namespace AtomicAssetsApiClient.Exceptions
 {
     /// <summary>
     /// Generic Api exception

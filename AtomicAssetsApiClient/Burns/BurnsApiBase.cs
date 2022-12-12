@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace AtomicAssetsApiClient.Core.Burns
+namespace AtomicAssetsApiClient.Burns
 {
     public class BurnsApiBase
     { 

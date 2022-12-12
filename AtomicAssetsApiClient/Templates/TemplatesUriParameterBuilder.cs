@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtomicAssetsApiClient.Core.Templates
+namespace AtomicAssetsApiClient.Templates
 {
     public class TemplatesUriParameterBuilder
     {

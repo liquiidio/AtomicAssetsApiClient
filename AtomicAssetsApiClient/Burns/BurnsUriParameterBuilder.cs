@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtomicAssetsApiClient.Core.Burns
+namespace AtomicAssetsApiClient.Burns
 {
     public class BurnsUriParameterBuilder
     {

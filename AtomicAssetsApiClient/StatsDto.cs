@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace AtomicAssetsApiClient.Core
+namespace AtomicAssetsApiClient
 {
     public class StatsDto
     {

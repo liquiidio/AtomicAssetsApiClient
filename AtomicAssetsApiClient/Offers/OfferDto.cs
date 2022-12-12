@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace AtomicAssetsApiClient.Core.Offers
+namespace AtomicAssetsApiClient.Offers
 {
     public class OfferDto
     {

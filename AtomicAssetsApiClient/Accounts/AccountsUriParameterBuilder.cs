@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtomicAssetsApiClient.Core.Accounts
+namespace AtomicAssetsApiClient.Accounts
 {
     public class AccountsUriParameterBuilder
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtomicAssetsApiClient.Core.Schemas
+namespace AtomicAssetsApiClient.Schemas
 {
     public class SchemasUriParameterBuilder
     {

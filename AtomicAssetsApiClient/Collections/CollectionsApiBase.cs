@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace AtomicAssetsApiClient.Core.Collections
+namespace AtomicAssetsApiClient.Collections
 {
     public class CollectionsApiBase
     {

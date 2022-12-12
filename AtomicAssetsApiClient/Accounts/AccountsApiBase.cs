@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace AtomicAssetsApiClient.Core.Accounts
+namespace AtomicAssetsApiClient.Accounts
 {
     public class AccountsApiBase
     {

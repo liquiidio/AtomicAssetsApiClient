@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace AtomicAssetsApiClient.Core
+namespace AtomicAssetsApiClient
 {
     /// <summary>
     /// Http handler interface for cross platform specific implementations

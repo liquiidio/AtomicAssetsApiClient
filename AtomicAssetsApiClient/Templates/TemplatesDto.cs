@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace AtomicAssetsApiClient.Core.Templates
+namespace AtomicAssetsApiClient.Templates
 {
     public class TemplatesDto
     {

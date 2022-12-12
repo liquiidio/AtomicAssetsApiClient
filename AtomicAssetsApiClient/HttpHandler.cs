@@ -1,4 +1,4 @@
-﻿using AtomicAssetsApiClient.Core;
+﻿using AtomicAssetsApiClient;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-using AtomicAssetsApiClient.Core.Helpers;
-using AtomicAssetsApiClient.Core.Exceptions;
+using AtomicAssetsApiClient.Helpers;
+using AtomicAssetsApiClient.Exceptions;
 using Cryptography.ECDSA;
 
 namespace AtomicAssetsApiClient

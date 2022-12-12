@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtomicAssetsApiClient.Core.Offers
+namespace AtomicAssetsApiClient.Offers
 {
     public class OffersUriParameterBuilder
     {

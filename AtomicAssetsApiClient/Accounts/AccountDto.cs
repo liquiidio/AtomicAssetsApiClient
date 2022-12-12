@@ -1,7 +1,7 @@
 ﻿using AtomicAssetsApiClient.Core.Collections;
 using Newtonsoft.Json;
 
-namespace AtomicAssetsApiClient.Core.Accounts
+namespace AtomicAssetsApiClient.Accounts
 {
     public class AccountDto
     {

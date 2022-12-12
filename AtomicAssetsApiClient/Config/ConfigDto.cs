@@ -1,4 +1,4 @@
-﻿namespace AtomicAssetsApiClient.Core.Config
+﻿namespace AtomicAssetsApiClient.Config
 {
     public class ConfigDto
     {

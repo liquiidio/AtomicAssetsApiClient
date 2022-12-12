@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace AtomicAssetsApiClient.Core.Transfers
+namespace AtomicAssetsApiClient.Transfers
 {
     //TODO use the correct parameters
     public class TransfersUriParameterBuilder

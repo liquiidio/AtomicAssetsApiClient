@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace AtomicAssetsApiClient.Core.Config
+namespace AtomicAssetsApiClient.Config
 {
     public class ConfigApiBase
     {

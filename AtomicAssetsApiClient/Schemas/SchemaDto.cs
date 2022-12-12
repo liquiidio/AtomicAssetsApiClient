@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace AtomicAssetsApiClient.Core.Schemas
+namespace AtomicAssetsApiClient.Schemas
 {
     public class SchemaDto
     {

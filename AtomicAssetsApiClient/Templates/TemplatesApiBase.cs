@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace AtomicAssetsApiClient.Core.Templates
+namespace AtomicAssetsApiClient.Templates
 {
     public class TemplatesApiBase
     {
