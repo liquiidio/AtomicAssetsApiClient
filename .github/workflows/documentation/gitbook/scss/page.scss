@@ -13,7 +13,8 @@ $page-header-height : 60px;
 
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
 
-$sidebar-logo-height : 100px;
+
+$sidebar-logo-height : 150px;
 
 .header-inner {
     
@@ -39,7 +40,7 @@ $sidebar-logo-height : 100px;
 		height: 100px;
 		width: 120px;
 		background: url('./logo.png');
-		background-size: 120px 50px;
+		background-size: 120px 100px;
 		background-repeat: no-repeat;
 		img {
 			display: block;
