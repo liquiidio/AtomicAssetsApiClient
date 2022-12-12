@@ -1,13 +1,15 @@
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/variables";
 
 // Put your variable overrides here
-$book-background: black;
-$page-background: black;
+//$book-background: black;
+$page-background: white;
 $sidebar-background: black;
 $color-border: $color-gray-dark;
 
 $color-primary: orange;
 $color-text: white;
-$font-family-sans : Roboto, sans-serif !default
+$font-family-sans : Roboto, sans-serif !default ;
+$line-height-base : 0.1 ;
+$spacing-unit : 2px ;
 
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
