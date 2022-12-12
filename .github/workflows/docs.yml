@@ -51,9 +51,9 @@ jobs:
               shell: bash
               run: gitbook build .github/workflows/documentation/gitbook .github/workflows/documentation/gitbook_website 
             
-            - name: build gitbook epub
-              shell: bash
-              run: gitbook epub .github/workflows/documentation/gitbook .github/workflows/documentation/docs.epub 
+          #  - name: build gitbook epub
+           #   shell: bash
+            #  run: gitbook epub .github/workflows/documentation/gitbook .github/workflows/documentation/docs.epub 
             
             - name: Upload Gitbook Website to artifacts
               if: always()
@@ -62,12 +62,12 @@ jobs:
                 name: github-pages
                 path:  .github/workflows/documentation/gitbook_website 
             
-            - name: Upload Gitbook Epub to artifacts
-              if: always()
-              uses: actions/upload-artifact@v3
-              with:
-                name: Gitbook PDF
-                path:  .github/workflows/documentation/docs.epub 
+            #- name: Upload Gitbook Epub to artifacts
+             # if: always()
+              #uses: actions/upload-artifact@v3
+              #with:
+               # name: Gitbook PDF
+                #path:  .github/workflows/documentation/docs.epub 
 
             - name : deploy
               uses : actions/deploy-pages@v1
