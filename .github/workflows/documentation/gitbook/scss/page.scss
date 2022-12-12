@@ -7,7 +7,7 @@ $sidebar-background: black;
 
 $color-primary: orange;
 $color-text: white;
-$color-text-muted : blue;
+$color-text-muted : white;
 $color-gray-lightest : black;
 $font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
@@ -16,20 +16,20 @@ $page-header-height : 60px;
 //table
 
 $th-map                          :(
-                                    background:blue,
+                                    background: black,
                                     padding: 10px
                                 ) !default;
 $td-map                         :(
                                     padding: 20px 10px
                                 ) !default;
 th {
-    color: blue;
+    color: black;
     
     @include print( $th-map );
 }
 
 td {
-    color: blue;
+    color: black;
     @include print( $td-map );
 }
 
