@@ -1,5 +1,4 @@
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/variables";
-@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/tables";
 
 // Put your variable overrides here
 $book-background: black;
@@ -32,4 +31,4 @@ td {
 }
 
 
-//@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
+@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
