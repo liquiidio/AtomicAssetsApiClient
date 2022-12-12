@@ -1,5 +1,5 @@
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/variables";
-@import "mixins"
+@import "mixins";
 // Put your variable overrides here
 $book-background: black;
 $page-background: black;
@@ -21,7 +21,6 @@ $td-map                         :(
                                 ) !default;
 th {
     color: none;
-    
     @include print( $th-map );
 }
 
