@@ -16,8 +16,4 @@
     <RepositoryUrl>https://github.com/liquiidio/AtomicAssetsApiClient-Private</RepositoryUrl>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AtomicAssetsApiClient.Core\AtomicAssetsApiClient.Core.csproj" />
-  </ItemGroup>
-
 </Project>
