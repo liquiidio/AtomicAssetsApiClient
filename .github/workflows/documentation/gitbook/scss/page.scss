@@ -44,7 +44,7 @@ td {
     position: absolute;
     top: 100%;
     left: -5px;
-    z-index: $dropdown-zindex;
+  //  z-index: $dropdown-zindex;
     display: none; // none by default, but block on "open" of the menu
     float: left;
     min-width: 160px;
