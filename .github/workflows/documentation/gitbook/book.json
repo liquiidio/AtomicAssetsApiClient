@@ -13,12 +13,10 @@
                 ],
   "pluginsConfig": { 
            "theme-gestalt": {
-               "excludeDefaultStyles": true,
-           }
+               "excludeDefaultStyles": true 
          },
          "styles" : {
             "website" : "./scss/page.scss"
-         }
        }, 
        "github-buttons": {
           "buttons": [{
