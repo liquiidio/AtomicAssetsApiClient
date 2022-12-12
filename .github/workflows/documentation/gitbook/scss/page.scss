@@ -13,6 +13,11 @@ $font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
 $page-header-height : 60px;
 
+
+$table-tr-map                       : (
+                                        background-color: black,
+                                        border-top: 1px solid 
+                                    ) !default;
 //table
 
 $th-map                          :(
