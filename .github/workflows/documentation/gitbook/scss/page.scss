@@ -39,6 +39,10 @@ td {
 }
 
 //dropdown
+.dropdown-menu.dropdown-left .dropdown-caret {
+    right: 5px;
+    left: auto;
+}
 .dropdown-caret
 {
     position: absolute;
