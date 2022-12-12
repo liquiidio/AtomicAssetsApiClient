@@ -28,13 +28,13 @@ $td-map                         :(
                                     padding: 20px 10px
                                 ) !default;
 th {
-    color: blue;
+    color: white;
     
     @include print( $th-map );
 }
 
 td {
-    color: blue;
+    color: white;
     @include print( $td-map );
 }
 
