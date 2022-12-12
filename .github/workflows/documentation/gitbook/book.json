@@ -15,7 +15,7 @@
            "theme-gestalt": {
                "excludeDefaultStyles": true 
          },
-         "styles" : {
+         "styles-sass-fix" : {
             "website" : "./scss/page.scss"
        }, 
        "github-buttons": {
