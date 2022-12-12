@@ -8,10 +8,6 @@ $color-border: $color-gray-dark;
 
 $color-primary: orange;
 $color-text: white;
-
-$heading-map : ( 
-				color: white, 
-				
-				);
+$font-family-sans : Roboto, sans-serif !default
 
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
