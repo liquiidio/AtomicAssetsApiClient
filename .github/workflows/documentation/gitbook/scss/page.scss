@@ -15,7 +15,7 @@ $page-header-height : 60px;
 
 
 $table-tr-map                       : (
-                                        background-color: white,
+                                        background-color: black,
                                         border-top: 1px solid 
                                     ) !default;
 //table
@@ -28,13 +28,13 @@ $td-map                         :(
                                     padding: 20px 10px
                                 ) !default;
 th {
-    color: white;
+    color: blue;
     
     @include print( $th-map );
 }
 
 td {
-    color: white;
+    color: blue;
     @include print( $td-map );
 }
 
@@ -67,7 +67,7 @@ $sidebar-logo-height                : 30px !default;
 		height: 100px;
 		width: 120px;
 		background: url('./logo.png');
-		background-size: 120px 50px;
+		background-size: 120px 100px;
 		background-repeat: no-repeat;
 		img {
 			display: block;
