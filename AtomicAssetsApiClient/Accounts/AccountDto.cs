@@ -1,4 +1,4 @@
-﻿using AtomicAssetsApiClient.Core.Collections;
+﻿using AtomicAssetsApiClient.Collections;
 using Newtonsoft.Json;
 
 namespace AtomicAssetsApiClient.Accounts

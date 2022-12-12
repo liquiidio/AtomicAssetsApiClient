@@ -19,29 +19,42 @@ namespace AtomicAssetsApiClient
 
         public static AtomicAssetsApiFactory Version1 => new AtomicAssetsApiFactory(Version1BaseUrl);
 
-        public AccountsApi AccountsApi => new AccountsApi(_baseUrl);
-
-        public AssetsApi AssetsApi => new AssetsApi(_baseUrl);
-
-        public BurnsApi BurnsApi => new BurnsApi(_baseUrl);
-
-        public CollectionsApi CollectionsApi => new CollectionsApi(_baseUrl);
-
-        public ConfigApi ConfigApi => new ConfigApi(_baseUrl);
-
-        public OffersApi OffersApi => new OffersApi(_baseUrl);
-
-        public SchemasApi SchemasApi => new SchemasApi(_baseUrl);
-
-        public TemplatesApi TemplatesApi => new TemplatesApi(_baseUrl);
-
-        public TransfersApi TransfersApi =>
-
 #if !UNITY
-                new TransfersApi(_baseUrl);
-#else
-            new TranserApi(_baseUrl);
-#endif
+        public AccountsApi AccountsApi => new AccountsApi(_baseUrl, new HttpClientHandler());
 
+        public AssetsApi AssetsApi => new AssetsApi(_baseUrl, new HttpClientHandler());
+
+        public BurnsApi BurnsApi => new BurnsApi(_baseUrl, new HttpClientHandler());
+
+        public CollectionsApi CollectionsApi => new CollectionsApi(_baseUrl, new HttpClientHandler());
+
+        public ConfigApi ConfigApi => new ConfigApi(_baseUrl, new HttpClientHandler());
+
+        public OffersApi OffersApi => new OffersApi(_baseUrl, new HttpClientHandler());
+
+        public SchemasApi SchemasApi => new SchemasApi(_baseUrl, new HttpClientHandler());
+
+        public TemplatesApi TemplatesApi => new TemplatesApi(_baseUrl, new HttpClientHandler());
+
+        public TransfersApi TransfersApi => new TransfersApi(_baseUrl, new HttpClientHandler());
+#else
+        public AccountsApi AccountsApi => new AccountsApi(_baseUrl, new UnityWebRequestHandler());
+
+        public AssetsApi AssetsApi => new AssetsApi(_baseUrl, new UnityWebRequestHandler());
+
+        public BurnsApi BurnsApi => new BurnsApi(_baseUrl, new UnityWebRequestHandler());
+
+        public CollectionsApi CollectionsApi => new CollectionsApi(_baseUrl, new UnityWebRequestHandler());
+
+        public ConfigApi ConfigApi => new ConfigApi(_baseUrl, new UnityWebRequestHandler());
+
+        public OffersApi OffersApi => new OffersApi(_baseUrl, new UnityWebRequestHandler());
+
+        public SchemasApi SchemasApi => new SchemasApi(_baseUrl, new UnityWebRequestHandler());
+
+        public TemplatesApi TemplatesApi => new TemplatesApi(_baseUrl, new UnityWebRequestHandler());
+
+        public TransfersApi TransfersApi => new TransfersApi(_baseUrl, new UnityWebRequestHandler());
+#endif
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Linq;
-using AtomicAssetsApiClient.Core;
-using AtomicAssetsApiClient.Core.Schemas;
+using AtomicAssetsApiClient.Schemas;
 using FluentAssertions;
 using NUnit.Framework;
 
