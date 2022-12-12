@@ -8,13 +8,46 @@ $color-primary: orange;
 $color-text: white;
 $font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
-$page-header-height : 100px;
+$page-header-height : 60px;
 
 
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
 
 $sidebar-logo-height : 100px;
 
+.header-inner {
+    
+	width: 100%;
+	padding: 10px 30px;
+	border-bottom: 0.5px solid #dededede;
+	margin: auto;
+	*zoom: 1;
+	height: $page-header-height;
+	&:before {
+		content: " ";
+		display: table;
+		line-height: 0;
+	}
+	&:after {
+		content: " ";
+		display: table;
+		line-height: 0;
+		clear: both;
+	}
+	.logo {
+		float: left;
+		height: 100px;
+		width: 120px;
+		background: url('./logo.png');
+		background-size: 120px 50px;
+		background-repeat: no-repeat;
+		img {
+			display: block;
+			height: inherit;
+			padding: 5px 0;
+		}
+    }
+    
 $th-map                          :(
                                     background: black,
                                     padding: 10px
