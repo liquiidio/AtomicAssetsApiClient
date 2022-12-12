@@ -1,5 +1,8 @@
 {
      "title": "AttomicAssetsApiClient",
+     "styles" : {
+            "website" : "./scss/page.scss"
+     }, 
      "plugins": [  "github-buttons", 
                    "sunchaser-logo",
                    "-fontsettings",
@@ -12,12 +15,10 @@
                    "heading-anchors"
                 ],
   "pluginsConfig": { 
-           "theme-gestalt": {
-               "excludeDefaultStyles": true 
-         },
-         "styles-sass-fix" : {
-            "website" : "./scss/page.scss"
-       }, 
+          "theme-gestalt": {
+              "excludeDefaultStyles": true 
+       },
+        
        "github-buttons": {
           "buttons": [{
               "user": "liquiidio",
