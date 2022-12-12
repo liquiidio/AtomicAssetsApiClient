@@ -8,7 +8,7 @@ $sidebar-background: black;
 $color-primary: orange;
 $color-text: white;
 $color-text-muted : white;
-$color-gray-lightest : black;
+$color-gray-lightest : white;
 $font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
 $page-header-height : 60px;
@@ -21,7 +21,7 @@ $table-tr-map                       : (
 //table
 
 $th-map                          :(
-                                    background: black,
+                                    background: white,
                                     padding: 10px
                                 ) !default;
 $td-map                         :(
