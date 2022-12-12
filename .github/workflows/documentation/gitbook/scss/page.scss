@@ -11,4 +11,25 @@ $font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
 $page-header-height : 100px;
 
-@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
+@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/tables";
+
+$th-map                          :(
+                                    background: none,
+                                    padding: 10px
+                                ) !default;
+$td-map                         :(
+                                    padding: 20px 10px
+                                ) !default;
+th {
+    color: $color-gray-light;
+    
+    @include print( $th-map );
+}
+
+td {
+    color: none;
+    @include print( $td-map );
+}
+
+
+//@import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/all";
