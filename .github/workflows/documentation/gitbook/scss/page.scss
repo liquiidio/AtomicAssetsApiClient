@@ -38,21 +38,8 @@ td {
     @include print( $td-map );
 }
 
-//dropdown
-
-
-.dropdown-caret
-{
-    position: relative;
-    top: -8px;
-    left: 10px;
-    width: 18px;
-    height: 10px;
-    float: left;
-    overflow: hidden;
-}
 //logo
-$sidebar-logo-height                : 30px !default;
+$sidebar-logo-height                : 300px !default;
 
 
 
@@ -80,7 +67,7 @@ $sidebar-logo-height                : 30px !default;
 		height: 100px;
 		width: 120px;
 		background: url('./logo.png');
-		background-size: 120px 100px;
+		background-size: 120px 300px;
 		background-repeat: no-repeat;
 		img {
 			display: block;
