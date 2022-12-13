@@ -39,18 +39,11 @@ td {
 }
 
 //dropdown
-.dropdown-menu.dropdown-left
-{
-    left: auto;
-    right: 1%;
-}
-.dropdown-menu.dropdown-left .dropdown-caret {
-    right: 5px;
-    left: auto;
-}
+
+
 .dropdown-caret
 {
-    position: absolute;
+    position: relative;
     top: -8px;
     left: 10px;
     width: 18px;
