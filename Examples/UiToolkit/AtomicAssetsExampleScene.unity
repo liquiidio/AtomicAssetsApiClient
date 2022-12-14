@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 2129001032}
   - component: {fileID: 2129001034}
   m_Layer: 5
-  m_Name: AtomicAssetPanel
+  m_Name: AtomicAssetsExamplePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
