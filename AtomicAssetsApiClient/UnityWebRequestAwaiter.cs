@@ -1,5 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System;
+
+#if UNITY
 using UnityEngine.Networking;
 using UnityEngine;
 
@@ -46,3 +48,4 @@ namespace AtomicAssetsApiClient
         }
     }
 }
+#endif
