@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System;
 
-#if UNITY
+#if UNITY_2019_1_OR_NEWER
 using UnityEngine.Networking;
 using UnityEngine;
 

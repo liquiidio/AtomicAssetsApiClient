@@ -10,13 +10,13 @@ using AtomicAssetsApiClient.Helpers;
 using AtomicAssetsApiClient.Exceptions;
 using Cryptography.ECDSA;
 
-#if UNITY
+#if UNITY_2019_1_OR_NEWER
 using UnityEngine.Networking;
 #endif
 
 namespace AtomicAssetsApiClient
 {
-#if UNITY
+#if UNITY_2019_1_OR_NEWER
     public class HttpHandler : IHttpHandler
     {
         private static readonly HttpClient client = new HttpClient();
