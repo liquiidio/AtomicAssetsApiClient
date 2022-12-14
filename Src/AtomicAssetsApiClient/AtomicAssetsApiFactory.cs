@@ -13,7 +13,7 @@ namespace AtomicAssetsApiClient
     public class AtomicAssetsApiFactory
     {
         private readonly string _baseUrl;
-        private const string Version1BaseUrl = "http://wax.api.atomicassets.io/atomicassets/v1";
+        private const string Version1BaseUrl = "https://wax.api.atomicassets.io/atomicassets/v1";
 
         private AtomicAssetsApiFactory(string baseUrl) => _baseUrl = baseUrl;
 
