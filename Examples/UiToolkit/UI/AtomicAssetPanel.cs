@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AtomicAssetsApiClient;
 using AtomicAssetsApiClient.Assets;
 using AtomicAssetsApiClient.Collections;
 using AtomicAssetsApiClient.Exceptions;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,7 +15,7 @@ public class AtomicAssetPanel : MonoBehaviour
      * Child-Controls
      */
     public VisualElement Root;
-    
+
     private Label _collectionNameLabel;
     private Label _ownerLabel;
     private Label _sellerLabel;
@@ -47,7 +49,7 @@ public class AtomicAssetPanel : MonoBehaviour
     void Start()
     {
         Root = GetComponent<UIDocument>().rootVisualElement;
-        
+
         _assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
         _collectionsApi = AtomicAssetsApiFactory.Version1.CollectionsApi;
 
