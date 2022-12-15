@@ -17,7 +17,7 @@ $page-header-height : 60px;
 
 .dropdown
 {
-    position: relative;
+    position: absolute;
 }
 .dropdown-caret
 {
@@ -28,6 +28,17 @@ $page-header-height : 60px;
     height: 10px;
     float: left;
     overflow: hidden;
+}
+.dropdown .button 
+{
+    border: 0;
+    background-color: transparent;
+    color: $dropdown-button-color;
+    width: 100%;
+    text-align: center;
+    float: left;
+    line-height: $line-height-base;
+    padding: 2px 4px;
 }
 //table
 $table-tr-map                       : (
