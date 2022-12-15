@@ -8,7 +8,7 @@ $dropdown-button-color : darken($color-button, 15%) !default;
 $sidebar-padding-unit : $spacing-unit ;
 $sidebar-link-padding-h : 0;
 $sidebar-nested-padding : $sidebar-padding-unit ;
-$sidebar-link-padding-v: $sidebar-padding-unit *2;
+$sidebar-link-padding-v: $sidebar-padding-unit ;
 $sidebar-font-size : 0.9em ;
 $page-inner-map	:   (
                         max-width: 90%,
