@@ -6,7 +6,7 @@ $page-background: rgb(8, 21, 51);
 $sidebar-background: rgb(19, 8, 20);
 $dropdown-button-color : darken($color-button, 15%) !default;
 $sidebar-padding-unit : $spacing-unit ;
-$sidebar-link-padding-h : 0.01;
+$sidebar-link-padding-h : 0;
 $sidebar-nested-padding : $sidebar-padding-unit *5;
 $sidebar-link-padding-v: $sidebar-padding-unit *2;
 $sidebar-font-size : 0.9em ;
@@ -15,7 +15,7 @@ $page-inner-map	:   (
 	                margin: 0px auto,
 		        padding: $spacing-unit*3 $spacing-unit*2
                       )!default;
-$color-primary : yellow;
+$color-primary : orange;
 $color-text: white;
 $color-text-muted : rgb(8, 21, 51);
 $color-gray-lightest :  rgb(8, 21, 51);
