@@ -4,7 +4,7 @@
             "website" : "./scss/page.scss"
      }, 
      "plugins": [  "github-buttons", 
-                   "sunchaser-logo",
+                   "-sunchaser-logo",
                    "-fontsettings",
                    "theme-gestalt",
                    "-theme-default",
