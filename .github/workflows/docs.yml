@@ -45,7 +45,7 @@ jobs:
             
             - name: install gitbook plugins
               shell: bash
-              run: npm install --prefix .github/workflows/documentation/gitbook gitbook-plugin-github-buttons gitbook-plugin-sunchaser-logo gitbook-plugin-back-to-top-button gitbook-plugin-copy-code-button gitbook-plugin-cuav-chapters gitbook-plugin-heading-anchors gitbook-plugin-theme-gestalt gitbook-plugin-styles-sass-fix
+              run: npm install --prefix .github/workflows/documentation/gitbook gitbook-plugin-github-buttons gitbook-plugin-back-to-top-button gitbook-plugin-copy-code-button gitbook-plugin-cuav-chapters gitbook-plugin-heading-anchors gitbook-plugin-theme-gestalt gitbook-plugin-styles-sass-fix
 
             - name: build gitbook website
               shell: bash
