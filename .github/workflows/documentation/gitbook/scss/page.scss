@@ -1,8 +1,8 @@
 @import "../node_modules/gitbook-plugin-theme-gestalt/src/scss/variables";
 @import "mixins";
 // Put your variable overrides here
-$book-background: black;
-$page-background: black;
+$book-background: #301934;
+$page-background: #301934;
 $sidebar-background: black;
 $dropdown-button-color : darken($color-button, 15%) !default;
 $sidebar-padding-unit : $spacing-unit ;
@@ -10,12 +10,15 @@ $sidebar-link-padding-h : 0.01;
 $sidebar-nested-padding : $sidebar-padding-unit *5;
 $sidebar-link-padding-v: $sidebar-padding-unit *2;
 $sidebar-font-size : 0.9em ;
+$sidebar-link-map                   : ( 
+                                        color: $color-text,
+                                        font-family: Open Sans
+                                    ) !default;
 
 $color-primary: orange;
 $color-text: white;
 $color-text-muted : black;
 $color-gray-lightest : black;
-$font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
 $page-header-height : 60px;
 
