@@ -11,7 +11,9 @@ $sidebar-nested-padding : $sidebar-padding-unit *5;
 $sidebar-link-padding-v: $sidebar-padding-unit *2;
 $sidebar-font-size : 0.9em ;
 $page-inner-map	:   (
-                        max-width: 50%
+                        max-width: 80%,
+	                margin: 0px auto,
+		        padding: $spacing-unit*3 $spacing-unit*2
                       )!default;
 $color-primary : yellow;
 $color-text: white;
