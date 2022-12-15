@@ -13,6 +13,22 @@ $font-family-sans : Roboto , sans-serif !default;
 $color-headings : white;
 $page-header-height : 60px;
 
+//dropdown
+
+.dropdown
+{
+    position: relative;
+}
+.dropdown-caret
+{
+    position: relative;
+    top: -8px;
+    left: 5px;
+    width: 18px;
+    height: 10px;
+    float: left;
+    overflow: hidden;
+}
 //table
 $table-tr-map                       : (
                                         background-color: black,
