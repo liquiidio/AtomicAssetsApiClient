@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AtomicAssetsApiClient.Core.Assets;
-using AtomicAssetsApiClient.Core.Collections;
-using AtomicAssetsApiClient.Core.Exceptions;
-using AtomicAssetsApiClient.Unity3D;
-using AtomicAssetsApiClient.Unity3D.Assets;
-using AtomicAssetsApiClient.Unity3D.Collections;
+using AtomicAssetsApiClient;
+using AtomicAssetsApiClient.Assets;
+using AtomicAssetsApiClient.Collections;
+using AtomicAssetsApiClient.Exceptions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
