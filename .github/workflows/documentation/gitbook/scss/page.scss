@@ -3,7 +3,7 @@
 // Put your variable overrides here
 $book-background: rgb(8, 21, 51);
 $page-background: rgb(8, 21, 51);
-$sidebar-background: rgb(31, 16, 33);
+$sidebar-background: rgb(19, 8, 20);
 $dropdown-button-color : darken($color-button, 15%) !default;
 $sidebar-padding-unit : $spacing-unit ;
 $sidebar-link-padding-h : 0.01;
@@ -14,8 +14,8 @@ $sidebar-font-size : 0.9em ;
 
 $color-primary: yellow;
 $color-text: white;
-$color-text-muted : #ADD8E6;
-$color-gray-lightest : #ADD8E6;
+$color-text-muted : rgb(8, 21, 51);
+$color-gray-lightest :  rgb(8, 21, 51);
 $color-headings : white;
 $page-header-height : 60px;
 $sidebar-link-map                   : ( 
@@ -50,13 +50,13 @@ $sidebar-link-map                   : (
 }
 //table
 $table-tr-map                       : (
-                                        background-color:  #ADD8E6,
+                                        background-color:   rgb(8, 21, 51),
                                         border-top: 1px solid 
                                     ) !default;
 
 
 $th-map                          :(
-                                    background: #ADD8E6,
+                                    background: rgb(8, 21, 51),
                                     padding: 10px
                                 ) !default;
 $td-map                         :(
