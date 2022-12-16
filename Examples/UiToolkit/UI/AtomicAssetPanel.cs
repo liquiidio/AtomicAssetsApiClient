@@ -5,7 +5,6 @@ using AtomicAssetsApiClient;
 using AtomicAssetsApiClient.Assets;
 using AtomicAssetsApiClient.Collections;
 using AtomicAssetsApiClient.Exceptions;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -45,6 +44,7 @@ public class AtomicAssetPanel : MonoBehaviour
 
     private List<string> _searchTypes;
 
+    public AtomicAssetsErrorPanel AtomicAssetsErrorPanel;
 
     void Start()
     {
@@ -102,7 +102,10 @@ public class AtomicAssetPanel : MonoBehaviour
     #endregion
 
     #region Rebind
-
+    /// <summary>
+    /// Rebind Method for binding AssetDto api
+    /// </summary>
+    /// <param name="asset"></param>
     private void Rebind(AssetDto asset)
     {
         _collectionNameLabel.text = asset.Data.Collection.Name;
@@ -113,9 +116,12 @@ public class AtomicAssetPanel : MonoBehaviour
         _backedTokenLabel.text = asset.Data.BackedTokens.Length.ToString();
         _schemaNameLabel.text = asset.Data.Schema.SchemaName;
         _templateIdLabel.text = asset.Data.Template.TemplateId;
-        //_propertiesBurnableLabel.text = asset.Data.Template.Transferable
     }
 
+    /// <summary>
+    /// Rebind Method for binding CollectionDto api
+    /// </summary>
+    /// <param name="asset"></param>
     private void Rebind(CollectionDto asset)
     {
         _collectionNameLabel.text = asset.Data.CollectionName;
@@ -129,6 +135,9 @@ public class AtomicAssetPanel : MonoBehaviour
 
     #region Others
 
+    /// <summary>
+    /// SearchAsset Method to evaluate input search for certain api
+    /// </summary>
     private async void SearchAsset()
     {
         if (_selectorDropdownField.value != null)
@@ -161,9 +170,36 @@ public class AtomicAssetPanel : MonoBehaviour
             }
             catch (ApiException ex)
             {
-                Debug.LogError($"Content: {ex.Content}");
+                AtomicAssetsErrorPanel.ErrorText("Content Error", ex.Content);
+                Show(AtomicAssetsErrorPanel.Root);
             }
         }
+    }
+
+    /// <summary>
+    /// Extension-method to show an UI Element (set it to visible)
+    /// </summary>
+    /// <param name="element"></param>
+    public void Show(VisualElement element)
+    {
+        if (element == null)
+            return;
+
+        element.style.visibility = Visibility.Visible;
+        element.style.display = DisplayStyle.Flex;
+    }
+
+    /// <summary>
+    /// Extension-method to hide an UI Element (set it to invisible)
+    /// </summary>
+    /// <param name="element"></param>
+    public void Hide(VisualElement element)
+    {
+        if (element == null)
+            return;
+
+        element.style.visibility = Visibility.Hidden;
+        element.style.display = DisplayStyle.None;
     }
     #endregion
 }
