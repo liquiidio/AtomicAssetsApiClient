@@ -31,22 +31,23 @@ $font-family-sans : Open Sans, sans-serif !default;
 $font-family-headings : $font-family-sans;
 
 //dropdown
-$dropdown-zindex : 90 !default;
+$dropdown-zindex : 1;
 
 .dropdown
 {
-    position: absolute;
+    position: relative;
     float: right
-    appearance : none;
+    
 }
 .dropdown-caret
 {
     position: absolute;
     top: 0px;
     left: 0px;
+    right :0;
     width: 18px;
     height: 10px;
-    float: left;
+    float: right;
     overflow: hidden;
 }
 .dropdown-caret .caret-outer
