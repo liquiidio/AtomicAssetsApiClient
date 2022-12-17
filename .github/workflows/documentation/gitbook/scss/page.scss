@@ -46,6 +46,19 @@ $font-family-headings : $font-family-sans;
     float: right;
     overflow: hidden;
 }
+.dropdown-caret .caret-outer
+{
+    position: absolute;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #f2f2f2;
+    height: auto;
+    left: 50%;
+    top: 0;
+    width: auto;
+    display: inline-block;
+    margin-left: -1px;
+}
 .dropdown .button 
 {
     border: 0;
