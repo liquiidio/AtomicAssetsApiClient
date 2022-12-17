@@ -31,13 +31,14 @@ $font-family-sans : Open Sans, sans-serif !default;
 $font-family-headings : $font-family-sans;
 
 //dropdown
-$dropdown-zindex : 1;
+
 
 .dropdown
 {
     position: relative;
-    float: right
-    
+    float: right;
+    right :80px;
+    width: 908px;
 }
 .dropdown-caret
 {
@@ -48,29 +49,6 @@ $dropdown-zindex : 1;
     height: 10px;
     float: right;
     overflow: hidden;
-}
-.dropdown-caret .caret-outer
-{
-    position: absolute;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid #f2f2f2;
-    height: auto;
-    left: 50%;
-    top: 0;
-    width: auto;
-    display: inline-block;
-    margin-left: 50px;
-}
-.dropdown .button 
-{
-    border: 0;
-    background-color: transparent;
-    color: $dropdown-button-color;
-    width: 100%;
-    float: right;
-    line-height: $line-height-base;
-    padding: 70px;
 }
 //table
 $table-tr-map                       : (
