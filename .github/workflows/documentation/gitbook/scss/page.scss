@@ -41,9 +41,9 @@ $dropdown-zindex : 1;
 }
 .dropdown-caret
 {
-    position: relative;
+    position: absolute;
     top: 20px;
-    right :20px;
+    right :80px;
     width: 908px;
     height: 10px;
     float: right;
@@ -51,7 +51,7 @@ $dropdown-zindex : 1;
 }
 .dropdown-caret .caret-outer
 {
-    position: relative;
+    position: absolute;
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
     border-bottom: 9px solid #f2f2f2;
