@@ -31,6 +31,7 @@ $font-family-sans : Open Sans, sans-serif !default;
 $font-family-headings : $font-family-sans;
 
 //dropdown
+$dropdown-zindex : 90 !default;
 
 .dropdown
 {
@@ -40,10 +41,10 @@ $font-family-headings : $font-family-sans;
 {
     position: absolute;
     top: -8px;
-    left: 1px;
+    left: 0;
     width: 18px;
     height: 10px;
-    float: right;
+    float: left;
     overflow: hidden;
 }
 .dropdown-caret .caret-outer
