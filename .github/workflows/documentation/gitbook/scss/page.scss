@@ -30,26 +30,7 @@ $sidebar-link-map                   : (
 $font-family-sans : Open Sans, sans-serif !default;
 $font-family-headings : $font-family-sans;
 
-//dropdown
 
-
-.dropdown
-{
-    position: relative;
-    float: right;
-    right :80px;
-    width: 908px;
-}
-.dropdown-caret
-{
-    position: absolute;
-    top: 20px;
-    right :80px;
-    width: 908px;
-    height: 10px;
-    float: right;
-    overflow: hidden;
-}
 //table
 $table-tr-map                       : (
                                         background-color:   rgb(8, 21, 51),
