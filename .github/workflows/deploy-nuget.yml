@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  push:
-    tags: 
-      - "[0-9]+.[0-9]+.[0-9]+*"
+on: [push]
 
 jobs:
   build:
@@ -43,7 +40,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=$VERSION
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.5
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -61,8 +58,8 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ env.VERSION }}
-          name: Release ${{ env.VERSION }}
+          tag: 1.0.5
+          name: Release 1.0.5
           body: ${{ env.VERSION }}
   
   github-publish:
