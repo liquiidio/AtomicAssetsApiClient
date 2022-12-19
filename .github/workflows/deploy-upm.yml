@@ -1,16 +1,13 @@
 name: Deploy UPM
 
-on:
-  push:
-    tags: 
-      - "[0-9]+.[0-9]+.[0-9]+*"
+on: [push]
 
 jobs:
   split-upm:
-    name: split upm branch
+    name: Split UPM branch
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
     - name: split upm branch
@@ -20,11 +17,12 @@ jobs:
         ls
         git config --global user.name 'github-bot'
         git config --global user.email 'github-bot@users.noreply.github.com'
-        git checkout -b upm                                          # create the upm branch and checkout the branch
+        git checkout -b upm unity_branch                                          # create the upm branch and checkout the branch
         git ls-files | grep '\.csproj$' | xargs git rm               # remove all .csproj files
         git ls-files | grep '\.csproj.meta$' | xargs git rm          # remove all .csproj.meta files
         git ls-files | grep '\.sln$' | xargs git rm                   # remove all .sln files
         git ls-files | grep '\.sln.meta$' | xargs git rm              # remove all .sln.meta files
+        git rm -r .github
         git commit -am "initial commit"
         echo "********************** ROOT **********************"
         ls
