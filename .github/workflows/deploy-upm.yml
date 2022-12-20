@@ -18,10 +18,9 @@ jobs:
         ls
         git config --global user.name 'github-bot'
         git config --global user.email 'github-bot@users.noreply.github.com'
-        git branch
-        git checkout -b upm                           # create the upm branch and checkout the branch
-        git ls-files | grep '\.csproj$' | xargs git rm               # remove all .csproj files
-        git ls-files | grep '\.csproj.meta$' | xargs git rm          # remove all .csproj.meta files
+        git checkout -b upm                                           # create the upm branch and checkout the branch
+        git ls-files | grep '\.csproj$' | xargs git rm                # remove all .csproj files
+        git ls-files | grep '\.csproj.meta$' | xargs git rm           # remove all .csproj.meta files
         git ls-files | grep '\.sln$' | xargs git rm                   # remove all .sln files
         git ls-files | grep '\.sln.meta$' | xargs git rm              # remove all .sln.meta files
         git rm -r .github
