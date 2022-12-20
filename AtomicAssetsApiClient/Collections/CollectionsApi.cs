@@ -127,6 +127,10 @@ namespace AtomicAssetsApiClient.Collections
 
         private Uri CollectionUri(string collectionName) => new Uri($"{_requestUriBase}/collections/{collectionName}");
 
+      /// <summary>
+      /// It returns a Uri object that is used to make a request to the Azure Search service.
+      /// </summary>
+      /// <param name="collectionName">The name of the collection you want to get stats for.</param>
         private Uri CollectionStatsUri(string collectionName) =>
             new Uri($"{_requestUriBase}/collections/{collectionName}/stats");
 

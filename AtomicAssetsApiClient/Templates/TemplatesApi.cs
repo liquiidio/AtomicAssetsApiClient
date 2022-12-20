@@ -137,9 +137,22 @@ namespace AtomicAssetsApiClient.Templates
         private Uri TemplateStatsUri(string collectionName, string templateId) =>
             new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/stats");
 
+       /// <summary>
+       /// > This function returns a Uri for the logs of a template
+       /// </summary>
+       /// <param name="collectionName">The name of the collection that the template belongs to.</param>
+       /// <param name="templateId">The ID of the template you want to get logs for.</param>
         private Uri TemplateLogsUri(string collectionName, string templateId) =>
             new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/logs");
 
+        /// <summary>
+        /// > This function returns a Uri for the logs of a template
+        /// </summary>
+        /// <param name="collectionName">The name of the collection that the template belongs
+        /// to.</param>
+        /// <param name="templateId">The id of the template you want to get logs for.</param>
+        /// <param name="TemplatesUriParameterBuilder">This is a class that builds the query string
+        /// parameters for the request.</param>
         private Uri TemplateLogsUri(string collectionName, string templateId,
             TemplatesUriParameterBuilder templatesUriParameterBuilder) => new Uri(
             $"{_requestUriBase}/templates/{collectionName}/{templateId}/logs{templatesUriParameterBuilder.Build()}");
