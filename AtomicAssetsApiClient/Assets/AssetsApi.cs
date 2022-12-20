@@ -1,68 +1,46 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Assets
 {
     public class AssetsApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
-
-        internal AssetsApi(string baseUrl) => _requestUriBase = baseUrl;
-
-        public AssetsDto Assets()
+        private readonly IHttpHandler _httpHander;
+        internal AssetsApi(string baseUrl, IHttpHandler httpHandler)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(AssetsUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<AssetsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            _requestUriBase = baseUrl;
+            _httpHander = httpHandler;
         }
 
-        public AssetsDto Assets(AssetsUriParameterBuilder assetsUriParameterBuilder)
+        public async Task<AssetsDto> Assets()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(AssetsUri(assetsUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<AssetsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<AssetsDto>(AssetsUri().OriginalString);
         }
 
-        public AssetDto Asset(string assetId)
+        public async Task<AssetsDto> Assets(AssetsUriParameterBuilder assetsUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(AssetUri(assetId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<AssetDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<AssetsDto>(AssetsUri(assetsUriParameterBuilder).OriginalString);
         }
 
-        public StatsDto AssetStats(string assetId)
+        public async Task<AssetDto> Asset(string assetId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(AssetStatsUri(assetId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<StatsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<AssetDto>(AssetUri(assetId).OriginalString);
         }
 
-        public LogsDto AssetLogs(string assetId)
+        public async Task<StatsDto> AssetStats(string assetId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(AssetLogsUri(assetId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<StatsDto>(AssetStatsUri(assetId).OriginalString);
         }
 
-        public LogsDto AssetLogs(string assetId, AssetsUriParameterBuilder assetsUriParameterBuilder)
+        public async Task<LogsDto> AssetLogs(string assetId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(AssetLogsUri(assetId, assetsUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<LogsDto>(AssetLogsUri(assetId).OriginalString);
+        }
+
+        public async Task<LogsDto> AssetLogs(string assetId, AssetsUriParameterBuilder assetsUriParameterBuilder)
+        {
+            return await _httpHander.GetJsonAsync<LogsDto>(AssetLogsUri(assetId, assetsUriParameterBuilder).OriginalString);
         }
 
         private Uri AssetsUri() => new Uri($"{_requestUriBase}/assets");

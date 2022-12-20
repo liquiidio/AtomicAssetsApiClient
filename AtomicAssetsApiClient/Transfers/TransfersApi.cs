@@ -1,32 +1,27 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Transfers
 {
     public class TransfersApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
+        private readonly IHttpHandler _httpHandler;
 
-        internal TransfersApi(string baseUrl) => _requestUriBase = baseUrl;
-
-        public TransfersDto Transfers()
+        internal TransfersApi(string baseUrl, IHttpHandler httpHandler)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TransfersUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TransfersDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            _requestUriBase = baseUrl;
+            _httpHandler = httpHandler;
         }
 
-        public TransfersDto Transfers(TransfersUriParameterBuilder transfersUriParameterBuilder)
+        public async Task<TransfersDto> Transfers()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TransfersUri(transfersUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TransfersDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<TransfersDto>(TransfersUri().OriginalString);
+        }
+
+        public async Task<TransfersDto> Transfers(TransfersUriParameterBuilder transfersUriParameterBuilder)
+        {
+            return await _httpHandler.GetJsonAsync<TransfersDto>(TransfersUri(transfersUriParameterBuilder).OriginalString);
         }
 
         private Uri TransfersUri() => new Uri($"{_requestUriBase}/transfers");

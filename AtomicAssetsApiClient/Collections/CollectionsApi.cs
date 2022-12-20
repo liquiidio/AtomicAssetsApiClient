@@ -1,68 +1,47 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Collections
 {
     public class CollectionsApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
+        private readonly IHttpHandler _httpHander;
 
-        internal CollectionsApi(string baseUrl) => _requestUriBase = baseUrl;
-
-        public CollectionsDto Collections()
+        internal CollectionsApi(string baseUrl, IHttpHandler httpHandler)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(CollectionsUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<CollectionsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            _requestUriBase = baseUrl;
+            _httpHander = httpHandler;
         }
 
-        public CollectionsDto Collections(CollectionsUriParameterBuilder collectionsUriParameterBuilder)
+        public async Task<CollectionsDto> Collections()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(CollectionsUri(collectionsUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<CollectionsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<CollectionsDto>(CollectionsUri().OriginalString);
         }
 
-        public CollectionDto Collection(string collectionName)
+        public async Task<CollectionsDto> Collections(CollectionsUriParameterBuilder collectionsUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(CollectionUri(collectionName)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<CollectionDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
-        }
- 
-        public StatsDto CollectionStats(string collectionName)
-        {
-            var apiRequest = HttpRequestBuilder.GetRequest(CollectionStatsUri(collectionName)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<StatsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<CollectionsDto>(CollectionsUri(collectionsUriParameterBuilder).OriginalString);
         }
 
-        public LogsDto CollectionLogs(string collectionName)
+        public async Task<CollectionDto> Collection(string collectionName)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(CollectionLogsUri(collectionName)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<CollectionDto>(CollectionUri(collectionName).OriginalString);
         }
 
-        public LogsDto CollectionLogs(string collectionName, CollectionsUriParameterBuilder collectionsUriParameterBuilder)
+        public async Task<StatsDto> CollectionStats(string collectionName)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(CollectionLogsUri(collectionName, collectionsUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<StatsDto>(CollectionStatsUri(collectionName).OriginalString);
+        }
+
+        public async Task<LogsDto> CollectionLogs(string collectionName)
+        {
+            return await _httpHander.GetJsonAsync<LogsDto>(CollectionLogsUri(collectionName).OriginalString);
+        }
+
+        public async Task<LogsDto> CollectionLogs(string collectionName, CollectionsUriParameterBuilder collectionsUriParameterBuilder)
+        {
+            return await _httpHander.GetJsonAsync<LogsDto>(CollectionLogsUri(collectionName, collectionsUriParameterBuilder).OriginalString);
         }
 
         private Uri CollectionsUri() => new Uri($"{_requestUriBase}/collections");

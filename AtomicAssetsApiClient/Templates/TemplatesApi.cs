@@ -1,68 +1,47 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Templates
 {
     public class TemplatesApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
+        private readonly IHttpHandler _httpHandler;
 
-        internal TemplatesApi(string baseUrl) => _requestUriBase = baseUrl;
-
-        public TemplatesDto Templates()
+        internal TemplatesApi(string baseUrl, IHttpHandler httpHandler)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplatesUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TemplatesDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            _requestUriBase = baseUrl;
+            _httpHandler = httpHandler;
         }
 
-        public TemplatesDto Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
+        public async Task<TemplatesDto> Templates()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplatesUri(templatesUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TemplatesDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<TemplatesDto>(TemplatesUri().OriginalString);
         }
 
-        public TemplateDto Template(string collectionName, string templateId)
+        public async Task<TemplatesDto> Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateUri(collectionName, templateId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TemplateDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<TemplatesDto>(TemplatesUri(templatesUriParameterBuilder).OriginalString);
         }
 
-        public StatsDto TemplateStats(string collectionName, string templateId)
+        public async Task<TemplateDto> Template(string collectionName, string templateId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateStatsUri(collectionName, templateId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<StatsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<TemplateDto>(TemplateUri(collectionName, templateId).OriginalString);
         }
 
-        public LogsDto TemplateLogs(string collectionName, string templateId)
+        public async Task<StatsDto> TemplateStats(string collectionName, string templateId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateLogsUri(collectionName, templateId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<StatsDto>(TemplateStatsUri(collectionName, templateId).OriginalString);
         }
 
-        public LogsDto TemplateLogs(string collectionName, string templateId, TemplatesUriParameterBuilder templatesUriParameterBuilder)
+        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateLogsUri(collectionName, templateId, templatesUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<LogsDto>(TemplateLogsUri(collectionName, templateId).OriginalString);
+        }
+
+        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId, TemplatesUriParameterBuilder templatesUriParameterBuilder)
+        {
+            return await _httpHandler.GetJsonAsync<LogsDto>(TemplateLogsUri(collectionName, templateId, templatesUriParameterBuilder).OriginalString);
         }
 
         private Uri TemplatesUri() => new Uri($"{_requestUriBase}/templates");

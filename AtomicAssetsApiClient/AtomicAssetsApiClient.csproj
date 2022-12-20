@@ -1,11 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>A C# Wrapper for the AtomicAssets API. Usage: AtomicAssetsApiFactory.Version1.AssetsApi.Assets();</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl></RepositoryUrl>
     <PackageTags>Liquiid.io, AtomicAssets</PackageTags>
     <Authors>Liquiid.io</Authors>
     <Company>Liquiid.io</Company>
@@ -14,10 +13,25 @@
     <AssemblyName>AtomicAssetsApiClient</AssemblyName>
     <RootNamespace>AtomicAssetsApiClient</RootNamespace>
     <RepositoryUrl>https://github.com/liquiidio/AtomicAssetsApiClient-Private</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Cryptography.ECDSA.Secp256K1" Version="1.1.2" />
+	</ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\AtomicAssetsApiClient.Core\AtomicAssetsApiClient.Core.csproj" />
+    <None Include="..\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="UnityEditor">
+			<HintPath>C:\Program Files\Unity 2021.3.11f1\Editor\Data\Managed\UnityEditor.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>C:\Program Files\Unity 2021.3.11f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>

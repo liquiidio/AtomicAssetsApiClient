@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using Newtonsoft.Json;
 
-namespace AtomicAssetsApiClient.Core
+namespace AtomicAssetsApiClient
 {
     public static class HttpResponseMessageExtension
     {

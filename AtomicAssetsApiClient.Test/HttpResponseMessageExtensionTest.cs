@@ -2,7 +2,7 @@
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace AtomicAssetsApiClient.Core.Test
+namespace AtomicAssetsApiClient.Test
 {
     [TestFixture]
     public class HttpResponseMessageExtensionTest

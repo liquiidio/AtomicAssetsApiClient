@@ -16,22 +16,22 @@ namespace AtomicAssetsApiClient
         public class DataDto
         {
             [JsonProperty("log_id")]
-            public string LogId{ get; set; }
+            public string LogId { get; set; }
 
             [JsonProperty("name")]
-            public string Name{ get; set; }
+            public string Name { get; set; }
 
             [JsonProperty("data")]
-            public object Data{ get; set; }
+            public object Data { get; set; }
 
             [JsonProperty("txid")]
-            public string TxId{ get; set; }
+            public string TxId { get; set; }
 
             [JsonProperty("created_at_block")]
-            public string CreatedAtBlock{ get; set; }
+            public string CreatedAtBlock { get; set; }
 
             [JsonProperty("created_at_time")]
-            public string CreatedAtTime{ get; set; }
+            public string CreatedAtTime { get; set; }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace AtomicAssetsApiClient.Accounts
         public class DataDto
         {
             [JsonProperty("account")]
-            public string Account{ get; set; }
+            public string Account { get; set; }
 
             [JsonProperty("assets")]
             public string Assets { get; set; }

@@ -10,7 +10,7 @@ namespace AtomicAssetsApiClient.Test.Config
         [Test]
         public void Config()
         {
-            AtomicAssetsApiFactory.Version1.ConfigApi.Config().Should().BeOfType<ConfigDto>();
+            AtomicAssetsApiFactory.Version1.ConfigApi.Config().GetAwaiter().GetResult().Should().BeOfType<ConfigDto>();
         }
     }
 }
