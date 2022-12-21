@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+	<TargetFrameworks>netstandard2.1</TargetFrameworks>
 
-	  <IsPackable>false</IsPackable>
+	<IsPackable>false</IsPackable>
 
-    <AssemblyName>AtomicAssetsApiClient.Test</AssemblyName>
+	<AssemblyName>AtomicAssetsApiClient.Test</AssemblyName>
 
-    <RootNamespace>AtomicAssetsApiClient.Test</RootNamespace>
+	<RootNamespace>AtomicAssetsApiClient.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
