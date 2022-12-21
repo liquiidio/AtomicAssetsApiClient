@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using AtomicAssetsApiClient.Accounts;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 
 namespace AtomicAssetsApiClient.Test.Accounts
 {
-    [TestFixture]
     public class AccountsApiTest
     {
-        [Test]
+        [TestMethod]
         [Ignore("This test is failing at the moment as the AtomicAssents endpoint is down. We always receive an Internal Server Error. Add this test back in when their endpoint is working again")]
         public void Accounts()
         {
@@ -21,7 +21,7 @@ namespace AtomicAssetsApiClient.Test.Accounts
             AtomicAssetsApiFactory.Version1.AccountsApi.Accounts(new AccountsUriParameterBuilder().WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Should().BeOfType<AccountsDto.DataDto[]>();
         }
 
-        [Test]
+        [TestMethod]
         [Ignore("This test is failing at the moment as the AtomicAssents endpoint is down. We always receive an Internal Server Error. Add this test back in when their endpoint is working again")]
         public void Account()
         {
@@ -30,7 +30,7 @@ namespace AtomicAssetsApiClient.Test.Accounts
             AtomicAssetsApiFactory.Version1.AccountsApi.Account(accountNameToFind).GetAwaiter().GetResult().Data.Should().BeOfType<AccountDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         [Ignore("This test is failing at the moment as the AtomicAssents endpoint is down. We always receive an Internal Server Error. Add this test back in when their endpoint is working again")]
         public void Collection()
         {

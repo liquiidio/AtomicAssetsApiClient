@@ -1,14 +1,14 @@
 using System.Linq;
 using AtomicAssetsApiClient.Assets;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Assets
 {
-    [TestFixture]
+    [TestClass]
     public class AssetsApiTest
     {
-        [Test]
+        [TestMethod]
         public void Assets()
         {
             AtomicAssetsApiFactory.Version1.AssetsApi.Assets().GetAwaiter().GetResult().Should().BeOfType<AssetsDto>();
@@ -20,7 +20,7 @@ namespace AtomicAssetsApiClient.Test.Assets
             AtomicAssetsApiFactory.Version1.AssetsApi.Assets(new AssetsUriParameterBuilder().WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Data.Should().BeOfType<AssetsDto.DataDto[]>();
         }
 
-        [Test]
+        [TestMethod]
         public void Asset()
         {
             var assetIdToFind = AtomicAssetsApiFactory.Version1.AssetsApi.Assets().GetAwaiter().GetResult().Data.First().AssetId;
@@ -28,7 +28,7 @@ namespace AtomicAssetsApiClient.Test.Assets
             AtomicAssetsApiFactory.Version1.AssetsApi.Asset(assetIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<AssetDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         [Ignore("Test Ignored, throws ApiException.")]
         public void AssetStats()
         {
@@ -37,7 +37,7 @@ namespace AtomicAssetsApiClient.Test.Assets
             AtomicAssetsApiFactory.Version1.AssetsApi.AssetStats(assetIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<StatsDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         public void AssetLogs()
         {
             var assetIdToFind = AtomicAssetsApiFactory.Version1.AssetsApi.Assets().GetAwaiter().GetResult().Data.First().AssetId;

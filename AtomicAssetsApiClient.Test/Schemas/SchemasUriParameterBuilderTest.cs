@@ -1,12 +1,12 @@
 ﻿using AtomicAssetsApiClient.Schemas;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Schemas
 {
     public class SchemasUriParameterBuilderTest
     {
-        [Test]
+        [TestMethod]
         public void Build()
         {
             new SchemasUriParameterBuilder()

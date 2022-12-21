@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using AtomicAssetsApiClient.Templates;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Templates
 {
-    [TestFixture]
+    [TestClass]
     public class TemplatesApiTest
     {
-        [Test]
+        [TestMethod]
         public void Templates()
         {
             AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Should().BeOfType<TemplatesDto>();
@@ -20,7 +20,7 @@ namespace AtomicAssetsApiClient.Test.Templates
             AtomicAssetsApiFactory.Version1.TemplatesApi.Templates(new TemplatesUriParameterBuilder().WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Data.Should().BeOfType<TemplatesDto.DataDto[]>();
         }
 
-        [Test]
+        [TestMethod]
         public void Template()
         {
             var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
@@ -29,7 +29,7 @@ namespace AtomicAssetsApiClient.Test.Templates
             AtomicAssetsApiFactory.Version1.TemplatesApi.Template(collectionNameToFind, templateIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<TemplateDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         public void TemplateStats()
         {
             var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
@@ -38,7 +38,7 @@ namespace AtomicAssetsApiClient.Test.Templates
             AtomicAssetsApiFactory.Version1.TemplatesApi.TemplateStats(collectionNameToFind, templateIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<StatsDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         public void TemplateLogs()
         {
             var collectionNameToFind = AtomicAssetsApiFactory.Version1.TemplatesApi.Templates().GetAwaiter().GetResult().Data.First().Collection.CollectionName;

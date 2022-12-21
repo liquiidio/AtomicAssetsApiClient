@@ -1,13 +1,13 @@
 ﻿using AtomicAssetsApiClient.Config;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Config
 {
-    [TestFixture]
+    [TestClass]
     public class ConfigApiTest
     {
-        [Test]
+        [TestMethod]
         public void Config()
         {
             AtomicAssetsApiFactory.Version1.ConfigApi.Config().GetAwaiter().GetResult().Should().BeOfType<ConfigDto>();

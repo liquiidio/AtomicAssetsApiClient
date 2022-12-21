@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using AtomicAssetsApiClient.Offers;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Offers
 {
-    [TestFixture]
+    [TestClass]
     public class OffersApiTest
     {
-        [Test]
+        [TestMethod]
         public void Offers()
         {
             AtomicAssetsApiFactory.Version1.OffersApi.Offers().GetAwaiter().GetResult().Should().BeOfType<OffersDto>();
@@ -20,7 +20,7 @@ namespace AtomicAssetsApiClient.Test.Offers
             AtomicAssetsApiFactory.Version1.OffersApi.Offers(new OffersUriParameterBuilder().WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Data.Should().BeOfType<OffersDto.DataDto[]>();
         }
 
-        [Test]
+        [TestMethod]
         public void Offer()
         {
             var offerIdToFind = AtomicAssetsApiFactory.Version1.OffersApi.Offers().GetAwaiter().GetResult().Data.First().OfferId;
@@ -28,7 +28,7 @@ namespace AtomicAssetsApiClient.Test.Offers
             AtomicAssetsApiFactory.Version1.OffersApi.Offer(offerIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<OfferDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         public void OfferLogs()
         {
             var offerIdToFind = AtomicAssetsApiFactory.Version1.OffersApi.Offers().GetAwaiter().GetResult().Data.First().OfferId;

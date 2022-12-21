@@ -1,13 +1,13 @@
 ﻿using AtomicAssetsApiClient.Transfers;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Transfers
 {
-    [TestFixture]
+    [TestClass]
     public class TransfersApiTest
     {
-        [Test]
+        [TestMethod]
         public void Transfers()
         {
             AtomicAssetsApiFactory.Version1.TransfersApi.Transfers().GetAwaiter().GetResult().Should().BeOfType<TransfersDto>();

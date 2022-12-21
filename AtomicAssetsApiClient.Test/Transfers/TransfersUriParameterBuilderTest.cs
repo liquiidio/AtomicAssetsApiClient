@@ -1,13 +1,13 @@
 ﻿using AtomicAssetsApiClient.Transfers;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Transfers
 {
-    [TestFixture]
+    [TestClass]
     public class TransfersUriParameterBuilderTest
     {
-        [Test]
+        [TestMethod]
         public void Build()
         {
             new TransfersUriParameterBuilder()

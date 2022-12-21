@@ -1,15 +1,15 @@
 ﻿using System.Linq;
 using AtomicAssetsApiClient.Burns;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Burns
 {
-    [TestFixture]
+    [TestClass]
     public class BurnsApiTest
     {
         private const string TEST_COLLECTION = "elementblobs";
-        [Test]
+        [TestMethod]
         public void Burns()
         {
             AtomicAssetsApiFactory.Version1.BurnsApi.Burns(new BurnsUriParameterBuilder().WithCollectionName(TEST_COLLECTION)).GetAwaiter().GetResult().Should().BeOfType<BurnsDto>();
@@ -21,7 +21,7 @@ namespace AtomicAssetsApiClient.Test.Burns
             AtomicAssetsApiFactory.Version1.BurnsApi.Burns(new BurnsUriParameterBuilder().WithCollectionName(TEST_COLLECTION).WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Data.Should().BeOfType<BurnsDto.DataDto[]>();
         }
 
-        [Test]
+        [TestMethod]
         public void Account()
         {
             var accountNameToFind = AtomicAssetsApiFactory.Version1.BurnsApi.Burns(new BurnsUriParameterBuilder().WithCollectionName(TEST_COLLECTION)).GetAwaiter().GetResult().Data.First().Account;

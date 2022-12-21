@@ -1,14 +1,14 @@
 ﻿using System.Linq;
 using AtomicAssetsApiClient.Schemas;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Schemas
 {
-    [TestFixture]
+    [TestClass]
     public class SchemasApiTest
     {
-        [Test]
+        [TestMethod]
         public void Schemas()
         {
             AtomicAssetsApiFactory.Version1.SchemasApi.Schemas().GetAwaiter().GetResult().Should().BeOfType<SchemasDto>();
@@ -20,7 +20,7 @@ namespace AtomicAssetsApiClient.Test.Schemas
             AtomicAssetsApiFactory.Version1.SchemasApi.Schemas(new SchemasUriParameterBuilder().WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Data.Should().BeOfType<SchemasDto.DataDto[]>();
         }
 
-        [Test]
+        [TestMethod]
         public void Schema()
         {
             var collectionNameToFind = AtomicAssetsApiFactory.Version1.SchemasApi.Schemas().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
@@ -29,7 +29,7 @@ namespace AtomicAssetsApiClient.Test.Schemas
             AtomicAssetsApiFactory.Version1.SchemasApi.Schema(collectionNameToFind, schemaNameToFind).GetAwaiter().GetResult().Data.Should().BeOfType<SchemaDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         public void SchemaStats()
         {
             var collectionNameToFind = AtomicAssetsApiFactory.Version1.SchemasApi.Schemas().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
@@ -38,7 +38,7 @@ namespace AtomicAssetsApiClient.Test.Schemas
             AtomicAssetsApiFactory.Version1.SchemasApi.SchemaStats(collectionNameToFind, schemaNameToFind).GetAwaiter().GetResult().Data.Should().BeOfType<StatsDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         public void SchemaLogs()
         {
             var collectionNameToFind = AtomicAssetsApiFactory.Version1.SchemasApi.Schemas().GetAwaiter().GetResult().Data.First().Collection.CollectionName;
