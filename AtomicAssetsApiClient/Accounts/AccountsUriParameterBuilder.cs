@@ -6,39 +6,28 @@ namespace AtomicAssetsApiClient.Accounts
     {
         //! A private variable that is used to store the value of the match parameter. 
         private string _match;
-
         //! A private variable that is used to store the value of the collectionName parameter. 
         private string _collectionName;
-
         //! A private variable that is used to store the value of the schemaName parameter. 
-
+        private string _schemaName
         //! A private variable that is used to store the value of the templateId parameter. 
         private string _templateId;
-
         //! A nullable boolean specfying if offers should be hidden. 
         private bool? _hideOffers;
-
         //! A private variable that is used to store the value of the collectionBlacklist parameter. 
         private string _collectionBlacklist;
-
         //! A private variable that is used to store the value of the collectionWhitelist parameter. 
         private string _collectionWhitelist;
-
         //! A private variable that is used to store the value of the ids parameter. 
         private string _ids;
-
         //! A private variable that is used to store the value of the lowerBound parameter. 
         private string _lowerBound;
-
         //! A private variable that is used to store the value of the upperBound parameter. 
         private string _upperBound;
-
         //! A nullable integer specifying the page. 
         private int? _page;
-
         //! A nullable integer specifying the limit of returned values. 
         private int? _limit;
-
         //! A nullable enum specifying the sortStrategy. 
         private SortStrategy? _sortStrategy;
 
