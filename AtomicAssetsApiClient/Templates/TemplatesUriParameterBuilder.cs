@@ -4,70 +4,68 @@ namespace AtomicAssetsApiClient.Templates
 {
     public class TemplatesUriParameterBuilder
     {
-/* A private variable that is used to store the value of the collectionName parameter. */
+//! A private variable that is used to store the value of the collectionName parameter. */
         private string _collectionName;
 
-/* A private variable that is used to store the value of the schemaName parameter. */
-        private string _schemaName;
+//! A private variable that is used to store the value of the schemaName parameter. 
 
-/* A nullable integer specifying issuedSupply number. */
+//! A nullable integer specifying issuedSupply number. 
         private int? _issuedSupply;
 
-/* A nullable integer specifying minIssuedSupply number. */
+//! A nullable integer specifying minIssuedSupply number. 
         private int? _minIssuedSupply;
 
-/* A nullable integer specifying maxIssuedSupply number. */
+//! A nullable integer specifying maxIssuedSupply number. 
         private int? _maxIssuedSupply;
 
-/* A nullable boolean specfying assets. */
+//! A nullable boolean specfying assets. 
         private bool? _hasAssets;
 
-/* A nullable integer specifying maxSupply number. */
+//! A nullable integer specifying maxSupply number. 
         private int? _maxSupply;
 
-/* A nullable boolean specfying burnable. */
+//! A nullable boolean specfying burnable. 
         private bool? _isBurnable;
 
-/* A nullable boolean specfying transfer. */
+//! A nullable boolean specfying transfer. 
         private bool? _isTransferable;
 
-/* A private variable that is used to store the value of the authorisedAccount parameter. */
+//! A private variable that is used to store the value of the authorisedAccount parameter. 
         private string _authorisedAccount;
 
-/* A private variable that is used to store the value of the match parameter. */
+//! A private variable that is used to store the value of the match parameter. 
         private string _match;
 
-/* A private variable that is used to store the value of the collectionBlacklist parameter. */
+//! A private variable that is used to store the value of the collectionBlacklist parameter. 
         private string _collectionBlacklist;
 
-/* A private variable that is used to store the value of the collectionWhitelist parameter. */
+//! A private variable that is used to store the value of the collectionWhitelist parameter. 
         private string _collectionWhitelist;
 
-/* A private variable that is used to store the value of the ids parameter. */
-        private string _ids;
+//! A private variable that is used to store the value of the ids parameter. 
 
-/* A private variable that is used to store the value of the lowerBound parameter. */
+//! A private variable that is used to store the value of the lowerBound parameter.
         private string _lowerBound;
 
-/* A private variable that is used to store the value of the upperBound parameter. */
+//! A private variable that is used to store the value of the upperBound parameter. 
         private string _upperBound;
 
-/* A nullable integer specifying previous timestamp. */
+//! A nullable integer specifying previous timestamp. 
         private int? _before;
 
-/* A nullable integer specifying next timestamp. */
+//! A nullable integer specifying next timestamp. 
         private int? _after;
 
-/* A nullable integer specifying the page. */
+//! A nullable integer specifying the page. 
         private int? _page;
 
-/* A nullable integer specifying the limit of returned values. */
+//! A nullable integer specifying the limit of returned values. 
         private int? _limit;
 
-/* A nullable enum specifying the sortStrategy. */
+//! A nullable enum specifying the sortStrategy. 
         private SortStrategy? _sortStrategy;
 
-/* Declaring a private variable called _sort. */
+//! Declaring a private variable called _sort.
         private string _sort;
 
 
