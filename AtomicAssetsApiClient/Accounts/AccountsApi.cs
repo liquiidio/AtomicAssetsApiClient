@@ -81,13 +81,30 @@ namespace AtomicAssetsApiClient.Accounts
                 $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+       /// <summary>
+       /// > It returns a `Uri` object that represents the `/accounts` endpoint
+       /// </summary>
         private Uri AccountsUri() => new Uri($"{_requestUriBase}/accounts");
 
+        /// <summary>
+        /// It takes an `AccountsUriParameterBuilder` object and returns a `Uri` object.
+        /// </summary>
+        /// <param name="AccountsUriParameterBuilder">A class that builds the query string parameters
+        /// for the accounts endpoint.</param>
         private Uri AccountsUri(AccountsUriParameterBuilder accountsUriParameterBuilder) =>
             new Uri($"{_requestUriBase}/accounts{accountsUriParameterBuilder.Build()}");
 
+       /// <summary>
+       /// > It returns a URI for a given account name
+       /// </summary>
+       /// <param name="accountName">The name of the account to be created.</param>
         private Uri AccountUri(string accountName) => new Uri($"{_requestUriBase}/accounts/{accountName}");
 
+       /// <summary>
+       /// > This function returns a URI for a given account name and collection name
+       /// </summary>
+       /// <param name="accountName">The name of the account.</param>
+       /// <param name="collectionName">The name of the collection you want to query.</param>
         private Uri AccountUri(string accountName, string collectionName) =>
             new Uri($"{_requestUriBase}/accounts/{accountName}/{collectionName}");
     }

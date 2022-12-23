@@ -28,6 +28,10 @@ namespace AtomicAssetsApiClient.Config
                 $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+       /// <summary>
+       /// > It returns a new `Uri` object that is constructed from the `_requestUriBase` field and the
+       /// `/config` path
+       /// </summary>
         private Uri ConfigUri() => new Uri($"{_requestUriBase}/config");
     }
 }

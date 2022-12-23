@@ -127,20 +127,54 @@ namespace AtomicAssetsApiClient.Schemas
                 $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+       /// <summary>
+       /// > It returns a `Uri` object that represents the `/schemas` endpoint of the `_requestUriBase`
+       /// property
+       /// </summary>
         private Uri SchemasUri() => new Uri($"{_requestUriBase}/schemas");
 
+        /// <summary>
+        /// It takes a `SchemasUriParameterBuilder` object as a parameter, and returns a `Uri` object.
+        /// </summary>
+        /// <param name="SchemasUriParameterBuilder">A class that builds the query string parameters for
+        /// the schemas endpoint.</param>
         private Uri SchemasUri(SchemasUriParameterBuilder schemasUriParameterBuilder) =>
             new Uri($"{_requestUriBase}/schemas{schemasUriParameterBuilder.Build()}");
 
+        /// <summary>
+        /// > It returns a URI for a specific schema in a specific collection
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to create a schema
+        /// for.</param>
+        /// <param name="schemaName">The name of the schema to be created.</param>
         private Uri SchemaUri(string collectionName, string schemaName) =>
             new Uri($"{_requestUriBase}/schemas/{collectionName}/{schemaName}");
 
+        /// <summary>
+        /// It returns a URI that points to the stats for a specific schema in a specific collection.
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to get the schema stats
+        /// for.</param>
+        /// <param name="schemaName">The name of the schema.</param>
         private Uri SchemaStatsUri(string collectionName, string schemaName) =>
             new Uri($"{_requestUriBase}/schemas/{collectionName}/{schemaName}/stats");
 
+        /// <summary>
+        /// > This function returns a URI for the schema logs endpoint
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to create a schema
+        /// for.</param>
+        /// <param name="schemaName">The name of the schema.</param>
         private Uri SchemaLogsUri(string collectionName, string schemaName) =>
             new Uri($"{_requestUriBase}/schemas/{collectionName}/{schemaName}/logs");
 
+        /// <summary>
+        /// It returns a URI for the logs of a schema
+        /// </summary>
+        /// <param name="collectionName">The name of the collection.</param>
+        /// <param name="schemaName">The name of the schema.</param>
+        /// <param name="SchemasUriParameterBuilder">This is a class that helps you build the query
+        /// parameters for the request.</param>
         private Uri SchemaLogsUri(string collectionName, string schemaName,
             SchemasUriParameterBuilder schemasUriParameterBuilder) => new Uri(
             $"{_requestUriBase}/schemas/{collectionName}/{schemaName}/logs{schemasUriParameterBuilder.Build()}");
