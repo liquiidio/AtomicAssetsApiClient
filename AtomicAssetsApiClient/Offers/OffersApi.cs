@@ -101,14 +101,37 @@ namespace AtomicAssetsApiClient.Offers
                 $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+        /// <summary>
+        /// > It returns a new `Uri` object that is built from the `_requestUriBase` field and the
+        /// `/offers` path
+        /// </summary>
         private Uri OffersUri() => new Uri($"{_requestUriBase}/offers");
 
+        /// <summary>
+        /// It takes a `OffersUriParameterBuilder` object as a parameter and returns a `Uri` object.
+        /// </summary>
+        /// <param name="OffersUriParameterBuilder">A class that builds the query string parameters for
+        /// the request.</param>
         private Uri OffersUri(OffersUriParameterBuilder offersUriParameterBuilder) =>
             new Uri($"{_requestUriBase}/offers{offersUriParameterBuilder.Build()}");
 
+        /// <summary>
+        /// It takes an offer ID and returns a URI
+        /// </summary>
+        /// <param name="offerId">The offer ID of the offer you want to get.</param>
         private Uri OfferUri(string offerId) => new Uri($"{_requestUriBase}/offers/{offerId}");
+        /// <summary>
+        /// > It returns a URI for the offer logs endpoint
+        /// </summary>
+        /// <param name="offerId">The ID of the offer you want to get logs for.</param>
         private Uri OfferLogsUri(string offerId) => new Uri($"{_requestUriBase}/offers/{offerId}/logs");
 
+        /// <summary>
+        /// It returns a URI for the offer logs endpoint
+        /// </summary>
+        /// <param name="offerId">The offer ID</param>
+        /// <param name="OffersUriParameterBuilder">This is a class that builds the query string
+        /// parameters for the request.</param>
         private Uri OfferLogsUri(string offerId, OffersUriParameterBuilder offersUriParameterBuilder) =>
             new Uri($"{_requestUriBase}/offers/{offerId}/logs{offersUriParameterBuilder.Build()}");
     }

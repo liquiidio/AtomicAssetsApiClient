@@ -4,49 +4,49 @@ namespace AtomicAssetsApiClient.Collections
 {
     public class CollectionsUriParameterBuilder
     {
-/* A private variable that is used to store the value of the author parameter. */
+        /* A private variable that is used to store the value of the author parameter. */
         private string _author;
 
-/* A private variable that is used to store the value of the match parameter. */
+        /* A private variable that is used to store the value of the match parameter. */
         private string _match;
 
-/* A private variable that is used to store the value of the authorisedAccount parameter. */
+        /* A private variable that is used to store the value of the authorisedAccount parameter. */
         private string _authorisedAccount;
 
-/* A private variable that is used to store the value of the notifyAccount parameter. */
+        /* A private variable that is used to store the value of the notifyAccount parameter. */
         private string _notifyAccount;
 
-/* A private variable that is used to store the value of the collectionBlacklist parameter. */
+        /* A private variable that is used to store the value of the collectionBlacklist parameter. */
         private string _collectionBlacklist;
 
-/* A private variable that is used to store the value of the collectionWhitelist parameter. */
+        /* A private variable that is used to store the value of the collectionWhitelist parameter. */
         private string _collectionWhitelist;
 
-/* A private variable that is used to store the value of the Ids parameter. */
+        /* A private variable that is used to store the value of the Ids parameter. */
         private string _ids;
 
-/* A private variable that is used to store the value of the lowerBound parameter. */
+        /* A private variable that is used to store the value of the lowerBound parameter. */
         private string _lowerBound;
 
-/* A private variable that is used to store the value of the upperBound parameter. */
+        /* A private variable that is used to store the value of the upperBound parameter. */
         private string _upperBound;
 
-/* A nullable integer specifying the previous timestamp. */
+        /* A nullable integer specifying the previous timestamp. */
         private int? _before;
 
-/* A nullable integer specifying the next timestamp. */
+        /* A nullable integer specifying the next timestamp. */
         private int? _after;
 
-/* A nullable integer specifying the page. */
+        /* A nullable integer specifying the page. */
         private int? _page;
 
-/* A nullable integer specifying the limit of returned values. */
+        /* A nullable integer specifying the limit of returned values. */
         private int? _limit;
 
-/* A nullable enum specifying the sortStrategy. */
+        /* A nullable enum specifying the sortStrategy. */
         private SortStrategy? _sortStrategy;
 
-/* A private variable that is used to store the value of the sort parameter. */
+        /* A private variable that is used to store the value of the sort parameter. */
         private string _sort;
 
 

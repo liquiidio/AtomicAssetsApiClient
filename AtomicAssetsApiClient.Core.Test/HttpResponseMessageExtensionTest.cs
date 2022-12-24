@@ -38,6 +38,7 @@ namespace AtomicAssetsApiClient.Core.Test
         public class TestObject
         {
             public string Id { get; set; }
+            //! The Name 
             public string Name { get; set; }
         }
     }

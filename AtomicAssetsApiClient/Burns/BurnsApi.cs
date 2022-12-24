@@ -64,11 +64,23 @@ namespace AtomicAssetsApiClient.Burns
                 $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+        /// <summary>
+        /// > This function returns a Uri object that represents the Burns endpoint
+        /// </summary>
         private Uri BurnsUri() => new Uri($"{_requestUriBase}/burns");
 
+        /// <summary>
+        /// It takes a BurnsUriParameterBuilder object and returns a Uri object.
+        /// </summary>
+        /// <param name="BurnsUriParameterBuilder">A class that builds the query string parameters for
+        /// the URI.</param>
         private Uri BurnsUri(BurnsUriParameterBuilder burnsUriParameterBuilder) =>
             new Uri($"{_requestUriBase}/burns{burnsUriParameterBuilder.Build()}");
 
+        /// <summary>
+        /// > This function returns a URI that can be used to burn a specific account
+        /// </summary>
+        /// <param name="accountName">The name of the account to burn.</param>
         private Uri BurnUri(string accountName) => new Uri($"{_requestUriBase}/burns/{accountName}");
     }
 }

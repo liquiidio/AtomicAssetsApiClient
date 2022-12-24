@@ -120,23 +120,48 @@ namespace AtomicAssetsApiClient.Collections
                 $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
+        /// <summary>
+        /// It returns a Uri object that represents the URL for the collections endpoint
+        /// </summary>
         private Uri CollectionsUri() => new Uri($"{_requestUriBase}/collections");
 
+        /// <summary>
+        /// It takes a `CollectionsUriParameterBuilder` object as a parameter and returns a `Uri`
+        /// object.
+        /// </summary>
+        /// <param name="CollectionsUriParameterBuilder">A class that builds the query string parameters
+        /// for the collections endpoint.</param>
         private Uri CollectionsUri(CollectionsUriParameterBuilder collectionsUriParameterBuilder) =>
             new Uri($"{_requestUriBase}/collections{collectionsUriParameterBuilder.Build()}");
 
+        /// <summary>
+        /// Given a collection name, return a Uri object that represents the collection's endpoint.
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to query.</param>
         private Uri CollectionUri(string collectionName) => new Uri($"{_requestUriBase}/collections/{collectionName}");
 
-      /// <summary>
-      /// It returns a Uri object that is used to make a request to the Azure Search service.
-      /// </summary>
-      /// <param name="collectionName">The name of the collection you want to get stats for.</param>
+        /// <summary>
+        /// It returns a URI that points to the stats endpoint for a given collection
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to get stats for.</param>
         private Uri CollectionStatsUri(string collectionName) =>
             new Uri($"{_requestUriBase}/collections/{collectionName}/stats");
 
+        /// <summary>
+        /// It returns a URI for the collection logs endpoint
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to get the logs
+        /// for.</param>
         private Uri CollectionLogsUri(string collectionName) =>
             new Uri($"{_requestUriBase}/collections/{collectionName}/logs");
 
+        /// <summary>
+        /// It returns a Uri object that represents the URL for the collection logs endpoint
+        /// </summary>
+        /// <param name="collectionName">The name of the collection you want to get the logs
+        /// for.</param>
+        /// <param name="CollectionsUriParameterBuilder">This is a class that builds the query
+        /// parameters for the request.</param>
         private Uri CollectionLogsUri(string collectionName,
             CollectionsUriParameterBuilder collectionsUriParameterBuilder) => new Uri(
             $"{_requestUriBase}/collections/{collectionName}/logs{collectionsUriParameterBuilder.Build()}");
