@@ -6,7 +6,6 @@ namespace AtomicAssetsApiClient.Accounts
     public class AccountDto
     {
         [JsonProperty("success")]
-        //! Whether the Request was Successfull or not 
         public bool Success { get; set; }
 
         [JsonProperty("data")]
