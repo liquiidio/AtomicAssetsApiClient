@@ -43,15 +43,7 @@ namespace AtomicAssetsApiClient.Transfers
             throw new ArgumentException($"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-        /// <summary>
-        /// It returns a URI that points to the transfers endpoint
-        /// </summary>
         private Uri TransfersUri() => new Uri($"{_requestUriBase}/transfers");
-        /// <summary>
-        /// It takes a `TransfersUriParameterBuilder` object and returns a `Uri` object
-        /// </summary>
-        /// <param name="TransfersUriParameterBuilder">A class that builds the query string parameters
-        /// for the transfers endpoint.</param>
         private Uri TransfersUri(TransfersUriParameterBuilder transfersUriParameterBuilder) => new Uri($"{_requestUriBase}/transfers{transfersUriParameterBuilder.Build()}");
     }
 }

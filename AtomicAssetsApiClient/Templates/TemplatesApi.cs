@@ -126,33 +126,14 @@ namespace AtomicAssetsApiClient.Templates
                 $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
         }
 
-        /// <summary>
-        /// > It returns a new `Uri` object that is the base URI for the templates endpoint
-        /// </summary>
         private Uri TemplatesUri() => new Uri($"{_requestUriBase}/templates");
 
-        /// <summary>
-        /// It takes a `TemplatesUriParameterBuilder` object as a parameter and returns a `Uri` object
-        /// </summary>
-        /// <param name="TemplatesUriParameterBuilder">A class that builds the query string parameters
-        /// for the templates endpoint.</param>
         private Uri TemplatesUri(TemplatesUriParameterBuilder templatessUriParameterBuilder) =>
             new Uri($"{_requestUriBase}/templates{templatessUriParameterBuilder.Build()}");
 
-        /// <summary>
-        /// > It returns a URI for a specific template in a specific collection
-        /// </summary>
-        /// <param name="collectionName">The name of the collection that the template belongs
-        /// to.</param>
-        /// <param name="templateId">The name of the template you want to use.</param>
         private Uri TemplateUri(string collectionName, string templateId) =>
             new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}");
 
-        /// <summary>
-        /// > This function returns a Uri that can be used to get the stats for a template
-        /// </summary>
-        /// <param name="collectionName">The name of the collection you want to use.</param>
-        /// <param name="templateId">The template ID of the template you want to get stats for.</param>
         private Uri TemplateStatsUri(string collectionName, string templateId) =>
             new Uri($"{_requestUriBase}/templates/{collectionName}/{templateId}/stats");
 
