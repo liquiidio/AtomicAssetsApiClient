@@ -51,7 +51,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.21
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.22
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -101,9 +101,11 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: 1.0.21
-          name: Release 1.0.21
+          tag: 1.0.22
+          name: Release 1.0.22
           body: ${{ env.VERSION }}
+          draft: false
+          prerelease: false
       - name: Download nuget package
         uses: actions/download-artifact@v1
         with:
@@ -115,7 +117,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_name: artifacts/Liquiid.io.AtomicAssets.1.0.21.nupkg # path + filename
+          asset_name: artifacts/Liquiid.io.AtomicAssets.1.0.22.nupkg # path + filename
       - name: Download unity package
         uses: actions/download-artifact@v1
         with:
