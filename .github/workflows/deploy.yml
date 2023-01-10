@@ -51,7 +51,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.14
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.15
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -69,8 +69,8 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: 1.0.14
-          name: Release 1.0.14
+          tag: 1.0.15
+          name: Release 1.0.15
           body: ${{ env.VERSION }}
   
   github-publish:
@@ -119,9 +119,7 @@ jobs:
           ref: unity_develop
           fetch-depth: 0
       - name: Find all meta files
-        run: |
-          echo > metaList
-          find -name \*.meta >> metaList
+        run: find -name \*.meta >> metaList
       - name: Make directory for our unity package
         run: mkdir a
       - name: Create Unity Package
