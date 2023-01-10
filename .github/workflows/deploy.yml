@@ -51,7 +51,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.7
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.8
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -69,8 +69,8 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: 1.0.7
-          name: Release 1.0.7
+          tag: 1.0.8
+          name: Release 1.0.8
           body: ${{ env.VERSION }}
   
   github-publish:
@@ -119,7 +119,9 @@ jobs:
           ref: unity_develop
           fetch-depth: 0
     - name: Find all meta files
-      run: find ./ -name \*.meta >> metaList
+      run: |
+        echo "Assets/Scenes.meta" > metaList
+        find Assets/Scenes/ -name \*.meta >> metaList
     - name: Make directory for our unity package
       run: mkdir a
     - name: Create Unity Package
@@ -128,13 +130,11 @@ jobs:
         package-path: 'a/io.liquiid.atomicassetsapiclient.unitypackage'
         include-files: metaList
     - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
+      uses: xresloader/upload-to-github-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: a/io.liquiid.atomicassetsapiclient.unitypackage
-        asset_name: io.liquiid.atomicassetsapiclient.unitypackage
-        tag: 1.0.7
-        overwrite: false
   
   split-upm:
     runs-on: ubuntu-latest
