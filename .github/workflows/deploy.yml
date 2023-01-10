@@ -51,7 +51,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.19
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.20
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -104,8 +104,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           body: ${{ env.VERSION }}
-          tag_name: 1.0.19
-          release_name: Release 1.0.19
+          tag_name: 1.0.20
+          release_name: Release 1.0.20
           draft: false
           prerelease: false
       - name: Download nuget package
@@ -114,7 +114,7 @@ jobs:
           name: artifacts
           path: ./artifacts
       - name: Upload nuget package to release
-        uses: Fhwang0926/upload-release-asset@v1.1.8
+        uses: Fhwang0926/upload-release-asset@v1.1.17
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -126,7 +126,7 @@ jobs:
           name: a
           path: ./a
       - name: Upload unity package to release
-        uses: Fhwang0926/upload-release-asset@v1.1.8
+        uses: Fhwang0926/upload-release-asset@v1.1.17
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
