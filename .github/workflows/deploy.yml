@@ -114,7 +114,6 @@ jobs:
           name: artifacts
           path: ./artifacts
       - name: Upload nuget package to release
-        id: upload-release-asset 
         uses: Fhwang0926/upload-release-asset@v1.1.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -127,7 +126,6 @@ jobs:
           name: a
           path: ./a
       - name: Upload unity package to release
-        id: upload-release-asset 
         uses: Fhwang0926/upload-release-asset@v1.1.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
