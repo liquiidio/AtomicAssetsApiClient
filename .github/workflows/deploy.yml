@@ -51,7 +51,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.11
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.12
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -69,8 +69,8 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: 1.0.11
-          name: Release 1.0.11
+          tag: 1.0.12
+          name: Release 1.0.12
           body: ${{ env.VERSION }}
   
   github-publish:
@@ -109,7 +109,7 @@ jobs:
         run: dotnet nuget push ./artifacts**.nupkg --api-key ${{secrets.NUGET_KEY}} --source "https://api.nuget.org/v3/index.json"
 
   unityPackage-publish:
-    runs-on: ubuntu-20.
+    runs-on: ubuntu-20.04
     needs: release
     name: Publish .unitypackage to GitHub
     steps:
