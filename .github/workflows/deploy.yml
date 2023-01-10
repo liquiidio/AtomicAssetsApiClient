@@ -1,6 +1,9 @@
 name: Deploy
 
-on: [push]
+on:
+  push:
+    tags: 
+      - "[0-9]+.[0-9]+.[0-9]+*"
 
 jobs:
   build:
@@ -13,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: haron_branch_2
+          ref: main
           fetch-depth: 0
       - name: Setup .NET SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
@@ -42,7 +45,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: haron_branch_2
+          ref: main
           fetch-depth: 0
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -51,12 +54,12 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.23
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=$VERSION
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
           name: artifacts
-          path: ./artifacts  
+          path: ./artifacts
 
   pack-unitypackage:
     runs-on: ubuntu-20.04
@@ -81,13 +84,13 @@ jobs:
       - name: Create Unity Package
         uses: pCYSl5EDgo/create-unitypackage@master
         with:
-          package-path: 'a/atomicassets.unitypackage'
+          package-path: 'a/io.liquiid.atomicassets.unitypackage'
           include-files: metaList
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
           name: a
-          path: ./a 
+          path: ./a
 
   release:
     runs-on: ubuntu-20.04
@@ -101,8 +104,8 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: 1.0.23
-          name: Release 1.0.23
+          tag: ${{ env.VERSION }}
+          name: Release ${{ env.VERSION }}
           body: ${{ env.VERSION }}
           makeLatest: true
       - name: Download unity package
@@ -116,7 +119,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_name: a/atomicassets.unitypackage # path + filename
+          asset_name: a/io.liquiid.atomicassets.unitypackage # path + filename
   
   github-publish:
     runs-on: ubuntu-20.04
