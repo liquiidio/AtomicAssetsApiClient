@@ -5,6 +5,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        dotnet-version: ['3.0', '3.1.x', '5.0.x', '6.0.x', '7.0.x']
     name: Build and test
     steps:
       - name: Checkout
@@ -12,10 +15,10 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - name: Setup .NET
+      - name: Setup .NET SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 3.1.x
+          dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
         run: dotnet restore
       - name: Build
