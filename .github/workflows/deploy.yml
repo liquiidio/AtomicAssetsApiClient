@@ -120,8 +120,8 @@ jobs:
           fetch-depth: 0
     - name: Find all meta files
       run: |
-        echo "Assets/Scenes.meta" > metaList
-        find Assets/Scenes/ -name \*.meta >> metaList
+        echo > metaList
+        find ./ -name \*.meta >> metaList
     - name: Make directory for our unity package
       run: mkdir a
     - name: Create Unity Package
