@@ -21,7 +21,7 @@ namespace AtomicAssetsApiClient.Test.Burns
             AtomicAssetsApiFactory.Version1.BurnsApi.Burns(new BurnsUriParameterBuilder().WithCollectionName(TEST_COLLECTION).WithOrder(SortStrategy.Ascending)).GetAwaiter().GetResult().Data.Should().BeOfType<BurnsDto.DataDto[]>();
         }
 
-        [Test]
+        [TestMethod]
         [Ignore("Response ended prematurely error.")]
         public void Account()
         {

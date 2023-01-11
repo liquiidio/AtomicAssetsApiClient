@@ -29,7 +29,7 @@ namespace AtomicAssetsApiClient.Test.Templates
             AtomicAssetsApiFactory.Version1.TemplatesApi.Template(collectionNameToFind, templateIdToFind).GetAwaiter().GetResult().Data.Should().BeOfType<TemplateDto.DataDto>();
         }
 
-        [Test]
+        [TestMethod]
         [Ignore("We're getting an API exception")]
         public void TemplateStats()
         {

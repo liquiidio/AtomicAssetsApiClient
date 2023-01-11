@@ -7,7 +7,7 @@ namespace AtomicAssetsApiClient.Test.Transfers
     [TestClass]
     public class TransfersApiTest
     {
-        [Test]
+        [TestMethod]
         [Ignore("It's failing for unknown reasons")]
         public void Transfers()
         {
