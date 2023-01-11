@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-using AtomicAssetsApiClient.Helpers;
 using AtomicAssetsApiClient.Exceptions;
 
 #if UNITY_2019_1_OR_NEWER
@@ -57,49 +56,6 @@ namespace AtomicAssetsApiClient
         public Task<TResponseData> PostJsonAsync<TResponseData>(string url, object data, CancellationToken cancellationToken)
         {
             return PostJsonAsync<TResponseData>(url, data);
-        }
-
-        /// <summary>
-        /// Make post request with data converted to json asynchronously.
-        /// Response is cached based on input (url, data)
-        /// </summary>
-        /// <typeparam name="TResponseData">Response type</typeparam>
-        /// <param name="url">Url to send the request</param>
-        /// <param name="data">data sent in the body</param>
-        /// <param name="reload">ignore cached value and make a request caching the result</param>
-        /// <returns>Response data deserialized to type TResponseData</returns>
-        public async Task<TResponseData> PostJsonWithCacheAsync<TResponseData>(string url, object data, bool reload = false)
-        {
-            string hashKey = GetRequestHashKey(url, data);
-
-            if (!reload)
-            {
-                object value;
-                if (ResponseCache.TryGetValue(hashKey, out value))
-                    return (TResponseData)value;
-            }
-
-            UnityWebRequest uwr = BuildUnityWebRequest(url, UnityWebRequest.kHttpVerbPOST, data);
-
-            await uwr.SendWebRequest();
-            CheckUnityWebRequestErrors(uwr);
-
-            return JsonConvert.DeserializeObject<TResponseData>(uwr.downloadHandler.text);
-        }
-
-        /// <summary>
-        /// Make post request with data converted to json asynchronously.
-        /// Response is cached based on input (url, data)
-        /// </summary>
-        /// <typeparam name="TResponseData">Response type</typeparam>
-        /// <param name="url">Url to send the request</param>
-        /// <param name="data">data sent in the body</param>
-        /// <param name="cancellationToken">Notification that operation should be canceled</param>
-        /// <param name="reload">ignore cached value and make a request caching the result</param>
-        /// <returns>Response data deserialized to type TResponseData</returns>
-        public Task<TResponseData> PostJsonWithCacheAsync<TResponseData>(string url, object data, CancellationToken cancellationToken, bool reload = false)
-        {
-            return PostJsonWithCacheAsync<TResponseData>(url, data, reload);
         }
 
         /// <summary>
@@ -169,22 +125,6 @@ namespace AtomicAssetsApiClient
             {
                 ResponseCache.Add(hashKey, responseData);
             }
-        }
-
-        /// <summary>
-        /// Calculate request unique hash key
-        /// </summary>
-        /// <param name="url">Url to send the request</param>
-        /// <param name="data">data sent in the body</param>
-        /// <returns></returns>
-        public string GetRequestHashKey(string url, object data)
-        {
-            var keyBytes = new List<byte[]>()
-            {
-                Encoding.UTF8.GetBytes(url),
-                SerializationHelper.ObjectToByteArray(data)
-            };
-            return Encoding.Default.GetString(Sha256Manager.GetHash(SerializationHelper.Combine(keyBytes)));
         }
 
         /// <summary>
