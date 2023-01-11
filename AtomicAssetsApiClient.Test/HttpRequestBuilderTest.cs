@@ -3,16 +3,16 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test
 {
-    [TestFixture]
+    [TestClass]
     public class HttpRequestBuilderTest
     {
         private readonly Uri _testUri = new Uri("http://test.com");
 
-        [Test]
+        [TestMethod]
         public void Build()
         {
             HttpRequestBuilder.GetRequest(_testUri)
@@ -26,7 +26,7 @@ namespace AtomicAssetsApiClient.Test
                 .BeEquivalentTo(new HttpRequestMessage(HttpMethod.Post, _testUri));
         }
 
-        [Test]
+        [TestMethod]
         public void Build_with_content()
         {
             var expectedRequestMessage = new HttpRequestMessage(HttpMethod.Get, _testUri)
@@ -41,7 +41,7 @@ namespace AtomicAssetsApiClient.Test
                 .BeEquivalentTo(expectedRequestMessage);
         }
 
-        [Test]
+        [TestMethod]
         public void Build_with_authentication()
         {
             var expectedRequestMessage = new HttpRequestMessage(HttpMethod.Get, _testUri);

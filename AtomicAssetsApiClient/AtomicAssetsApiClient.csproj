@@ -14,6 +14,7 @@
     <RootNamespace>AtomicAssetsApiClient</RootNamespace>
     <RepositoryUrl>https://github.com/liquiidio/AtomicAssetsApiClient-Private</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -21,7 +22,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

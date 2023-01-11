@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33103.184
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtomicAssetsApiClient", "AtomicAssetsApiClient\AtomicAssetsApiClient.csproj", "{829B522A-8595-4F31-BD7E-9D43E1E1C120}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtomicAssetsApiClient.Test", "AtomicAssetsApiClient.Test\AtomicAssetsApiClient.Test.csproj", "{B0626808-5B02-4D97-A2DB-991E21FED125}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtomicAssetsApiClient.Test", "AtomicAssetsApiClient.Test\AtomicAssetsApiClient.Test.csproj", "{B42003C4-5841-4D76-9AD4-7E97D2938453}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{829B522A-8595-4F31-BD7E-9D43E1E1C120}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{829B522A-8595-4F31-BD7E-9D43E1E1C120}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{829B522A-8595-4F31-BD7E-9D43E1E1C120}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0626808-5B02-4D97-A2DB-991E21FED125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0626808-5B02-4D97-A2DB-991E21FED125}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0626808-5B02-4D97-A2DB-991E21FED125}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0626808-5B02-4D97-A2DB-991E21FED125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42003C4-5841-4D76-9AD4-7E97D2938453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42003C4-5841-4D76-9AD4-7E97D2938453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42003C4-5841-4D76-9AD4-7E97D2938453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42003C4-5841-4D76-9AD4-7E97D2938453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
