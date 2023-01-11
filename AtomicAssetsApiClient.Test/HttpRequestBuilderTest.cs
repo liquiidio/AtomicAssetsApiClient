@@ -24,11 +24,6 @@ namespace AtomicAssetsApiClient.Test
                 .Build()
                 .Should()
                 .BeEquivalentTo(new HttpRequestMessage(HttpMethod.Post, _testUri));
-
-            HttpRequestBuilder.PatchRequest(_testUri)
-                .Build()
-                .Should()
-                .BeEquivalentTo(new HttpRequestMessage(HttpMethod.Patch, _testUri));
         }
 
         [TestMethod]

@@ -28,13 +28,6 @@ namespace AtomicAssetsApiClient
                 RequestUri = uri
             });
 
-        public static HttpRequestBuilder PatchRequest(Uri uri) 
-            => new HttpRequestBuilder(new HttpRequestMessage
-            {
-                Method = HttpMethod.Patch, 
-                RequestUri = uri
-            });
-
         public HttpRequestBuilder WithContent(string content)
         {
             _content = content;
