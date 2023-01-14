@@ -23,7 +23,7 @@
  
  ### Call the /assets endpoint
 
-     var assets = assetsApi.Assets();
+     var assets = await assetsApi.Assets();
 
  
  ### Print all asset ids
@@ -57,7 +57,7 @@
  ## Example calling the /v1/assets endpoint with parameters
  ### Initialise the Assets API
 
-     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi();
+     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
 
  
  ### Build up the AssetsParameters with the AssetsUriParameterBuilder
@@ -67,7 +67,7 @@
  
  ### Call the /assets endpoint, passing in the builder
 
-     var assets = assetsApi.Assets(builder);
+     var assets = await assetsApi.Assets(builder);
 
  
  ### Print all asset ids
