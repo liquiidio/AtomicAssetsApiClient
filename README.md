@@ -18,7 +18,7 @@
  ## Example calling the /v1/assets endpoint
  ### Initialise the Assets API
 
-     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi();
+     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
 
  
  ### Call the /assets endpoint
