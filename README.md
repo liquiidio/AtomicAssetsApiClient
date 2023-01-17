@@ -75,7 +75,47 @@
      assets.Data.ToList().ForEach(a => Console.WriteLine(a.AssetId));
 
 
+ ## Example to search for assets
 
+```csharp
+ private async void SearchAsset()
+    {
+        if (_selectorDropdownField.value != null)
+        {
+            try
+            {
+                switch (_selectorDropdownField.value)
+                {
+                    case "Asset ID":
+                        var assetDto = await _assetsApi.Asset(_collectionNameOrAssetId.value);
+                        if (assetDto != null)
+                        {
+                            Rebind(assetDto);
+                        }
+                        else Debug.Log("asset id not found");
+                        break;
+
+                    case "Collection Name":
+                        var collectionDto = await _collectionsApi.Collection(_collectionNameOrAssetId.value);
+                        if (collectionDto != null)
+                        {
+                            Rebind(collectionDto);
+                        }
+                        else Debug.Log("asset not found");
+                        break;
+
+                    case "":
+                        break;
+                }
+            }
+            catch (ApiException ex)
+            {
+                AtomicAssetsErrorPanel.ErrorText("Content Error", ex.Content);
+                Show(AtomicAssetsErrorPanel.Root);
+            }
+        }
+    }
+```
 
 
 
