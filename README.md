@@ -26,7 +26,7 @@
      var assets = assetsApi.Assets();
 ```
  
- ### Filter Assets apis by either asset ids or collection name
+ ### Filter Assets API by either collection name Or asset ids
 ```csharp
   private async void SearchAsset()
     {
@@ -65,36 +65,16 @@
             }
         }
     }
-     //assets.Data.ToList().ForEach(a => Console.Write(a.AssetId));
 ````
  
  ##### Example output
  
+ ## Resuilt Search for Asset Id "#1099849109724"
+ 
 <img width="853" alt="image" src="https://user-images.githubusercontent.com/31707324/213101482-0371d6cb-4981-4ea5-af0d-688092087b67.png">
 
-
-
-
+ ## Resuilt Search for Collection Name "mrpotatogame"
 <img width="847" alt="image" src="https://user-images.githubusercontent.com/31707324/213101918-98ef30b5-d1ca-4b31-b4c7-2895a3681e89.png">
-
-
-1099567200114
-
-1099567200113  
-
-1099567200112  
-
-1099567200111 
-
-1099567200110  
-
-1099567200109  
-
-1099567200108 
-
-1099567200107 
-
-1099567200106  
 
 ...
 
