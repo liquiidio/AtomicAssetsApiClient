@@ -17,13 +17,15 @@
 
  ## Example calling the /v1/assets endpoint
  ### Initialise the Assets API
-```csharp
-     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi();
+```csharp      
+  var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
+  var collectionsApi = AtomicAssetsApiFactory.Version1.CollectionsApi;
 ```
  
  ### Call the /assets endpoint
 ```csharp
      var assets = assetsApi.Assets();
+     var collection = collectionApi.Collection();
 ```
  
  ### Example to Filter and search Assets by either collection name or asset ids
@@ -37,7 +39,7 @@
                 switch (_selectorDropdownField.value)
                 {
                     case "Asset ID":
-                        var assetDto = await _assetsApi.Asset(_collectionNameOrAssetId.value);
+                        var assetDto = await assetsApi.Asset(_collectionNameOrAssetId.value);
                         if (assetDto != null)
                         {
                             Rebind(assetDto);
@@ -46,7 +48,7 @@
                         break;
 
                     case "Collection Name":
-                        var collectionDto = await _collectionsApi.Collection(_collectionNameOrAssetId.value);
+                        var collectionDto = await collectionsApi.Collection(_collectionNameOrAssetId.value);
                         if (collectionDto != null)
                         {
                             Rebind(collectionDto);
