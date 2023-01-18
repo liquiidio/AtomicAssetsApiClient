@@ -26,7 +26,7 @@
      var assets = assetsApi.Assets();
 ```
  
- ### Print all asset ids
+ ### Filter Assets apis by either asset ids or collection name
 ```csharp
   private async void SearchAsset()
     {
