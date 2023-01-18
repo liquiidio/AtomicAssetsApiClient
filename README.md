@@ -26,7 +26,7 @@
      var assets = assetsApi.Assets();
 ```
  
- ### Example to Filter and search Assets by either collection name Or asset ids
+ ### Example to Filter and search Assets by either collection name or asset ids
 ```csharp
   private async void SearchAsset()
     {
