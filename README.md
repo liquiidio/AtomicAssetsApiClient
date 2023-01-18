@@ -69,6 +69,8 @@
 ````
  
  ##### Example output
+ 
+<img width="853" alt="image" src="https://user-images.githubusercontent.com/31707324/213101482-0371d6cb-4981-4ea5-af0d-688092087b67.png">
 
 1099567200114
 
