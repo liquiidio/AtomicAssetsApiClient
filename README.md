@@ -23,7 +23,7 @@
 async Task GettingAllTheAssets()
 {
     // Initialize the v1 assets API
-    var assetsApi = AtomicMarketApiFactory.Version1.AssetsApi;
+    var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
 
     //Getting all the assets that are available for trading on the exchange.
     var assets = await assetsApi.Assets();
@@ -40,7 +40,7 @@ async Task GettingAllTheAssets()
 async Task GettingFilteredAssetsList()
 {
     // Initialize the v1 assets API
-    var assetsApi = AtomicMarketApiFactory.Version1.AssetsApi;
+    var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
 
     // Build up the AssetsParameters with the AssetsUriParameterBuilder
     // This can be used to fine tune the kind of results we want
@@ -64,7 +64,7 @@ async Task GetOffer(string offerId)
 {
 
     // Initialize the v1 offers API
-    var api = AtomicMarketApiFactory.Version1.OffersApi;
+    var api = AtomicAssetsApiFactory.Version1.OffersApi;
 
     // Call the offers endpoint passing the offerId as an input
     var sales = await api.Offer(offerId);
