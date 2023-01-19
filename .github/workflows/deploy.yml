@@ -166,7 +166,6 @@ jobs:
         run: |
           git branch -d upm &> /dev/null || echo upm branch not found # recreate the upm branch each time
           git mv "$PKG_ROOT" "$UPM_ROOT"
-          git mv "$UPM_ROOT" .
           git mv README.md $UPM_ROOT
           echo "********************** ROOT **********************"
           ls
