@@ -49,7 +49,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.29
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.30
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -98,8 +98,8 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: 1.0.29
-          name: Release 1.0.29
+          tag: 1.0.30
+          name: Release 1.0.30
           body: ${{ env.VERSION }}
           makeLatest: true
       - name: Download unity package
@@ -166,6 +166,7 @@ jobs:
         run: |
           git branch -d upm &> /dev/null || echo upm branch not found # recreate the upm branch each time
           git mv "$PKG_ROOT" "$UPM_ROOT"
+          git mv $UPM_ROOT/Examples $UPM_ROOT/Samples~
           git mv README.md $UPM_ROOT
           git mv README.md.meta $UPM_ROOT
           echo "********************** ROOT **********************"
