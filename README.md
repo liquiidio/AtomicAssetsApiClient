@@ -77,42 +77,15 @@ async Task GetOffer(string offerId)
  
  Our unity packages come with examples to help you get started as quickly as possible.
  
- ## Results Search for Asset Id "#1099849109724"
+ An example showing the result for searching for Asset Id "#1099849109724"
  
 <img width="853" alt="image" src="https://user-images.githubusercontent.com/31707324/213101482-0371d6cb-4981-4ea5-af0d-688092087b67.png">
 
- ## Results Search for Collection Name "mrpotatogame"
+An example showing the result for searching for Collection Name "mrpotatogame"
+
 <img width="847" alt="image" src="https://user-images.githubusercontent.com/31707324/213101918-98ef30b5-d1ca-4b31-b4c7-2895a3681e89.png">
 
 ...
-
- 
- ## Example calling the /v1/assets endpoint with parameters
- ### Initialise the Assets API
-
-     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi();
-
- 
- ### Build up the AssetsParameters with the AssetsUriParameterBuilder
-
-     var builder = new AssetsUriParameterBuilder().WithLimit(1);
-
- 
- ### Call the /assets endpoint, passing in the builder
-
-     var assets = assetsApi.Assets(builder);
-
- 
- ### Print all asset ids
-
-     assets.Data.ToList().ForEach(a => Console.WriteLine(a.AssetId));
-
-
- ## Example to search for assets
-
-```csharp
-
-```
 
 
 
