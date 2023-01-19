@@ -49,7 +49,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.27
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.28
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -98,8 +98,8 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: 1.0.27
-          name: Release 1.0.27
+          tag: 1.0.28
+          name: Release 1.0.28
           body: ${{ env.VERSION }}
           makeLatest: true
       - name: Download unity package
@@ -175,8 +175,8 @@ jobs:
           git commit -m "create release folder"
           git subtree split -P "$UPM_ROOT" -b upm                     # create the upm branch
           git checkout upm   
-          git rm -r .github                                                 # remove github workflow files
-          git commit -am "removed the workflow files"
+          git rm -r .github || true                                                # remove github workflow files
+          git commit -am "removed the workflow files" || true
           echo "********************** ROOT **********************"
           ls
           git push -u origin upm --force                                    # commit the branch
