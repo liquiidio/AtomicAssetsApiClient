@@ -18,7 +18,7 @@ VisualElement {
 
 .search-button:hover {
     background-color: rgb(234, 146, 62);
-    background-image: url('project://database/Assets/Packages/hyperionapiclient/Examples/UiToolkit/Assets/search.png?fileID=2800000&guid=a3e0f7836e8aae44bb4eafb71ef3d549&type=3#search');
+    background-image: url('project://database/Assets/Packages/atomicassetsapiclient/Examples/UiToolkit/Assets/search.png?fileID=2800000&guid=6e71c25b5cd820b45973ef8dba0d6257&type=3#search');
     -unity-background-image-tint-color: rgb(255, 125, 0);
 }
 
