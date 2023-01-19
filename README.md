@@ -1,7 +1,8 @@
 <div align="center">
 
 [![builds](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/dotnet-build.yml)
-[![tests](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/dotnet-test.yml)
+[![Deploy](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/deploy.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/deploy.yml)
+    
        
 </div>
 
@@ -15,69 +16,74 @@
  You can then call any endpoint from the initialised API.
  Each endpoint has its own set of parameters that you may build up and pass in to the relevant function.
 
- ## Example calling the /v1/assets endpoint
- ### Initialise the Assets API
+ ## Examples
+ ### Getting assets available for trading on the exchange
+ ```csharp
 
-     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi();
+async Task GettingAllTheAssets()
+{
+    // Initialize the v1 assets API
+    var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
 
+    //Getting all the assets that are available for trading on the exchange.
+    var assets = await assetsApi.Assets();
+
+    // Print their IDs on the console.
+    assets.Data.ToList().ForEach(a => Console.WriteLine(a.AssetId));
+}
+
+ ```
  
- ### Call the /assets endpoint
+ ### Getting a filtered assets list that is available for trading
+ ```csharp
 
-     var assets = assetsApi.Assets();
+async Task GettingFilteredAssetsList()
+{
+    // Initialize the v1 assets API
+    var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
 
+    // Build up the AssetsParameters with the AssetsUriParameterBuilder
+    // This can be used to fine tune the kind of results we want
+    // For example, here were limiting the results to just five assets
+    // More information can be found on the documentation
+    var builder = new AssetsUriParameterBuilder().WithLimit(5);
+
+    //Getting all the assets that are available for trading on the exchange.
+    var assets = await assetsApi.Assets(builder);
+
+    // Print their IDs on the console.
+    assets.Data.ToList().ForEach(a => Console.WriteLine(a.AssetId));
+}
+
+ ```
  
- ### Print all asset ids
+ ### Getting an Offer
+ ```csharp
 
-     assets.Data.ToList().ForEach(a => Console.Write(a.AssetId));
+async Task GetOffer(string offerId)
+{
 
+    // Initialize the v1 offers API
+    var api = AtomicAssetsApiFactory.Version1.OffersApi;
+
+    // Call the offers endpoint passing the offerId as an input
+    var sales = await api.Offer(offerId);
+
+    // Access different informations about the offer using the Data property in the result
+    Console.WriteLine(sales.Data.SenderName);
+}
+
+ ```
+ ### Unity Examples
  
- ##### Example output
-
-1099567200114
-
-1099567200113  
-
-1099567200112  
-
-1099567200111 
-
-1099567200110  
-
-1099567200109  
-
-1099567200108 
-
-1099567200107 
-
-1099567200106  
-
-...
-
+ Our unity packages come with examples to help you get started as quickly as possible.
  
- ## Example calling the /v1/assets endpoint with parameters
- ### Initialise the Assets API
-
-     var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi();
-
+ An example showing the result for searching an Asset with ID "#1099849109724"
  
- ### Build up the AssetsParameters with the AssetsUriParameterBuilder
+<img width="853" alt="image" src="https://user-images.githubusercontent.com/31707324/213101482-0371d6cb-4981-4ea5-af0d-688092087b67.png">
 
-     var builder = new AssetsUriParameterBuilder().WithLimit(1);
+An example showing the result for searching a Collection with Name "mrpotatogame"
 
- 
- ### Call the /assets endpoint, passing in the builder
-
-     var assets = assetsApi.Assets(builder);
-
- 
- ### Print all asset ids
-
-     assets.Data.ToList().ForEach(a => Console.WriteLine(a.AssetId));
-
-
-
-
-
-
+<img width="847" alt="image" src="https://user-images.githubusercontent.com/31707324/213101918-98ef30b5-d1ca-4b31-b4c7-2895a3681e89.png">
 
 
