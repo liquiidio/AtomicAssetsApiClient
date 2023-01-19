@@ -15,61 +15,67 @@
  You can then call any endpoint from the initialised API.
  Each endpoint has its own set of parameters that you may build up and pass in to the relevant function.
 
- ## Example calling the /v1/assets endpoint
- ### Initialise the Assets API
-```csharp      
-  var assetsApi = AtomicAssetsApiFactory.Version1.AssetsApi;
-  var collectionsApi = AtomicAssetsApiFactory.Version1.CollectionsApi;
-```
- 
- ### Call the /assets endpoint
-```csharp
-     var assets = assetsApi.Assets();
-     var collection = collectionApi.Collection();
-```
- 
- ### Example to Filter and search Assets by either collection name or asset ids
-```csharp
-  private async void SearchAsset()
-    {
-        if (_selectorDropdownField.value != null)
-        {
-            try
-            {
-                switch (_selectorDropdownField.value)
-                {
-                    case "Asset ID":
-                        var assetDto = await assetsApi.Asset(_collectionNameOrAssetId.value);
-                        if (assetDto != null)
-                        {
-                            Rebind(assetDto);
-                        }
-                        else Debug.Log("asset id not found");
-                        break;
+ ## Examples
+ ### Getting assets available for trading on the exchange
+ ```csharp
 
-                    case "Collection Name":
-                        var collectionDto = await collectionsApi.Collection(_collectionNameOrAssetId.value);
-                        if (collectionDto != null)
-                        {
-                            Rebind(collectionDto);
-                        }
-                        else Debug.Log("asset not found");
-                        break;
+async Task GettingAllTheAssets()
+{
+    // Initialize the v1 assets API
+    var assetsApi = AtomicMarketApiFactory.Version1.AssetsApi;
 
-                    case "":
-                        break;
-                }
-            }
-            catch (ApiException ex)
-            {
-                AtomicAssetsErrorPanel.ErrorText("Content Error", ex.Content);
-                Show(AtomicAssetsErrorPanel.Root);
-            }
-        }
-    }
-````
+    //Getting all the assets that are available for trading on the exchange.
+    var assets = await assetsApi.Assets();
+
+    // Print their IDs on the console.
+    assets.Data.ToList().ForEach(a => Console.WriteLine(a.AssetId));
+}
+
+ ```
  
- ##### Example output
+ ### Getting a filtered assets list that is available for trading
+ ```csharp
+
+async Task GettingFilteredAssetsList()
+{
+    // Initialize the v1 assets API
+    var assetsApi = AtomicMarketApiFactory.Version1.AssetsApi;
+
+    // Build up the AssetsParameters with the AssetsUriParameterBuilder
+    // This can be used to fine tune the kind of results we want
+    // For example, here were limiting the results to just five assets
+    // More information can be found on the documentation
+    var builder = new AssetsUriParameterBuilder().WithLimit(5);
+
+    //Getting all the assets that are available for trading on the exchange.
+    var assets = await assetsApi.Assets(builder);
+
+    // Print their IDs on the console.
+    assets.Data.ToList().ForEach(a => Console.WriteLine(a.AssetId));
+}
+
+ ```
+ 
+ ### Getting an Offer
+ ```csharp
+
+async Task GetOffer(string offerId)
+{
+
+    // Initialize the v1 offers API
+    var api = AtomicMarketApiFactory.Version1.OffersApi;
+
+    // Call the offers endpoint passing the offerId as an input
+    var sales = await api.Offer(offerId);
+
+    // Access different informations about the offer using the Data property in the result
+    Console.WriteLine(sales.Data.SenderName);
+}
+
+ ```
+ ### Unity Examples
+ 
+ Our unity packages come with examples to help you get started as quickly as possible.
  
  ## Results Search for Asset Id "#1099849109724"
  
