@@ -49,7 +49,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.26
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.27
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -98,8 +98,8 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: 1.0.26
-          name: Release 1.0.26
+          tag: 1.0.27
+          name: Release 1.0.27
           body: ${{ env.VERSION }}
           makeLatest: true
       - name: Download unity package
