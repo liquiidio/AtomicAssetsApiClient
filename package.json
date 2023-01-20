@@ -15,6 +15,12 @@
     "email": "corvin@liquiid.io",
     "url": "https://www.liquiid.io"
   },
+  "samples": [
+   {
+     "displayName": "UiToolkit",
+     "description": "Usage example using UiToolkit",
+     "path": "Samples~/UiToolkit"
+   },
   "keywords": [
     "atomic-assets",
     "atomicassets",
