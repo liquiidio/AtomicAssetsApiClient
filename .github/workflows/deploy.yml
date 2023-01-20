@@ -49,7 +49,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.30
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=1.0.31
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -69,15 +69,25 @@ jobs:
           fetch-depth: 0
       - name: Find all meta files
         run: |
-          echo "Assets.meta" > metaList
-          echo "README.md.meta" > metaList
-          find Assets/ -name \*.meta >> metaList
+          mkdir Assets
+          mkdir $PKG_ROOT
+          git mv Examples $PKG_ROOT
+          git mv Examples.meta $PKG_ROOT
+          git mv Packages $PKG_ROOT
+          git mv Packages.meta $PKG_ROOT
+          git mv Src $PKG_ROOT
+          git mv Src.meta $PKG_ROOT
+          git mv README.md $PKG_ROOT
+          git mv README.md.meta $PKG_ROOT
+          find $PKG_ROOT/ -name \*.meta >> metaList
+        env:
+          PKG_ROOT: Assets/AtomicAssetsApiClient
       - name: Make directory for our unity package
         run: mkdir a
       - name: Create Unity Package
         uses: pCYSl5EDgo/create-unitypackage@master
         with:
-          package-path: 'a/io.liquiid.atomicassets.unitypackage'
+          package-path: 'a/atomicassets.unitypackage'
           include-files: metaList
       - name: Upload package
         uses: actions/upload-artifact@v1
@@ -98,8 +108,8 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: 1.0.30
-          name: Release 1.0.30
+          tag: 1.0.31
+          name: Release 1.0.31
           body: ${{ env.VERSION }}
           makeLatest: true
       - name: Download unity package
@@ -165,26 +175,17 @@ jobs:
       - name: split upm branch
         run: |
           git branch -d upm &> /dev/null || echo upm branch not found # recreate the upm branch each time
-          git mv "$PKG_ROOT" "$UPM_ROOT"
-          git mv $UPM_ROOT/Examples $UPM_ROOT/Samples~
-          git mv README.md $UPM_ROOT
-          git mv README.md.meta $UPM_ROOT
           echo "********************** ROOT **********************"
           ls
-          git add "$UPM_ROOT"
           git config --global user.name 'github-bot'
           git config --global user.email 'github-bot@users.noreply.github.com'
-          git commit -m "create release folder"
-          git subtree split -P "$UPM_ROOT" -b upm                     # create the upm branch
-          git checkout upm   
-          git rm -r .github || true                                                # remove github workflow files
+          git checkout -b upm                                               # create the upm branch and checkout the branch
+          git rm -r .github || true                                         # remove github workflow files
           git commit -am "removed the workflow files" || true
           echo "********************** ROOT **********************"
           ls
           git push -u origin upm --force                                    # commit the branch
-        env:
-          PKG_ROOT: Assets/AtomicAssetsApiClient
-          UPM_ROOT: Release
+        
 
 
         
