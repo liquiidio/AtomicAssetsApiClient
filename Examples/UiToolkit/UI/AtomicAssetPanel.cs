@@ -46,6 +46,8 @@ public class AtomicAssetPanel : MonoBehaviour
 
     public AtomicAssetsErrorPanel AtomicAssetsErrorPanel;
 
+    public Focusable focusedElement { get; }
+
     void Start()
     {
         Root = GetComponent<UIDocument>().rootVisualElement;
@@ -98,7 +100,6 @@ public class AtomicAssetPanel : MonoBehaviour
             _selectorDropdownField.value = _selectorDropdownField.value;
         });
     }
-
     #endregion
 
     #region Rebind
@@ -201,5 +202,14 @@ public class AtomicAssetPanel : MonoBehaviour
         element.style.visibility = Visibility.Hidden;
         element.style.display = DisplayStyle.None;
     }
+
+    /// <summary>Called when ctrl + v is pressed in browser (webgl)</summary>
+    /// <param name="pastedText">The pasted text.</param>
+    public void OnBrowserClipboardPaste(string pastedText)
+    {
+        if (_collectionNameOrAssetId.focusController.focusedElement == _collectionNameOrAssetId)
+            _collectionNameOrAssetId.value = pastedText;
+    }
+
     #endregion
 }
