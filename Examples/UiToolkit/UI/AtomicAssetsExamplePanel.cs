@@ -8,7 +8,7 @@ using AtomicAssetsApiClient.Exceptions;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class AtomicAssetPanel : MonoBehaviour
+public class AtomicAssetsExamplePanel : MonoBehaviour
 {
     /*
      * Child-Controls
@@ -203,13 +203,24 @@ public class AtomicAssetPanel : MonoBehaviour
         element.style.display = DisplayStyle.None;
     }
 
-    /// <summary>Called when ctrl + v is pressed in browser (webgl)</summary>
+    /// <summary>
+    /// Called when ctrl + v is pressed in browser (webgl)
+    /// </summary>
     /// <param name="pastedText">The pasted text.</param>
-    public static void OnBrowserClipboardPaste(string pastedText)
+    public void OnBrowserClipboardPaste(string pastedText)
     {
         if (_collectionNameOrAssetId.focusController.focusedElement == _collectionNameOrAssetId)
             _collectionNameOrAssetId.value = pastedText;
     }
 
+    /// <summary>
+    /// Called when ctrl + v is pressed in browser for the PluginSuiteMultiExample Scene (webgl)
+    /// </summary>
+    /// <param name="pastedText">The pasted text.</param>
+    public static void MultiExampleClipboardPaste(string pastedText)
+    {
+        if (_collectionNameOrAssetId.focusController.focusedElement == _collectionNameOrAssetId)
+            _collectionNameOrAssetId.value = pastedText;
+    }
     #endregion
 }

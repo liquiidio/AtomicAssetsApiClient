@@ -417,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6778187414576910319, guid: e29f499154e7777428bf0dadfd325600, type: 3}
       propertyPath: m_Name
-      value: AtomicAssetErrorPanel
+      value: AtomicAssetsErrorPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e29f499154e7777428bf0dadfd325600, type: 3}
