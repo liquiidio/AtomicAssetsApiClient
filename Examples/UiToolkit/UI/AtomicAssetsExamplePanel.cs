@@ -29,13 +29,16 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
     private Label _templateIdLabel;
     private Label _propertiesTransferableLabel;
     private Label _propertiesBurnableLabel;
+    private Label _queryLabel;
+    private Label _infoLabel;
 
     private Button _searchButton;
 
     private DropdownField _selectorDropdownField;
     private static TextField _collectionNameOrAssetId;
 
-
+    private VisualElement _searchDetails;
+    private VisualElement _loadingMask;
     /*
      * Fields/Properties
      */
@@ -71,10 +74,16 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
         _collectionNameLabel = Root.Q<Label>("collection-name-label");
         _propertiesTransferableLabel = Root.Q<Label>("properties-transferable-label");
         _propertiesBurnableLabel = Root.Q<Label>("properties-burnable-label");
-
+        _queryLabel = Root.Q<Label>("query-label");
+        _infoLabel = Root.Q<Label>("info-label");
         _selectorDropdownField = Root.Q<DropdownField>("selector-dropdown");
 
         _searchButton = Root.Q<Button>("search-button");
+
+        _searchDetails = Root.Q<VisualElement>("search-details");
+        _loadingMask = Root.Q<VisualElement>("loading-mask");
+
+        Hide(_loadingMask);
 
         BindButtons();
     }
@@ -84,6 +93,14 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
     private void BindButtons()
     {
         _searchButton.clicked += SearchAsset;
+
+        _queryLabel.text = "Query various details about a specific asset Id on Atomic asset.";
+        _infoLabel.text = "Type an asset Id to search";
+        _searchButton.text = "Search assets Id";
+
+        _collectionNameOrAssetId.RegisterCallback<ClickEvent>(evt =>
+        { Clear(); Show(_searchDetails);
+        });
 
         _searchTypes = new List<string>()
         {
@@ -98,6 +115,24 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
         _selectorDropdownField.RegisterCallback<ChangeEvent<string>>(evt =>
         {
             _selectorDropdownField.value = _selectorDropdownField.value;
+            if (_selectorDropdownField.value == "Collection Name")
+            {
+                Show(_searchDetails);
+                Clear();
+                _queryLabel.text = "Query various details about a collection name on Atomic assets.";
+                _infoLabel.text = "Type a collection name to search";
+                _searchButton.text = "Search Collection name";
+                _collectionNameOrAssetId.value = "";
+            }
+            else if (_selectorDropdownField.value == "Asset ID")
+            {
+                Show(_searchDetails);
+                Clear();
+                _queryLabel.text = "Query various details about a specific Asset Id on Atomic assets.";
+                _infoLabel.text = "Type an asset Id to search";
+                _searchButton.text = "Search Asset id";
+                _collectionNameOrAssetId.value = "";
+            }
         });
     }
     #endregion
@@ -148,19 +183,25 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
                 switch (_selectorDropdownField.value)
                 {
                     case "Asset ID":
+                        Hide(_searchDetails);
+                        Show(_loadingMask);
                         var assetDto = await _assetsApi.Asset(_collectionNameOrAssetId.value);
                         if (assetDto != null)
                         {
                             Rebind(assetDto);
+                            Hide(_loadingMask);
                         }
                         else Debug.Log("asset id not found");
                         break;
 
                     case "Collection Name":
+                        Hide(_searchDetails);
+                        Show(_loadingMask);
                         var collectionDto = await _collectionsApi.Collection(_collectionNameOrAssetId.value);
                         if (collectionDto != null)
                         {
                             Rebind(collectionDto);
+                            Hide(_loadingMask);
                         }
                         else Debug.Log("asset not found");
                         break;
@@ -211,6 +252,23 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
     {
         if (_collectionNameOrAssetId.focusController.focusedElement == _collectionNameOrAssetId)
             _collectionNameOrAssetId.value = pastedText;
+    }
+    /// <summary>
+    /// Clear Method Clear the values after rebind
+    /// </summary>
+    private void Clear()
+    {
+        _collectionNameLabel.text = "";
+        _ownerLabel.text = "";
+        _nftNameLabel.text = "";
+        _idLabel.text = "";
+        _mintNumberLabel.text = "";
+        _backedTokenLabel.text = "";
+        _schemaNameLabel.text = "";
+        _templateIdLabel.text = "";
+        _priceLabel.text = "";
+        _sellerLabel.text = "";
+        _tradeOfferIdLabel.text = "";
     }
 
     #endregion
