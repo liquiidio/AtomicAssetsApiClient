@@ -79,11 +79,15 @@ Download this project there here . Then in your Unity project:
 
 `PM> Install-Package Liquiid.io.AtomicAssets -Version 1.0.24`
 
+---
+
  # Usage
 
  The entry point to the APIs is in the AtomicAssetsApiFactory. You can initialise any supported API from there.
  You can then call any endpoint from the initialised API.
  Each endpoint has its own set of parameters that you may build up and pass in to the relevant function.
+
+---
 
  # Examples
  
