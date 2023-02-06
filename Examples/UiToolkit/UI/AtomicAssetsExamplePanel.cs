@@ -84,6 +84,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
         _loadingMask = Root.Q<VisualElement>("loading-mask");
 
         Hide(_loadingMask);
+        Hide(_searchDetails);
 
         BindButtons();
     }
@@ -117,7 +118,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
             _selectorDropdownField.value = _selectorDropdownField.value;
             if (_selectorDropdownField.value == "Collection Name")
             {
-                Show(_searchDetails);
+                Hide(_searchDetails);
                 Clear();
                 _queryLabel.text = "Query various details about a collection name on Atomic assets.";
                 _infoLabel.text = "Type a collection name to search";
@@ -126,7 +127,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
             }
             else if (_selectorDropdownField.value == "Asset ID")
             {
-                Show(_searchDetails);
+                Hide(_searchDetails);
                 Clear();
                 _queryLabel.text = "Query various details about a specific Asset Id on Atomic assets.";
                 _infoLabel.text = "Type an asset Id to search";
@@ -213,6 +214,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
             catch (ApiException ex)
             {
                 AtomicAssetsErrorPanel.ErrorText("Content Error", ex.Content);
+                Hide(_loadingMask);
                 Show(AtomicAssetsErrorPanel.Root);
             }
         }
