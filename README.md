@@ -65,7 +65,7 @@ Download the UnityPackage . Then in your Unity project:
 ### 3. Install manually.
 Download this project there here . Then in your Unity project:
 
- 1. Copy the sources from `AtomicAssetApiClient` into your `Assets` directory.
+ 1. Copy the sources from `AtomicAssetsApiClient` into your `Assets` directory.
 
 ---
 
