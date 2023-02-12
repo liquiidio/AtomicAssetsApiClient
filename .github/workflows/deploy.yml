@@ -1,9 +1,12 @@
 name: Deploy
 
 on:
-  push:
-    tags: 
-      - "[0-9]+.[0-9]+.[0-9]+*"
+  workflow_dispatch:
+    inputs:
+      package_version:
+        description: 'Package version'
+        required: true
+        default: '1.0.0'
 
 jobs:
   build:
@@ -54,7 +57,7 @@ jobs:
       - name: Determine version
         run: echo "VERSION=$(git describe --tags --dirty)" >> $GITHUB_ENV
       - name: Pack
-        run: dotnet pack --output ./artifacts --configuration Release -p:Version=$VERSION
+        run: dotnet pack --output ./artifacts --configuration Release -p:Version=${{ github.event.inputs.package_version }}
       - name: Upload package
         uses: actions/upload-artifact@v1
         with:
@@ -113,9 +116,9 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1.12.0
         with:
-          tag: ${{ env.VERSION }}
-          name: Release ${{ env.VERSION }}
-          body: ${{ env.VERSION }}
+          tag: ${{ github.event.inputs.package_version }}
+          name: Release ${{ github.event.inputs.package_version }}
+          body: ${{ github.event.inputs.package_version }}
           makeLatest: true
       - name: Download unity package
         uses: actions/download-artifact@v1
