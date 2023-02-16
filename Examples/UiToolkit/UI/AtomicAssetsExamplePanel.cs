@@ -97,10 +97,12 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
 
         _queryLabel.text = "Query various details about a specific asset Id on Atomic asset.";
         _infoLabel.text = "Type an asset Id to search";
-        _searchButton.text = "Search assets Id";
+        _collectionNameOrAssetId.value = "Type an asset id to search";
+        _searchButton.text = "Search asset Id";
 
         _collectionNameOrAssetId.RegisterCallback<ClickEvent>(evt =>
         { Clear(); Show(_searchDetails);
+            _collectionNameOrAssetId.value = "";
         });
 
         _searchTypes = new List<string>()
@@ -123,7 +125,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
                 _queryLabel.text = "Query various details about a collection name on Atomic assets.";
                 _infoLabel.text = "Type a collection name to search";
                 _searchButton.text = "Search Collection name";
-                _collectionNameOrAssetId.value = "";
+                _collectionNameOrAssetId.value = "Type a collection name to search";
             }
             else if (_selectorDropdownField.value == "Asset ID")
             {
@@ -132,7 +134,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
                 _queryLabel.text = "Query various details about a specific Asset Id on Atomic assets.";
                 _infoLabel.text = "Type an asset Id to search";
                 _searchButton.text = "Search Asset id";
-                _collectionNameOrAssetId.value = "";
+                _collectionNameOrAssetId.value = "Type an asset id to search";
             }
         });
     }
