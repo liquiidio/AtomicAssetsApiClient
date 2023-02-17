@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 public class AtomicAssetsExamplePanel : MonoBehaviour
 {
-    /*
+    /**
      * Child-Controls
      */
     public VisualElement Root;
@@ -39,7 +39,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
 
     private VisualElement _searchDetails;
     private VisualElement _loadingMask;
-    /*
+    /**
      * Fields/Properties
      */
     private AssetsApi _assetsApi;
@@ -99,6 +99,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
         _infoLabel.text = "Type an asset Id to search";
         _collectionNameOrAssetId.value = "Type an asset id to search";
         _searchButton.text = "Search asset Id";
+        _collectionNameOrAssetId.label = "asset id";
 
         _collectionNameOrAssetId.RegisterCallback<ClickEvent>(evt =>
         { Clear(); Show(_searchDetails);
@@ -123,18 +124,20 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
                 Hide(_searchDetails);
                 Clear();
                 _queryLabel.text = "Query various details about a collection name on Atomic assets.";
-                _infoLabel.text = "Type a collection name to search";
-                _searchButton.text = "Search Collection name";
+                _infoLabel.text = "Type a collection name...";
+                _searchButton.text = "Search name";
                 _collectionNameOrAssetId.value = "Type a collection name to search";
+                _collectionNameOrAssetId.label = "Collection";
             }
             else if (_selectorDropdownField.value == "Asset ID")
             {
                 Hide(_searchDetails);
                 Clear();
                 _queryLabel.text = "Query various details about a specific Asset Id on Atomic assets.";
-                _infoLabel.text = "Type an asset Id to search";
+                _infoLabel.text = "Type an asset Id...";
                 _searchButton.text = "Search Asset id";
                 _collectionNameOrAssetId.value = "Type an asset id to search";
+                _collectionNameOrAssetId.label = "Asset id";
             }
         });
     }
