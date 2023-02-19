@@ -99,7 +99,7 @@ public class AtomicAssetsExamplePanel : MonoBehaviour
         _infoLabel.text = "Type an asset Id to search";
         _collectionNameOrAssetId.value = "Type an asset id to search";
         _searchButton.text = "Search asset Id";
-        _collectionNameOrAssetId.label = "asset id";
+        _collectionNameOrAssetId.label = "Asset id";
 
         _collectionNameOrAssetId.RegisterCallback<ClickEvent>(evt =>
         { Clear(); Show(_searchDetails);
