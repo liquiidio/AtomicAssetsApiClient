@@ -24,7 +24,7 @@
 This package can be included into your project by either:
 
  1. Installing the package via Unity's Package Manager (UPM) in the editor (recommended).
- 2. Importing the .unitypackage which you can download.
+ 2. Importing the .unitypackage which you can download [here](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest/download/atomicassets.unitypackage). 
  3. Manually add the files in this repo.
  4. Installing it via NuGet.
  
@@ -44,7 +44,9 @@ In your Unity project:
    
 ---
 ### 2. Importing the Unity Package.
-Download the UnityPackage . Then in your Unity project:
+Download the [UnityPackage here](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest/download/atomicassets.unitypackage). 
+
+Then in your Unity project:
 
  1. Open up the import a custom package window
     
@@ -63,9 +65,13 @@ Download the UnityPackage . Then in your Unity project:
 ---
 
 ### 3. Install manually.
-Download this project there here . Then in your Unity project:
 
- 1. Copy the sources from `AtomicAssetsApiClient` into your `Assets` directory.
+Download this [project here](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest).
+
+  * [zip](https://github.com/liquiidio/AtomicAssetsApiClient-Private/archive/refs/tags/1.0.35.zip) 
+  * [tar.gz](https://github.com/liquiidio/AtomicAssetsApiClient-Private/archive/refs/tags/1.0.35.tar.gz) 
+
+Then in your Unity project, copy the sources from `AtomicAssetsApiClient` into your Unity `Assets` directory.
 
 ---
 
