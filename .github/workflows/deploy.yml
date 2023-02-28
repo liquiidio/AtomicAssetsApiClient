@@ -58,9 +58,9 @@ jobs:
       - name : Make Directory
         run : mkdir artifacts
       - name: Pack
-        run: dotnet pack -p:PublishDir=./artifacts --configuration Release -p:Version=${{ github.event.inputs.package_version }}
+        run: dotnet pack -p:PackageOutputPath=./artifact --configuration Release -p:Version=${{ github.event.inputs.package_version }}
       - name: Upload package
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: artifacts
           path: ./artifacts
