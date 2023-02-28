@@ -14,19 +14,17 @@ namespace AtomicAssetsApiClient.Templates
             _httpHandler = httpHandler;
         }
 
-        public async Task<TemplatesDto> Templates()
         /// <summary>
         /// This function will return a list of templates that are available to the user
         /// </summary>
         /// <returns>
         /// A TemplatesDto object
         /// </returns>
-        public TemplatesDto Templates()
+        public async Task<TemplatesDto> Templates()
         {
             return await _httpHandler.GetJsonAsync<TemplatesDto>(TemplatesUri().OriginalString);
         }
 
-        public async Task<TemplatesDto> Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
         /// <summary>
         /// This function will return a TemplatesDto object that contains a list of templates that match
         /// the criteria specified in the TemplatesUriParameterBuilder object
@@ -36,12 +34,11 @@ namespace AtomicAssetsApiClient.Templates
         /// <returns>
         /// A TemplatesDto object.
         /// </returns>
-        public TemplatesDto Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
+        public async Task<TemplatesDto> Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
         {
             return await _httpHandler.GetJsonAsync<TemplatesDto>(TemplatesUri(templatesUriParameterBuilder).OriginalString);
         }
 
-        public async Task<TemplateDto> Template(string collectionName, string templateId)
         /// <summary>
         /// This function will return a TemplateDto object from the API
         /// </summary>
@@ -51,12 +48,11 @@ namespace AtomicAssetsApiClient.Templates
         /// <returns>
         /// A TemplateDto object
         /// </returns>
-        public TemplateDto Template(string collectionName, string templateId)
+        public async Task<TemplateDto> Template(string collectionName, string templateId)
         {
             return await _httpHandler.GetJsonAsync<TemplateDto>(TemplateUri(collectionName, templateId).OriginalString);
         }
 
-        public async Task<StatsDto> TemplateStats(string collectionName, string templateId)
         /// <summary>
         /// This function will return a StatsDto object that contains the number of documents that have
         /// been indexed using the specified template
@@ -67,12 +63,11 @@ namespace AtomicAssetsApiClient.Templates
         /// <returns>
         /// A StatsDto object
         /// </returns>
-        public StatsDto TemplateStats(string collectionName, string templateId)
+        public async Task<StatsDto> TemplateStats(string collectionName, string templateId)
         {
             return await _httpHandler.GetJsonAsync<StatsDto>(TemplateStatsUri(collectionName, templateId).OriginalString);
         }
 
-        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId)
         /// <summary>
         /// This function returns a list of logs for a specific template
         /// </summary>
@@ -81,12 +76,11 @@ namespace AtomicAssetsApiClient.Templates
         /// <returns>
         /// A list of logs for a specific template.
         /// </returns>
-        public LogsDto TemplateLogs(string collectionName, string templateId)
+        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId)
         {
             return await _httpHandler.GetJsonAsync<LogsDto>(TemplateLogsUri(collectionName, templateId).OriginalString);
         }
 
-        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId, TemplatesUriParameterBuilder templatesUriParameterBuilder)
         /// <summary>
         /// This function returns a list of logs for a specific template
         /// </summary>
@@ -98,8 +92,7 @@ namespace AtomicAssetsApiClient.Templates
         /// <returns>
         /// A LogsDto object
         /// </returns>
-        public LogsDto TemplateLogs(string collectionName, string templateId,
-            TemplatesUriParameterBuilder templatesUriParameterBuilder)
+        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId, TemplatesUriParameterBuilder templatesUriParameterBuilder)
         {
             return await _httpHandler.GetJsonAsync<LogsDto>(TemplateLogsUri(collectionName, templateId, templatesUriParameterBuilder).OriginalString);
         }

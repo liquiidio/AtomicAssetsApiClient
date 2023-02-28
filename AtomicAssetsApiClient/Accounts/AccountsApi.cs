@@ -20,7 +20,6 @@ namespace AtomicAssetsApiClient.Accounts
         /// <returns>
         /// A list of accounts
         /// </returns>
-        public AccountsDto Accounts()
         public async Task<AccountsDto> Accounts()
         {
             return await _httpHandler.GetJsonAsync<AccountsDto>(AccountsUri().OriginalString);
@@ -34,7 +33,6 @@ namespace AtomicAssetsApiClient.Accounts
         /// <returns>
         /// A list of accounts.
         /// </returns>
-        public AccountsDto Accounts(AccountsUriParameterBuilder accountsUriParameterBuilder)
         public async Task<AccountsDto> Accounts(AccountsUriParameterBuilder accountsUriParameterBuilder)
         {
             return await _httpHandler.GetJsonAsync<AccountsDto>(AccountsUri(accountsUriParameterBuilder).OriginalString);
@@ -48,7 +46,7 @@ namespace AtomicAssetsApiClient.Accounts
         /// <returns>
         /// An AccountDto object
         /// </returns>
-        public AccountDto Account(string accountName)
+        public async Task<AccountDto> Account(string accountName)
         {
             return await _httpHandler.GetJsonAsync<AccountDto>(AccountUri(accountName).OriginalString);
         }
@@ -61,7 +59,7 @@ namespace AtomicAssetsApiClient.Accounts
         /// <returns>
         /// An AccountCollectionDto object.
         /// </returns>
-        public AccountCollectionDto Collection(string accountName, string collectionName)
+        public async Task<AccountCollectionDto> Collection(string accountName, string collectionName)
         {
             return await _httpHandler.GetJsonAsync<AccountCollectionDto>(AccountUri(accountName, collectionName).OriginalString);
         }

@@ -14,7 +14,6 @@ namespace AtomicAssetsApiClient.Offers
             _httpHandler = httpHandler;
         }
 
-        public async Task<OffersDto> Offers()
         /// <summary>
         /// This function will make a GET request to the `Offers` endpoint and return the response as
         /// a `OffersDto` object
@@ -22,12 +21,11 @@ namespace AtomicAssetsApiClient.Offers
         /// <returns>
         /// A list of offers
         /// </returns>
-        public OffersDto Offers()
+        public async Task<OffersDto> Offers()
         {
             return await _httpHandler.GetJsonAsync<OffersDto>(OffersUri().OriginalString);
         }
 
-        public async Task<OffersDto> Offers(OffersUriParameterBuilder offersUriParameterBuilder)
         /// <summary>
         /// It takes a `OffersUriParameterBuilder` object as a parameter, builds a `HttpRequestMessage`
         /// object, sends it to the API, and returns the response as a `OffersDto` object
@@ -37,12 +35,11 @@ namespace AtomicAssetsApiClient.Offers
         /// <returns>
         /// A list of offers.
         /// </returns>
-        public OffersDto Offers(OffersUriParameterBuilder offersUriParameterBuilder)
+        public async Task<OffersDto> Offers(OffersUriParameterBuilder offersUriParameterBuilder)
         {
             return await _httpHandler.GetJsonAsync<OffersDto>(OffersUri(offersUriParameterBuilder).OriginalString);
         }
 
-        public async Task<OfferDto> Offer(string offerId)
         /// <summary>
         /// This function will return an OfferDto object if the API call is successful. Otherwise, it
         /// will throw an exception
@@ -51,12 +48,11 @@ namespace AtomicAssetsApiClient.Offers
         /// <returns>
         /// A single offer
         /// </returns>
-        public OfferDto Offer(string offerId)
+        public async Task<OfferDto> Offer(string offerId)
         {
             return await _httpHandler.GetJsonAsync<OfferDto>(OfferUri(offerId).OriginalString);
         }
 
-        public async Task<LogsDto> OfferLogs(string offerId)
         /// <summary>
         /// This function will return a list of logs for a specific offer
         /// </summary>
@@ -64,12 +60,11 @@ namespace AtomicAssetsApiClient.Offers
         /// <returns>
         /// A list of logs for the offer.
         /// </returns>
-        public LogsDto OfferLogs(string offerId)
+        public async Task<LogsDto> OfferLogs(string offerId)
         {
             return await _httpHandler.GetJsonAsync<LogsDto>(OfferLogsUri(offerId).OriginalString);
         }
 
-        public async Task<LogsDto> OfferLogs(string offerId, OffersUriParameterBuilder  schemasUriParameterBuilder)
         /// <summary>
         /// This function returns a list of logs for a specific offer
         /// </summary>
@@ -79,7 +74,7 @@ namespace AtomicAssetsApiClient.Offers
         /// <returns>
         /// A LogsDto object
         /// </returns>
-        public LogsDto OfferLogs(string offerId, OffersUriParameterBuilder schemasUriParameterBuilder)
+        public async Task<LogsDto> OfferLogs(string offerId, OffersUriParameterBuilder schemasUriParameterBuilder)
         {
             return await _httpHandler.GetJsonAsync<LogsDto>(OfferLogsUri(offerId, schemasUriParameterBuilder).OriginalString);
         }

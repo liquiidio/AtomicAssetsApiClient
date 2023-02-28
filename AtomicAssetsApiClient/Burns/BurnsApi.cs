@@ -21,13 +21,11 @@ namespace AtomicAssetsApiClient.Burns
         /// <returns>
         /// BurnsDto
         /// </returns>
-        public BurnsDto Burns()
         public async Task<BurnsDto> Burns()
         {
             return await _httpHander.GetJsonAsync<BurnsDto>(BurnsUri().OriginalString);
         }
 
-        public async Task<BurnsDto> Burns(BurnsUriParameterBuilder burnsUriParameterBuilder)
         /// <summary>
         /// This function will return a BurnsDto object if the API call is successful. Otherwise, it
         /// will throw an exception
@@ -37,12 +35,11 @@ namespace AtomicAssetsApiClient.Burns
         /// <returns>
         /// A BurnsDto object.
         /// </returns>
-        public BurnsDto Burns(BurnsUriParameterBuilder burnsUriParameterBuilder)
+        public async Task<BurnsDto> Burns(BurnsUriParameterBuilder burnsUriParameterBuilder)
         {
             return await _httpHander.GetJsonAsync<BurnsDto>(BurnsUri(burnsUriParameterBuilder).OriginalString);
         }
 
-        public async Task<BurnDto> Account(string accountName)
         /// <summary>
         /// It returns the burn amount for a given account.
         /// </summary>
@@ -50,7 +47,7 @@ namespace AtomicAssetsApiClient.Burns
         /// <returns>
         /// A BurnDto object
         /// </returns>
-        public BurnDto Account(string accountName)
+        public async Task<BurnDto> Account(string accountName)
         {
             return await _httpHander.GetJsonAsync<BurnDto>(BurnUri(accountName).OriginalString);
         }

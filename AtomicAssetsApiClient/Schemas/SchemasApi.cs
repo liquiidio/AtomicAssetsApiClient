@@ -14,7 +14,6 @@ namespace AtomicAssetsApiClient.Schemas
             _httpHandler = httpHandler;
         }
 
-        public async Task<SchemasDto> Schemas()
         /// <summary>
         /// This function will return a `SchemasDto` object that contains a list of all the schemas
         /// that are available in the API
@@ -22,12 +21,11 @@ namespace AtomicAssetsApiClient.Schemas
         /// <returns>
         /// A SchemasDto object.
         /// </returns>
-        public SchemasDto Schemas()
+        public async Task<SchemasDto> Schemas()
         {
             return await _httpHandler.GetJsonAsync<SchemasDto>(SchemasUri().OriginalString);
         }
 
-        public async Task<SchemasDto> Schemas(SchemasUriParameterBuilder schemasUriParameterBuilder)
         /// <summary>
         /// This function will return a list of schemas that match the criteria specified in the
         /// `SchemasUriParameterBuilder` object
@@ -37,12 +35,11 @@ namespace AtomicAssetsApiClient.Schemas
         /// <returns>
         /// A list of schemas.
         /// </returns>
-        public SchemasDto Schemas(SchemasUriParameterBuilder schemasUriParameterBuilder)
+        public async Task<SchemasDto> Schemas(SchemasUriParameterBuilder schemasUriParameterBuilder)
         {
             return await _httpHandler.GetJsonAsync<SchemasDto>(SchemasUri(schemasUriParameterBuilder).OriginalString);
         }
 
-        public async Task<SchemaDto> Schema(string collectionName, string schemaName)
         /// <summary>
         /// This function will return a schema object for the specified collection and schema name
         /// </summary>
@@ -52,12 +49,11 @@ namespace AtomicAssetsApiClient.Schemas
         /// <returns>
         /// A SchemaDto object.
         /// </returns>
-        public SchemaDto Schema(string collectionName, string schemaName)
+        public async Task<SchemaDto> Schema(string collectionName, string schemaName)
         {
             return await _httpHandler.GetJsonAsync<SchemaDto>(SchemaUri(collectionName, schemaName).OriginalString);
         }
 
-        public async Task<StatsDto> SchemaStats(string collectionName, string schemaName)
         /// <summary>
         /// It returns the stats of a schema.
         /// </summary>
@@ -67,12 +63,11 @@ namespace AtomicAssetsApiClient.Schemas
         /// <returns>
         /// A StatsDto object
         /// </returns>
-        public StatsDto SchemaStats(string collectionName, string schemaName)
+        public async Task<StatsDto> SchemaStats(string collectionName, string schemaName)
         {
             return await _httpHandler.GetJsonAsync<StatsDto>(SchemaStatsUri(collectionName, schemaName).OriginalString);
         }
 
-        public async Task<LogsDto> SchemaLogs(string collectionName, string schemaName)
         /// <summary>
         /// This function returns a list of logs for a specific schema
         /// </summary>
@@ -82,12 +77,11 @@ namespace AtomicAssetsApiClient.Schemas
         /// <returns>
         /// A list of logs for the schema.
         /// </returns>
-        public LogsDto SchemaLogs(string collectionName, string schemaName)
+        public async Task<LogsDto> SchemaLogs(string collectionName, string schemaName)
         {
             return await _httpHandler.GetJsonAsync<LogsDto>(SchemaLogsUri(collectionName, schemaName).OriginalString);
         }
 
-        public async Task<LogsDto> SchemaLogs(string collectionName, string schemaName, SchemasUriParameterBuilder schemasUriParameterBuilder)
         /// <summary>
         /// This function returns a list of logs for a specific schema
         /// </summary>
@@ -99,8 +93,8 @@ namespace AtomicAssetsApiClient.Schemas
         /// <returns>
         /// A LogsDto object.
         /// </returns>
-        public LogsDto SchemaLogs(string collectionName, string schemaName,
-            SchemasUriParameterBuilder schemasUriParameterBuilder)
+        public async Task<LogsDto> SchemaLogs(string collectionName, string schemaName, SchemasUriParameterBuilder schemasUriParameterBuilder)
+
         {
             return await _httpHandler.GetJsonAsync<LogsDto>(SchemaLogsUri(collectionName, schemaName, schemasUriParameterBuilder).OriginalString);
         }

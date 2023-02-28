@@ -14,19 +14,17 @@ namespace AtomicAssetsApiClient.Collections
             _httpHander = httpHandler;
         }
 
-        public async Task<CollectionsDto> Collections()
         /// <summary>
         /// It returns a list of all the collections in the database.
         /// </summary>
         /// <returns>
         /// A list of collections
         /// </returns>
-        public CollectionsDto Collections()
+        public async Task<CollectionsDto> Collections()
         {
             return await _httpHander.GetJsonAsync<CollectionsDto>(CollectionsUri().OriginalString);
         }
 
-        public async Task<CollectionsDto> Collections(CollectionsUriParameterBuilder collectionsUriParameterBuilder)
         /// <summary>
         /// It takes a `CollectionsUriParameterBuilder` object as a parameter, builds an `HttpRequestMessage`
         /// object, sends it to the API, and returns a `CollectionsDto` object.
@@ -36,12 +34,11 @@ namespace AtomicAssetsApiClient.Collections
         /// <returns>
         /// A collection of collections.
         /// </returns>
-        public CollectionsDto Collections(CollectionsUriParameterBuilder collectionsUriParameterBuilder)
+        public async Task<CollectionsDto> Collections(CollectionsUriParameterBuilder collectionsUriParameterBuilder)
         {
             return await _httpHander.GetJsonAsync<CollectionsDto>(CollectionsUri(collectionsUriParameterBuilder).OriginalString);
         }
 
-        public async Task<CollectionDto> Collection(string collectionName)
         /// <summary>
         /// This function will return a collection object from the API
         /// </summary>
@@ -49,12 +46,11 @@ namespace AtomicAssetsApiClient.Collections
         /// <returns>
         /// A collection of documents.
         /// </returns>
-        public CollectionDto Collection(string collectionName)
+        public async Task<CollectionDto> Collection(string collectionName)
         {
             return await _httpHander.GetJsonAsync<CollectionDto>(CollectionUri(collectionName).OriginalString);
         }
 
-        public async Task<StatsDto> CollectionStats(string collectionName)
 
         /// <summary>
         /// This function will return a StatsDto object that contains the stats for the collection
@@ -64,12 +60,11 @@ namespace AtomicAssetsApiClient.Collections
         /// <returns>
         /// A StatsDto object
         /// </returns>
-        public StatsDto CollectionStats(string collectionName)
+        public async Task<StatsDto> CollectionStats(string collectionName)
         {
             return await _httpHander.GetJsonAsync<StatsDto>(CollectionStatsUri(collectionName).OriginalString);
         }
 
-        public async Task<LogsDto> CollectionLogs(string collectionName)
         /// <summary>
         /// This function will return a list of logs for a given collection
         /// </summary>
@@ -77,12 +72,11 @@ namespace AtomicAssetsApiClient.Collections
         /// <returns>
         /// A LogsDto object
         /// </returns>
-        public LogsDto CollectionLogs(string collectionName)
+        public async Task<LogsDto> CollectionLogs(string collectionName)
         {
             return await _httpHander.GetJsonAsync<LogsDto>(CollectionLogsUri(collectionName).OriginalString);
         }
 
-        public async Task<LogsDto> CollectionLogs(string collectionName, CollectionsUriParameterBuilder collectionsUriParameterBuilder)
         /// <summary>
         /// This function returns a list of logs for a given collection
         /// </summary>
@@ -93,8 +87,7 @@ namespace AtomicAssetsApiClient.Collections
         /// <returns>
         /// A LogsDto object
         /// </returns>
-        public LogsDto CollectionLogs(string collectionName,
-            CollectionsUriParameterBuilder collectionsUriParameterBuilder)
+        public async Task<LogsDto> CollectionLogs(string collectionName, CollectionsUriParameterBuilder collectionsUriParameterBuilder)
         {
             return await _httpHander.GetJsonAsync<LogsDto>(CollectionLogsUri(collectionName, collectionsUriParameterBuilder).OriginalString);
         }

@@ -22,7 +22,6 @@ namespace AtomicAssetsApiClient.Assets
         /// <returns>
         /// A list of assets.
         /// </returns>
-        public AssetsDto Assets()
         public async Task<AssetsDto> Assets()
         {
             return await _httpHander.GetJsonAsync<AssetsDto>(AssetsUri().OriginalString);
@@ -36,7 +35,6 @@ namespace AtomicAssetsApiClient.Assets
         /// <returns>
         /// A list of assets.
         /// </returns>
-        public AssetsDto Assets(AssetsUriParameterBuilder assetsUriParameterBuilder)
         public async Task<AssetsDto> Assets(AssetsUriParameterBuilder assetsUriParameterBuilder)
         {
             return await _httpHander.GetJsonAsync<AssetsDto>(AssetsUri(assetsUriParameterBuilder).OriginalString);
@@ -49,7 +47,6 @@ namespace AtomicAssetsApiClient.Assets
         /// <returns>
         /// An AssetDto object
         /// </returns>
-        public AssetDto Asset(string assetId)
         public async Task<AssetDto> Asset(string assetId)
         {
             return await _httpHander.GetJsonAsync<AssetDto>(AssetUri(assetId).OriginalString);
@@ -62,7 +59,7 @@ namespace AtomicAssetsApiClient.Assets
         /// <returns>
         /// A StatsDto object
         /// </returns>
-        public StatsDto AssetStats(string assetId)
+        public async Task<StatsDto> AssetStats(string assetId)
         {
             return await _httpHander.GetJsonAsync<StatsDto>(AssetStatsUri(assetId).OriginalString);
         }
@@ -74,7 +71,6 @@ namespace AtomicAssetsApiClient.Assets
         /// <returns>
         /// A list of logs for the asset.
         /// </returns>
-        public LogsDto AssetLogs(string assetId)
         public async Task<LogsDto> AssetLogs(string assetId)
         {
             return await _httpHander.GetJsonAsync<LogsDto>(AssetLogsUri(assetId).OriginalString);
@@ -89,7 +85,6 @@ namespace AtomicAssetsApiClient.Assets
         /// <returns>
         /// A list of logs for the asset.
         /// </returns>
-        public LogsDto AssetLogs(string assetId, AssetsUriParameterBuilder assetsUriParameterBuilder)
         public async Task<LogsDto> AssetLogs(string assetId, AssetsUriParameterBuilder assetsUriParameterBuilder)
         {
             return await _httpHander.GetJsonAsync<LogsDto>(AssetLogsUri(assetId, assetsUriParameterBuilder).OriginalString);

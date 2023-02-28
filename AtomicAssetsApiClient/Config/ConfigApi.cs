@@ -14,7 +14,6 @@ namespace AtomicAssetsApiClient.Config
             _httpHandler = httpHandler;
         }
 
-        public async Task<ConfigDto> Config()
         /// <summary>
         /// This function will return a `ConfigDto` object that contains the configuration information for the
         /// current user
@@ -22,7 +21,7 @@ namespace AtomicAssetsApiClient.Config
         /// <returns>
         /// A ConfigDto object
         /// </returns>
-        public ConfigDto Config()
+        public async Task<ConfigDto> Config()
         {
             return await _httpHandler.GetJsonAsync<ConfigDto>(ConfigUri().OriginalString);
         }

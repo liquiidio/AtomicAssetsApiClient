@@ -30,6 +30,7 @@ namespace AtomicAssetsApiClient.Schemas
 
             [JsonProperty("created_at_time")]
             //! The Time this was created 
+            public string CreatedAtTime { get; set; }
 
             [JsonProperty("collection")]
             //! The Collection this belongs to 

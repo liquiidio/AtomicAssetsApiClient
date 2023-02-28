@@ -24,9 +24,8 @@ namespace AtomicAssetsApiClient.Transfers
         {
             return await _httpHandler.GetJsonAsync<TransfersDto>(TransfersUri().OriginalString);
         }
-        
 
-        public async Task<TransfersDto> Transfers(TransfersUriParameterBuilder transfersUriParameterBuilder)
+
         /// <summary>
         /// It returns a list of transfers.
         /// </summary>
@@ -35,7 +34,7 @@ namespace AtomicAssetsApiClient.Transfers
         /// <returns>
         /// A TransfersDto object.
         /// </returns>
-        public TransfersDto Transfers(TransfersUriParameterBuilder transfersUriParameterBuilder)
+        public async Task<TransfersDto> Transfers(TransfersUriParameterBuilder transfersUriParameterBuilder)
         {
             return await _httpHandler.GetJsonAsync<TransfersDto>(TransfersUri(transfersUriParameterBuilder).OriginalString);
         }
