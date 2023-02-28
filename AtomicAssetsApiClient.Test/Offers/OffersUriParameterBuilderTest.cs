@@ -1,13 +1,13 @@
 ﻿using AtomicAssetsApiClient.Offers;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Offers
 {
-    [TestFixture]
+    [TestClass]
     public class OffersUriParameterBuilderTest
     {
-        [Test]
+        [TestMethod]
         public void Build()
         {
             new OffersUriParameterBuilder()

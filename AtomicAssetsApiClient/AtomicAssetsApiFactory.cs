@@ -13,13 +13,14 @@ namespace AtomicAssetsApiClient
     public class AtomicAssetsApiFactory
     {
         private readonly string _baseUrl;
-        private const string Version1BaseUrl = "http://wax.api.atomicassets.io/atomicassets/v1";
+        private const string Version1BaseUrl = "https://wax.api.atomicassets.io/atomicassets/v1";
 
         private AtomicAssetsApiFactory(string baseUrl) => _baseUrl = baseUrl;
 
         /* It's a static property that returns a new instance of the AtomicAssetsApiFactory class. */
         public static AtomicAssetsApiFactory Version1 => new AtomicAssetsApiFactory(Version1BaseUrl);
 
+        public AccountsApi AccountsApi => new AccountsApi(_baseUrl, new HttpHandler());
         /// <summary>
         /// The AccountsApi function returns a new AccountsApi object, which is a class that inherits
         /// from the AccountsApiBase class
@@ -27,6 +28,9 @@ namespace AtomicAssetsApiClient
         /// <param name="_baseUrl">The base URL for the API.</param>
         public AccountsApi AccountsApi => new AccountsApi(_baseUrl);
 
+        public AssetsApi AssetsApi => new AssetsApi(_baseUrl, new HttpHandler());
+
+        public BurnsApi BurnsApi => new BurnsApi(_baseUrl, new HttpHandler());
         /// <summary>
         /// It creates a new instance of the AssetsApi class.
         /// </summary>
@@ -39,6 +43,11 @@ namespace AtomicAssetsApiClient
         /// <param name="_baseUrl">The base URL of the API.</param>
         public BurnsApi BurnsApi => new BurnsApi(_baseUrl);
 
+        public CollectionsApi CollectionsApi => new CollectionsApi(_baseUrl, new HttpHandler());
+
+        public ConfigApi ConfigApi => new ConfigApi(_baseUrl, new HttpHandler());
+
+        public OffersApi OffersApi => new OffersApi(_baseUrl, new HttpHandler());
         /// <summary>
         /// It creates a new instance of the CollectionsApi class.
         /// </summary>
@@ -58,6 +67,11 @@ namespace AtomicAssetsApiClient
         /// <param name="_baseUrl">The base URL of the API.</param>
         public OffersApi OffersApi => new OffersApi(_baseUrl);
 
+        public SchemasApi SchemasApi => new SchemasApi(_baseUrl, new HttpHandler());
+
+        public TemplatesApi TemplatesApi => new TemplatesApi(_baseUrl, new HttpHandler());
+
+        public TransfersApi TransfersApi => new TransfersApi(_baseUrl, new HttpHandler());
         /// <summary>
         /// It creates a new instance of the SchemasApi class.
         /// </summary>

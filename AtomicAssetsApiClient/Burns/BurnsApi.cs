@@ -1,15 +1,18 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Burns
 {
     public class BurnsApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
+        private readonly IHttpHandler _httpHander;
 
-        internal BurnsApi(string baseUrl) => _requestUriBase = baseUrl;
+        internal BurnsApi(string baseUrl, IHttpHandler httpHandler)
+        {
+            _requestUriBase = baseUrl;
+            _httpHander = httpHandler;
+        }
 
         /// <summary>
         /// This function will make a GET request to the Burns endpoint and return the response as a
@@ -19,15 +22,12 @@ namespace AtomicAssetsApiClient.Burns
         /// BurnsDto
         /// </returns>
         public BurnsDto Burns()
+        public async Task<BurnsDto> Burns()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(BurnsUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<BurnsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<BurnsDto>(BurnsUri().OriginalString);
         }
 
+        public async Task<BurnsDto> Burns(BurnsUriParameterBuilder burnsUriParameterBuilder)
         /// <summary>
         /// This function will return a BurnsDto object if the API call is successful. Otherwise, it
         /// will throw an exception
@@ -39,14 +39,10 @@ namespace AtomicAssetsApiClient.Burns
         /// </returns>
         public BurnsDto Burns(BurnsUriParameterBuilder burnsUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(BurnsUri(burnsUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<BurnsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<BurnsDto>(BurnsUri(burnsUriParameterBuilder).OriginalString);
         }
 
+        public async Task<BurnDto> Account(string accountName)
         /// <summary>
         /// It returns the burn amount for a given account.
         /// </summary>
@@ -56,12 +52,7 @@ namespace AtomicAssetsApiClient.Burns
         /// </returns>
         public BurnDto Account(string accountName)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(BurnUri(accountName)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<BurnDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHander.GetJsonAsync<BurnDto>(BurnUri(accountName).OriginalString);
         }
 
         /// <summary>

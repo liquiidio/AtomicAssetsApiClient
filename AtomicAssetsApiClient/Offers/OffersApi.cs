@@ -1,16 +1,20 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Offers
 {
     public class OffersApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
+        private readonly IHttpHandler _httpHandler;
 
-        internal OffersApi(string baseUrl) => _requestUriBase = baseUrl;
+        internal OffersApi(string baseUrl, IHttpHandler httpHandler)
+        {
+            _requestUriBase = baseUrl;
+            _httpHandler = httpHandler;
+        }
 
+        public async Task<OffersDto> Offers()
         /// <summary>
         /// This function will make a GET request to the `Offers` endpoint and return the response as
         /// a `OffersDto` object
@@ -20,14 +24,10 @@ namespace AtomicAssetsApiClient.Offers
         /// </returns>
         public OffersDto Offers()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(OffersUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<OffersDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<OffersDto>(OffersUri().OriginalString);
         }
 
+        public async Task<OffersDto> Offers(OffersUriParameterBuilder offersUriParameterBuilder)
         /// <summary>
         /// It takes a `OffersUriParameterBuilder` object as a parameter, builds a `HttpRequestMessage`
         /// object, sends it to the API, and returns the response as a `OffersDto` object
@@ -39,14 +39,10 @@ namespace AtomicAssetsApiClient.Offers
         /// </returns>
         public OffersDto Offers(OffersUriParameterBuilder offersUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(OffersUri(offersUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<OffersDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<OffersDto>(OffersUri(offersUriParameterBuilder).OriginalString);
         }
 
+        public async Task<OfferDto> Offer(string offerId)
         /// <summary>
         /// This function will return an OfferDto object if the API call is successful. Otherwise, it
         /// will throw an exception
@@ -57,14 +53,10 @@ namespace AtomicAssetsApiClient.Offers
         /// </returns>
         public OfferDto Offer(string offerId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(OfferUri(offerId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<OfferDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<OfferDto>(OfferUri(offerId).OriginalString);
         }
 
+        public async Task<LogsDto> OfferLogs(string offerId)
         /// <summary>
         /// This function will return a list of logs for a specific offer
         /// </summary>
@@ -74,14 +66,10 @@ namespace AtomicAssetsApiClient.Offers
         /// </returns>
         public LogsDto OfferLogs(string offerId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(OfferLogsUri(offerId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<LogsDto>(OfferLogsUri(offerId).OriginalString);
         }
 
+        public async Task<LogsDto> OfferLogs(string offerId, OffersUriParameterBuilder  schemasUriParameterBuilder)
         /// <summary>
         /// This function returns a list of logs for a specific offer
         /// </summary>
@@ -93,12 +81,7 @@ namespace AtomicAssetsApiClient.Offers
         /// </returns>
         public LogsDto OfferLogs(string offerId, OffersUriParameterBuilder schemasUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(OfferLogsUri(offerId, schemasUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<LogsDto>(OfferLogsUri(offerId, schemasUriParameterBuilder).OriginalString);
         }
 
         /// <summary>

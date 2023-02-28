@@ -1,12 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Description>A C# Wrapper for the AtomicAssets API. Usage: AtomicAssetsApiFactory.Version1.AssetsApi.Assets();</Description>
+    <Description>A C# Wrapper for the AtomicAssets API.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl></RepositoryUrl>
-    <PackageTags>Liquiid.io, AtomicAssets</PackageTags>
+    <PackageTags>Liquiid.io, AtomicAssets, AtomicAssetsApiClient</PackageTags>
     <Authors>Liquiid.io</Authors>
     <Company>Liquiid.io</Company>
     <Product>Liquiid.io</Product>
@@ -14,10 +13,16 @@
     <AssemblyName>AtomicAssetsApiClient</AssemblyName>
     <RootNamespace>AtomicAssetsApiClient</RootNamespace>
     <RepositoryUrl>https://github.com/liquiidio/AtomicAssetsApiClient-Private</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\AtomicAssetsApiClient.Core\AtomicAssetsApiClient.Core.csproj" />
+    <None Include="..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

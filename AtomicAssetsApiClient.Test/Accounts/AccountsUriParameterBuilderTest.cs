@@ -1,13 +1,13 @@
 ﻿using AtomicAssetsApiClient.Accounts;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Accounts
 {
-    [TestFixture]
+    [TestClass]
     public class AccountsUriParameterBuilderTest
     {
-        [Test]
+        [TestMethod]
         public void Build()
         {
             new AccountsUriParameterBuilder()

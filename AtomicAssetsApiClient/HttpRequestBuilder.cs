@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace AtomicAssetsApiClient.Core
+namespace AtomicAssetsApiClient
 {
     public class HttpRequestBuilder
     {
@@ -25,13 +25,6 @@ namespace AtomicAssetsApiClient.Core
             => new HttpRequestBuilder(new HttpRequestMessage
             {
                 Method = HttpMethod.Post, 
-                RequestUri = uri
-            });
-
-        public static HttpRequestBuilder PatchRequest(Uri uri) 
-            => new HttpRequestBuilder(new HttpRequestMessage
-            {
-                Method = HttpMethod.Patch, 
                 RequestUri = uri
             });
 

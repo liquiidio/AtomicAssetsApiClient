@@ -1,13 +1,13 @@
 ﻿using System.Net.Http;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AtomicAssetsApiClient.Core.Test
+namespace AtomicAssetsApiClient.Test
 {
-    [TestFixture]
+    [TestClass]
     public class HttpResponseMessageExtensionTest
     {
-        [Test]
+        [TestMethod]
         public void ContentAs()
         {
             new HttpResponseMessage

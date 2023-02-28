@@ -1,16 +1,20 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Schemas
 {
     public class SchemasApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
+        private readonly IHttpHandler _httpHandler;
 
-        internal SchemasApi(string baseUrl) => _requestUriBase = baseUrl;
+        internal SchemasApi(string baseUrl, IHttpHandler httpHandler)
+        {
+            _requestUriBase = baseUrl;
+            _httpHandler = httpHandler;
+        }
 
+        public async Task<SchemasDto> Schemas()
         /// <summary>
         /// This function will return a `SchemasDto` object that contains a list of all the schemas
         /// that are available in the API
@@ -20,14 +24,10 @@ namespace AtomicAssetsApiClient.Schemas
         /// </returns>
         public SchemasDto Schemas()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(SchemasUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<SchemasDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<SchemasDto>(SchemasUri().OriginalString);
         }
 
+        public async Task<SchemasDto> Schemas(SchemasUriParameterBuilder schemasUriParameterBuilder)
         /// <summary>
         /// This function will return a list of schemas that match the criteria specified in the
         /// `SchemasUriParameterBuilder` object
@@ -39,14 +39,10 @@ namespace AtomicAssetsApiClient.Schemas
         /// </returns>
         public SchemasDto Schemas(SchemasUriParameterBuilder schemasUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(SchemasUri(schemasUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<SchemasDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<SchemasDto>(SchemasUri(schemasUriParameterBuilder).OriginalString);
         }
 
+        public async Task<SchemaDto> Schema(string collectionName, string schemaName)
         /// <summary>
         /// This function will return a schema object for the specified collection and schema name
         /// </summary>
@@ -58,14 +54,10 @@ namespace AtomicAssetsApiClient.Schemas
         /// </returns>
         public SchemaDto Schema(string collectionName, string schemaName)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(SchemaUri(collectionName, schemaName)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<SchemaDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<SchemaDto>(SchemaUri(collectionName, schemaName).OriginalString);
         }
 
+        public async Task<StatsDto> SchemaStats(string collectionName, string schemaName)
         /// <summary>
         /// It returns the stats of a schema.
         /// </summary>
@@ -77,14 +69,10 @@ namespace AtomicAssetsApiClient.Schemas
         /// </returns>
         public StatsDto SchemaStats(string collectionName, string schemaName)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(SchemaStatsUri(collectionName, schemaName)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<StatsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<StatsDto>(SchemaStatsUri(collectionName, schemaName).OriginalString);
         }
 
+        public async Task<LogsDto> SchemaLogs(string collectionName, string schemaName)
         /// <summary>
         /// This function returns a list of logs for a specific schema
         /// </summary>
@@ -96,14 +84,10 @@ namespace AtomicAssetsApiClient.Schemas
         /// </returns>
         public LogsDto SchemaLogs(string collectionName, string schemaName)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(SchemaLogsUri(collectionName, schemaName)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<LogsDto>(SchemaLogsUri(collectionName, schemaName).OriginalString);
         }
 
+        public async Task<LogsDto> SchemaLogs(string collectionName, string schemaName, SchemasUriParameterBuilder schemasUriParameterBuilder)
         /// <summary>
         /// This function returns a list of logs for a specific schema
         /// </summary>
@@ -118,13 +102,7 @@ namespace AtomicAssetsApiClient.Schemas
         public LogsDto SchemaLogs(string collectionName, string schemaName,
             SchemasUriParameterBuilder schemasUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder
-                .GetRequest(SchemaLogsUri(collectionName, schemaName, schemasUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<LogsDto>(SchemaLogsUri(collectionName, schemaName, schemasUriParameterBuilder).OriginalString);
         }
 
         /// <summary>

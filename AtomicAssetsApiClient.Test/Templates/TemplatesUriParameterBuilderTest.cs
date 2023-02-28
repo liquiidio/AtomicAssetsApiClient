@@ -1,13 +1,13 @@
 ﻿using AtomicAssetsApiClient.Templates;
 using FluentAssertions;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AtomicAssetsApiClient.Test.Templates
 {
-    [TestFixture]
+    [TestClass]
     public class TemplatesUriParameterBuilderTest
     {
-        [Test]
+        [TestMethod]
         public void Build()
         {
             new TemplatesUriParameterBuilder()

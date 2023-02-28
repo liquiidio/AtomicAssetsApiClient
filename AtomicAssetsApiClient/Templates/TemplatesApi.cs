@@ -1,16 +1,20 @@
 ﻿using System;
-using System.Net.Http;
-using AtomicAssetsApiClient.Core;
+using System.Threading.Tasks;
 
 namespace AtomicAssetsApiClient.Templates
 {
     public class TemplatesApi
     {
         private readonly string _requestUriBase;
-        private static readonly HttpClient Client = new HttpClient();
+        private readonly IHttpHandler _httpHandler;
 
-        internal TemplatesApi(string baseUrl) => _requestUriBase = baseUrl;
+        internal TemplatesApi(string baseUrl, IHttpHandler httpHandler)
+        {
+            _requestUriBase = baseUrl;
+            _httpHandler = httpHandler;
+        }
 
+        public async Task<TemplatesDto> Templates()
         /// <summary>
         /// This function will return a list of templates that are available to the user
         /// </summary>
@@ -19,14 +23,10 @@ namespace AtomicAssetsApiClient.Templates
         /// </returns>
         public TemplatesDto Templates()
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplatesUri()).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TemplatesDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<TemplatesDto>(TemplatesUri().OriginalString);
         }
 
+        public async Task<TemplatesDto> Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
         /// <summary>
         /// This function will return a TemplatesDto object that contains a list of templates that match
         /// the criteria specified in the TemplatesUriParameterBuilder object
@@ -38,14 +38,10 @@ namespace AtomicAssetsApiClient.Templates
         /// </returns>
         public TemplatesDto Templates(TemplatesUriParameterBuilder templatesUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplatesUri(templatesUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TemplatesDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<TemplatesDto>(TemplatesUri(templatesUriParameterBuilder).OriginalString);
         }
 
+        public async Task<TemplateDto> Template(string collectionName, string templateId)
         /// <summary>
         /// This function will return a TemplateDto object from the API
         /// </summary>
@@ -57,14 +53,10 @@ namespace AtomicAssetsApiClient.Templates
         /// </returns>
         public TemplateDto Template(string collectionName, string templateId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateUri(collectionName, templateId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<TemplateDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<TemplateDto>(TemplateUri(collectionName, templateId).OriginalString);
         }
 
+        public async Task<StatsDto> TemplateStats(string collectionName, string templateId)
         /// <summary>
         /// This function will return a StatsDto object that contains the number of documents that have
         /// been indexed using the specified template
@@ -77,14 +69,10 @@ namespace AtomicAssetsApiClient.Templates
         /// </returns>
         public StatsDto TemplateStats(string collectionName, string templateId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateStatsUri(collectionName, templateId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<StatsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<StatsDto>(TemplateStatsUri(collectionName, templateId).OriginalString);
         }
 
+        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId)
         /// <summary>
         /// This function returns a list of logs for a specific template
         /// </summary>
@@ -95,14 +83,10 @@ namespace AtomicAssetsApiClient.Templates
         /// </returns>
         public LogsDto TemplateLogs(string collectionName, string templateId)
         {
-            var apiRequest = HttpRequestBuilder.GetRequest(TemplateLogsUri(collectionName, templateId)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<LogsDto>(TemplateLogsUri(collectionName, templateId).OriginalString);
         }
 
+        public async Task<LogsDto> TemplateLogs(string collectionName, string templateId, TemplatesUriParameterBuilder templatesUriParameterBuilder)
         /// <summary>
         /// This function returns a list of logs for a specific template
         /// </summary>
@@ -117,13 +101,7 @@ namespace AtomicAssetsApiClient.Templates
         public LogsDto TemplateLogs(string collectionName, string templateId,
             TemplatesUriParameterBuilder templatesUriParameterBuilder)
         {
-            var apiRequest = HttpRequestBuilder
-                .GetRequest(TemplateLogsUri(collectionName, templateId, templatesUriParameterBuilder)).Build();
-            var apiResponse = Client.SendAsync(apiRequest).Result;
-            if (apiResponse.IsSuccessStatusCode)
-                return apiResponse.ContentAs<LogsDto>();
-            throw new ArgumentException(
-                $"An exception has occurred. Status Code: {apiResponse.StatusCode} Error: {apiResponse.Content.ReadAsStringAsync().Result}");
+            return await _httpHandler.GetJsonAsync<LogsDto>(TemplateLogsUri(collectionName, templateId, templatesUriParameterBuilder).OriginalString);
         }
 
         /// <summary>
