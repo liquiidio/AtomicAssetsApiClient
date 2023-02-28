@@ -3,7 +3,7 @@ name: Test
 on: [push, workflow_dispatch]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
