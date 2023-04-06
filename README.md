@@ -7,10 +7,10 @@
 
 <div align="center">
 
-[![Build](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/build.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/build.yml)
-[![Test](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/test.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/test.yml)
-[![Build documents](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/docs.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/docs.yml)
-[![Deploy](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/deploy.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/deploy.yml)
+[![Build](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/build.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/build.yml)
+[![Test](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/test.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/test.yml)
+[![Build documents](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/docs.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/docs.yml)
+[![Deploy](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/deploy.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient/actions/workflows/deploy.yml)
 
 </div>
 
@@ -27,7 +27,7 @@ Reference any services and additional sources used by the package .Can be a link
 This package can be included into your project by either:
 
  1. Installing the package via Unity's Package Manager (UPM) in the editor (recommended).
- 2. Importing the .unitypackage which you can download [here](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest/download/atomicassets.unitypackage). 
+ 2. Importing the .unitypackage which you can download [here](https://github.com/liquiidio/AtomicAssetsApiClient/releases/latest/download/atomicassets.unitypackage). 
  3. Manually add the files in this repo.
  4. Installing it via NuGet.
  
@@ -43,11 +43,11 @@ In your Unity project:
 
     ![image](https://user-images.githubusercontent.com/74650011/208429298-76fe1101-95f3-4ab0-bbd5-f0a32a1cc652.png)
 
- 3. Enter URL:  `https://github.com/liquiidio/AttomicAssetsApiClient-Private.git#upm`
+ 3. Enter URL:  `https://github.com/liquiidio/AttomicAssetsApiClient.git#upm`
    
 ---
 ### 2. Importing the Unity Package.
-Download the [UnityPackage here](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest/download/atomicassets.unitypackage). 
+Download the [UnityPackage here](https://github.com/liquiidio/AtomicAssetsApiClient/releases/latest/download/atomicassets.unitypackage). 
 
 Then in your Unity project:
 
@@ -69,7 +69,7 @@ Then in your Unity project:
 
 ### 3. Install manually.
 
-Download [the latest Release](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest).
+Download [the latest Release](https://github.com/liquiidio/AtomicAssetsApiClient/releases/latest).
 
 Then in your Unity project, copy the sources from `AtomicAssetsApiClient` into your Unity `Assets` directory.
 
