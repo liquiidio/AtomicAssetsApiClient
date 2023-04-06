@@ -69,10 +69,7 @@ Then in your Unity project:
 
 ### 3. Install manually.
 
-Download this [project here](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest).
-
-  * [zip](https://github.com/liquiidio/AtomicAssetsApiClient-Private/archive/refs/tags/1.0.35.zip) 
-  * [tar.gz](https://github.com/liquiidio/AtomicAssetsApiClient-Private/archive/refs/tags/1.0.35.tar.gz) 
+Download [the latest Release](https://github.com/liquiidio/AtomicAssetsApiClient-Private/releases/latest).
 
 Then in your Unity project, copy the sources from `AtomicAssetsApiClient` into your Unity `Assets` directory.
 
