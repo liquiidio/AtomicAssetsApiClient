@@ -1,10 +1,9 @@
 <div align="center">
-
-[![builds](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/dotnet-build.yml)
-[![Deploy](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/deploy.yml/badge.svg)](https://github.com/liquiidio/AtomicAssetsApiClient-Private/actions/workflows/deploy.yml)
-    
-       
+ <img src="https://avatars.githubusercontent.com/u/82725791?s=200&v=4" align="center"
+     alt="Liquiid logo" width="280" height="300">
 </div>
+
+---
 
 # AtomicAssetsApiClient
 
